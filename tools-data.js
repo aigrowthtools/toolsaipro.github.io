@@ -279,6 +279,19 @@ var TOOLS_DATA = [
     badge: "new",
     color: "#ff6584",
     status: "active"
+  },
+  {
+    id: 21,
+    title: "PDF Password Protector",
+    desc: "Add password protection and encryption to PDFs.",
+    descLong: "Securely lock your PDFs with open passwords, owner restrictions, and AES-256 encryption directly in your browser.",
+    link: "/pdf-password-protect.html",
+    cat: "pdf",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+    emoji: "🔐",
+    badge: "new",
+    color: "#6c63ff",
+    status: "active"
   }
 ];
 
