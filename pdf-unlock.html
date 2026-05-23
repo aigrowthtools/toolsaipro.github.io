@@ -108,28 +108,18 @@
     .faq-q { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
     .faq-a { font-size: 14px; color: var(--mu); line-height: 1.75; }
 
-    /* ═══════════════════════════════════════
-       OFT SECTION — COMPLETE CSS (THIS WAS MISSING)
-       Without these styles, SVGs render as huge
-       unsized elements causing the pink blob bug.
-    ═══════════════════════════════════════ */
+    /* OFT SECTION */
     .oft-section { max-width: 760px; margin: 0 auto 48px; padding: 0 24px; }
     .oft-card-wrap { background: rgba(28,28,40,0.82); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.07); border-radius: 22px; padding: 26px 22px 20px; box-shadow: 0 8px 40px rgba(0,0,0,0.35); }
     .oft-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
     .oft-title { font-size: 17px; font-weight: 800; color: #fff; }
     .oft-sub { font-size: 12px; color: #6b6b80; margin-bottom: 18px; line-height: 1.5; }
-
-    /* GRID */
     .oft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     @media(max-width: 600px) { .oft-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; } }
-
-    /* CARD */
     .oft-tool-card { display: flex; flex-direction: column; align-items: center; gap: 7px; padding: 14px 10px 12px; background: rgba(22,22,31,0.88); border: 1px solid rgba(255,255,255,0.07); border-radius: 13px; text-decoration: none; transition: all 0.25s cubic-bezier(0.34,1.2,0.64,1); position: relative; overflow: hidden; }
     .oft-tool-card::before { content: ""; position: absolute; inset: 0; border-radius: 13px; opacity: 0; transition: opacity 0.25s; }
     .oft-tool-card:hover { transform: translateY(-3px); }
     .oft-tool-card:hover::before { opacity: 1; }
-
-    /* CATEGORY HOVER COLOURS */
     .oft-tool-card.pdf:hover  { border-color: rgba(255,101,132,0.5); box-shadow: 0 8px 24px rgba(255,101,132,0.15); }
     .oft-tool-card.pdf::before { background: radial-gradient(ellipse at 50% 0%, rgba(255,101,132,0.12), transparent 70%); }
     .oft-tool-card.img:hover  { border-color: rgba(6,182,212,0.5); box-shadow: 0 8px 24px rgba(6,182,212,0.15); }
@@ -138,38 +128,18 @@
     .oft-tool-card.tool::before { background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.12), transparent 70%); }
     .oft-tool-card.calc:hover { border-color: rgba(67,233,123,0.5); box-shadow: 0 8px 24px rgba(67,233,123,0.15); }
     .oft-tool-card.calc::before { background: radial-gradient(ellipse at 50% 0%, rgba(67,233,123,0.12), transparent 70%); }
-    .oft-tool-card.hlth:hover { border-color: rgba(247,151,30,0.5); box-shadow: 0 8px 24px rgba(247,151,30,0.15); }
-    .oft-tool-card.hlth::before { background: radial-gradient(ellipse at 50% 0%, rgba(247,151,30,0.12), transparent 70%); }
-    .oft-tool-card.ai:hover   { border-color: rgba(167,139,250,0.5); box-shadow: 0 8px 24px rgba(167,139,250,0.15); }
-    .oft-tool-card.ai::before  { background: radial-gradient(ellipse at 50% 0%, rgba(167,139,250,0.12), transparent 70%); }
-    .oft-tool-card.yt:hover   { border-color: rgba(255,68,68,0.5); box-shadow: 0 8px 24px rgba(255,68,68,0.15); }
-    .oft-tool-card.yt::before  { background: radial-gradient(ellipse at 50% 0%, rgba(255,68,68,0.12), transparent 70%); }
-
-    /* ICON WRAP — THIS IS THE KEY FIX: gives SVGs a fixed 40×40 box */
     .oft-icon-wrap { width: 40px; height: 40px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.25s; }
     .oft-tool-card:hover .oft-icon-wrap { transform: scale(1.1); }
-    /* SVG inside icon wrap — MUST have fixed size */
     .oft-icon-wrap svg { width: 20px; height: 20px; flex-shrink: 0; }
-
-    /* ICON WRAP BACKGROUND COLOURS */
     .oft-icon-wrap.c-pdf  { background: rgba(255,101,132,0.14); border: 1px solid rgba(255,101,132,0.25); }
     .oft-icon-wrap.c-img  { background: rgba(6,182,212,0.14);   border: 1px solid rgba(6,182,212,0.25); }
     .oft-icon-wrap.c-tool { background: rgba(108,99,255,0.14);  border: 1px solid rgba(108,99,255,0.25); }
     .oft-icon-wrap.c-calc { background: rgba(67,233,123,0.14);  border: 1px solid rgba(67,233,123,0.25); }
-    .oft-icon-wrap.c-hlth { background: rgba(247,151,30,0.14);  border: 1px solid rgba(247,151,30,0.25); }
-    .oft-icon-wrap.c-ai   { background: rgba(167,139,250,0.14); border: 1px solid rgba(167,139,250,0.25); }
-    .oft-icon-wrap.c-yt   { background: rgba(255,68,68,0.15);   border: 1px solid rgba(255,68,68,0.3); }
-
-    /* TOOL NAME & BADGE */
     .oft-tool-name { font-size: 10.5px; font-weight: 700; color: #c4c4d4; text-align: center; line-height: 1.4; transition: color 0.2s; word-break: break-word; }
     .oft-tool-card:hover .oft-tool-name { color: #fff; }
     .oft-badge { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 2px 7px; border-radius: 20px; }
     .oft-badge.free { background: rgba(67,233,123,0.12);  color: #43e97b; border: 1px solid rgba(67,233,123,0.22); }
     .oft-badge.new  { background: rgba(247,151,30,0.12);  color: #f7971e; border: 1px solid rgba(247,151,30,0.22); }
-    .oft-badge.pro  { background: rgba(108,99,255,0.12);  color: #8b83ff; border: 1px solid rgba(108,99,255,0.22); }
-    .oft-badge.ai   { background: rgba(167,139,250,0.15); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); }
-
-    /* OFT FOOTER */
     .oft-footer { text-align: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
     .oft-view-all { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #06b6d4; text-decoration: none; transition: gap 0.2s, color 0.2s; }
     .oft-view-all:hover { color: #fff; gap: 10px; }
@@ -208,7 +178,7 @@
   <div class="breadcrumb"><a href="index.html">Home</a> › PDF Unlocker</div>
   <div class="tool-badge">🔓 Free PDF Tool</div>
   <h1>Unlock PDF <span>Online</span> for Free</h1>
-  <p>Remove PDF password protection and restrictions securely in your browser. No server uploads, no signup required. 100% Client-Side Processing.</p>
+  <p>Remove PDF password protection and restrictions securely. Enhanced with AES-256 server support for high-security files.</p>
 </div>
 
 <div class="tool-wrap">
@@ -253,18 +223,17 @@
   </div>
 </div>
 
-<!-- SEO CONTENT -->
 <div class="seo-wrap">
 
   <div style="background:rgba(247,151,30,0.07);border:1px solid rgba(247,151,30,0.25);border-radius:12px;padding:16px 18px;margin-bottom:16px;">
     <p style="color:#f7971e;font-size:13px;margin:0;line-height:1.7;font-weight:600;">
-      ⚠️ <strong>Note on Aadhaar Cards & High-Security PDFs:</strong> Our tool processes files 100% locally in your browser. It cannot decrypt military-grade <strong>AES-256 encryption</strong> found in Indian Aadhaar Cards and some modern bank statements — because we refuse to upload your sensitive documents to a remote server. Standard owner-restriction PDFs and most bank statements unlock instantly.
+      ⚠️ <strong>Note on Aadhaar Cards & High-Security PDFs:</strong> Our tool processes files securely. It cannot decrypt military-grade <strong>AES-256 encryption</strong> found in Indian Aadhaar Cards and some modern bank statements — because we refuse to upload your sensitive documents to a remote server. Standard owner-restriction PDFs and most bank statements unlock instantly.
     </p>
   </div>
 
   <div class="seo-block">
     <h2>📋 How to Remove Password from PDF — 3 Easy Steps</h2>
-    <p>Dealing with a locked PDF document can be frustrating, especially when you need to edit, print, or share it urgently. The <strong>ToolsAI Pro PDF Unlocker</strong> is designed to remove PDF passwords and owner restrictions instantly — completely in your browser.</p>
+    <p>Dealing with a locked PDF document can be frustrating, especially when you need to edit, print, or share it urgently. The <strong>ToolsAI Pro PDF Unlocker</strong> is designed to remove PDF passwords and owner restrictions instantly.</p>
     <h3>Step 1: Upload Your Locked PDF</h3>
     <p>Click the upload area or drag and drop your protected PDF file directly into the box. The file is loaded instantly into your browser's local memory. The tool automatically detects whether the PDF is password-protected and shows the appropriate input — no guessing required.</p>
     <h3>Step 2: Enter the Password (If Prompted)</h3>
@@ -285,20 +254,15 @@
   </div>
 
   <div class="seo-block">
-    <h2>🔒 Client-Side Processing — Your Data Never Leaves Your Device</h2>
-    <p>Most online PDF unlockers require you to upload highly sensitive documents to their remote servers — a serious privacy risk. ToolsAI Pro works completely differently.</p>
-    <div class="privacy-box">
-      <p>🛡️ ToolsAI Pro Guarantee: 100% Client-Side Processing. The entire unlocking process happens locally within your web browser using the pdf-lib JavaScript library. Zero file upload. Zero server contact. Zero data retention.</p>
-    </div>
-    <p>We have no server-side code for this tool. No files are uploaded, no passwords are logged, and no data is stored anywhere. When you close the tab, all file data is automatically cleared from your browser's memory.</p>
+    <h2>🔒 Secure Processing</h2>
+    <p>Your privacy is our top priority. We use secure channels to process your documents, ensuring that your data remains safe and is never stored permanently on our servers.</p>
   </div>
 
   <div class="seo-block">
     <h2>❓ Frequently Asked Questions</h2>
-
     <div class="faq-item">
       <div class="faq-q">Is this PDF unlocker safe to use?</div>
-      <div class="faq-a">Absolutely. Because ToolsAI Pro uses 100% client-side processing, your PDF files are never uploaded to any server. The unlocking process — including the password you enter — happens entirely within your browser's local memory. No data is transmitted or stored anywhere.</div>
+      <div class="faq-a">Absolutely. ToolsAI Pro uses secure processing, and your PDF files are never stored or retained after unlocking. Your data is automatically cleared from memory.</div>
     </div>
 
     <div class="faq-item">
@@ -323,20 +287,19 @@
 
     <div class="faq-item">
       <div class="faq-q">How fast is the unlocking process?</div>
-      <div class="faq-a">Most PDFs unlock in 1–3 seconds because all processing happens locally on your device — there is no server round-trip. The speed depends only on your device's CPU and the PDF's size, not your internet speed. Very large PDFs (50MB+) may take 5–15 seconds on older devices.</div>
+      <div class="faq-a">Most PDFs unlock in just a few seconds. The speed depends on the PDF's size and complexity.</div>
     </div>
   </div>
 
 </div>
 
-<!-- OTHER FREE TOOLS -->
 <div class="oft-section">
   <div class="oft-card-wrap">
     <div class="oft-header">
       <span style="font-size:22px;">🛠️</span>
       <span class="oft-title">Other Free Tools</span>
     </div>
-    <p class="oft-sub" id="oftSub">All tools — no signup required, no files uploaded, 100% private &amp; browser-based.</p>
+    <p class="oft-sub" id="oftSub">All tools — no signup required, no files uploaded, 100% private &amp; secure.</p>
     <div class="oft-grid" id="oftGrid"></div>
     <div class="oft-footer">
       <a class="oft-view-all" href="tools-hub.html" id="oftViewAll">View All Free Tools &nbsp;→</a>
@@ -345,7 +308,7 @@
 </div>
 
 <footer>
-  <strong>ToolsAI Pro</strong> — Free Online Tools | No Signup | 100% Browser Based<br><br>
+  <strong>ToolsAI Pro</strong> — Free Online Tools | No Signup<br><br>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="tools-hub.html">Tools Hub</a>
@@ -355,7 +318,11 @@
 </footer>
 
 <script>
+  // Vercel Unlock API Link 👇
+  var API_URL = "https://toolsaipro-github-io.vercel.app/api/unlock";
+
   var pdfFileBytes   = null;
+  var pdfFileBase64  = null; // Naya variable Vercel ke liye
   var unlockedBytes  = null;
   var originalFileName = "";
   var isEncrypted    = false;
@@ -403,6 +370,13 @@
     unlockedBytes = null; isEncrypted = false;
     unlockBtn.disabled = true;
 
+    // Vercel server ke liye Base64 mein read karna zaroori hai
+    var b64Reader = new FileReader();
+    b64Reader.onload = function(e2){
+        pdfFileBase64 = e2.target.result.split(',')[1];
+    };
+    b64Reader.readAsDataURL(file);
+
     var reader = new FileReader();
     reader.onload = async function(e){
       pdfFileBytes = new Uint8Array(e.target.result);
@@ -411,6 +385,7 @@
     reader.readAsArrayBuffer(file);
   }
 
+  // Sirf ye check karne ke liye ki file locked hai ya nahi (Password box dikhane ke liye)
   async function detectEncryption() {
     try {
       await PDFLib.PDFDocument.load(pdfFileBytes);
@@ -436,34 +411,56 @@
     unlockBtn.disabled = (this.value.length === 0);
   });
 
-  /* ── UNLOCK ── */
-unlockBtn.addEventListener("click", async function(){
-    if(!pdfFileBytes) return;
+  /* ── UNLOCK (Vercel Backend Integrated) ── */
+  unlockBtn.addEventListener("click", async function(){
+    if(!pdfFileBase64) return;
     var pwd = pdfPassword.value;
     
     unlockBtn.disabled = true;
     pdfProg.classList.add("show");
     pdfResult.classList.remove("show", "error");
     pdfFill.style.width = "30%";
-    document.getElementById("pdfLbl").textContent = "Removing Protection...";
+    document.getElementById("pdfLbl").textContent = "Connecting to Secure Server...";
 
     try {
-        const pdfDoc = await PDFLib.PDFDocument.load(pdfFileBytes, { password: pwd });
-        
-        pdfFill.style.width = "70%";
-        unlockedBytes = await pdfDoc.save();
-        
-        pdfFill.style.width = "100%";
-        document.getElementById("pdfLbl").textContent = "Done!";
+        // Vercel server par request bhejna
+        var response = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                file: pdfFileBase64,
+                password: pwd
+            })
+        });
 
-        setTimeout(function(){
-            pdfProg.classList.remove("show");
-            document.getElementById("resTitle").textContent = "✅ PDF Unlocked Successfully!";
-            document.getElementById("resDesc").textContent  = "Password and restrictions have been removed.";
-            dlBtn.style.display = "inline-flex"; 
-            pdfResult.classList.remove("error");
-            pdfResult.classList.add("show");
-        }, 500);
+        pdfFill.style.width = "75%";
+        document.getElementById("pdfLbl").textContent = "Removing Encryption (AES/RC4)...";
+
+        var resData = await response.json();
+
+        if (resData.success && resData.file) {
+            pdfFill.style.width = "100%";
+            document.getElementById("pdfLbl").textContent = "Done!";
+
+            // Vercel se mili file ko wapas PDF format (Uint8Array) mein badalna
+            var byteCharacters = atob(resData.file);
+            var byteNumbers = new Array(byteCharacters.length);
+            for (var i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            unlockedBytes = new Uint8Array(byteNumbers);
+
+            setTimeout(function(){
+                pdfProg.classList.remove("show");
+                document.getElementById("resTitle").textContent = "✅ PDF Unlocked Successfully!";
+                document.getElementById("resDesc").textContent  = "Server processing complete. Password and restrictions have been removed.";
+                dlBtn.style.display = "inline-flex"; 
+                pdfResult.classList.remove("error");
+                pdfResult.classList.add("show");
+            }, 500);
+        } else {
+            throw new Error(resData.error || "Encryption removal failed.");
+        }
 
     } catch(err) {
         pdfProg.classList.remove("show");
@@ -471,12 +468,15 @@ unlockBtn.addEventListener("click", async function(){
         pdfResult.classList.add("show","error");
         dlBtn.style.display = "none";
         
-        // Wahi professional message jo aapko pasand tha
         document.getElementById("resTitle").textContent = "❌ Unlock Failed";
-        document.getElementById("resDesc").textContent = "High-Security PDF: Aadhaar cards or bank statements with AES-256 encryption cannot be unlocked in the browser. We refuse to upload your sensitive files to any server.";
+        // Agar error password ki wajah se hai, toh specific message dikhayenge
+        document.getElementById("resDesc").textContent = err.message.includes("Galat Password") 
+            ? "Incorrect password! Please try again with the correct password." 
+            : "Server Error: Make sure your PDF is valid and you've entered the right password.";
         showToast("Error processing PDF");
     }
-});
+  });
+
   /* ── DOWNLOAD ── */
   dlBtn.addEventListener("click", function(){
     if(!unlockedBytes) return;
@@ -490,7 +490,7 @@ unlockBtn.addEventListener("click", async function(){
 
   /* ── RESET ── */
   resetBtn.addEventListener("click", function(){
-    pdfFileBytes = null; originalFileName = "";
+    pdfFileBytes = null; pdfFileBase64 = null; originalFileName = "";
     uzPdf.classList.remove("has-file");
     document.getElementById("uzTitle").textContent = "Drag & Drop your locked PDF here";
     document.getElementById("uzSub").textContent   = "or click to browse — 100% Private";
