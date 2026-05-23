@@ -1,15 +1,22 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "api/protect.py",
-      "use": "@vercel/python"
-    }
+    { "src": "api/protect.py", "use": "@vercel/python" },
+    { "src": "api/unlock.py", "use": "@vercel/python" }
   ],
   "routes": [
     {
       "src": "/api/protect",
       "dest": "api/protect.py",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS"
+      }
+    },
+    {
+      "src": "/api/unlock",
+      "dest": "api/unlock.py",
       "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Content-Type",
