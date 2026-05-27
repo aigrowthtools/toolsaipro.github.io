@@ -1,13 +1,13 @@
 /**
  * ToolsAI Pro — Master Tools Data
  * ================================
- * Final Perfect List — 17 Tools
- * Percentage Calc & ID Card Merger Added back. Passport Removed.
+ * Updated Master List — 22 Tools Total
+ * EMI Calculator added dynamically with automation support.
  */
 
 var TOOLS_DATA = [
 
-  /* ─── PDF TOOLS (4 Tools) ─── */
+  /* ─── PDF TOOLS (9 Tools) ─── */
   {
     id: 1,
     title: "Free PDF Merger Online",
@@ -50,7 +50,7 @@ var TOOLS_DATA = [
   {
     id: 4,
     title: "ID Card & Document Merger",
-    desc: "Merge Aadhar, PAN, or ID cards into a single page.",
+    desc: "Merge ID cards into a single printable document page.",
     descLong: "Perfectly align and merge the front and back sides of ID cards onto a single printable PDF or Image page.",
     link: "/id-card-merger.html",
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2"/><line x1="13" y1="10" x2="19" y2="10"/><line x1="13" y1="14" x2="17" y2="14"/></svg>`,
@@ -58,6 +58,58 @@ var TOOLS_DATA = [
     badge: "new",
     cat: "pdf",
     color: "#ff6584",
+    status: "active"
+  },
+  {
+    id: 18,
+    title: "Free PDF Compressor Online",
+    desc: "Compress your PDFs instantly without losing quality.",
+    descLong: "Reduce the file size of your PDF documents while maintaining high quality, completely free and private.",
+    link: "/pdf-compressor.html",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="12 12 12 18"/><polyline points="9 15 12 18 15 15"/></svg>`,
+    emoji: "🗜️",
+    badge: "new",
+    cat: "pdf",
+    color: "#ff6584",
+    status: "active"
+  },
+  {
+    id: 19,
+    title: "PDF to JPG Converter",
+    desc: "Convert PDF pages to high-quality JPG images instantly.",
+    descLong: "Extract every page of your PDF and save them as individual high-resolution JPG images directly in your browser. No signup, no server uploads.",
+    link: "/pdf-to-jpg.html",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
+    emoji: "🖼️",
+    badge: "new",
+    cat: "pdf",
+    color: "#3b82f6",
+    status: "active"
+  },
+  {
+    id: 20,
+    title: "Free PDF Unlocker",
+    desc: "Remove password protection from PDF files instantly.",
+    descLong: "Securely unlock protected PDFs and remove printing/editing restrictions directly in your browser without uploading files to any server.",
+    link: "/pdf-unlock.html",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
+    emoji: "🔓",
+    badge: "new",
+    cat: "pdf",
+    color: "#ff6584",
+    status: "active"
+  },
+  {
+    id: 21,
+    title: "PDF Password Protector",
+    desc: "Add password protection and encryption to PDFs.",
+    descLong: "Securely lock your PDFs with open passwords, owner restrictions, and AES-256 encryption directly in your browser.",
+    link: "/pdf-password-protect.html",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+    emoji: "🔐",
+    badge: "new",
+    cat: "pdf",
+    color: "#6c63ff",
     status: "active"
   },
 
@@ -143,7 +195,7 @@ var TOOLS_DATA = [
     status: "active"
   },
 
-  /* ─── CALCULATORS (3 Tools) ─── */
+  /* ─── CALCULATORS (4 Tools) ─── */
   {
     id: 11,
     title: "Pro Age Calculator Online",
@@ -181,6 +233,19 @@ var TOOLS_DATA = [
     badge: "new",
     cat: "calc",
     color: "#43e97b",
+    status: "active"
+  },
+  {
+    id: 22,
+    title: "Free EMI Calculator Online",
+    desc: "Calculate monthly EMI for Home, Car & Personal Loans.",
+    descLong: "Calculate monthly loan EMIs instantly with responsive sliders, percentage breakdown charts, and a complete year-by-year amortization schedule.",
+    link: "/emi-calculator.html",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>`,
+    emoji: "🏦",
+    badge: "new",
+    cat: "calc",
+    color: "#f7971e",
     status: "active"
   },
 
@@ -239,58 +304,6 @@ var TOOLS_DATA = [
     badge: "new",
     cat: "yt",
     color: "#ff0000",
-    status: "active"
-  },
-  {
-    id: 18,
-    title: "Free PDF Compressor Online",
-    desc: "Compress your PDFs instantly without losing quality.",
-    descLong: "Reduce the file size of your PDF documents while maintaining high quality, completely free and private.",
-    link: "/pdf-compressor.html",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="12 12 12 18"/><polyline points="9 15 12 18 15 15"/></svg>`,
-    emoji: "🗜️",
-    badge: "new",
-    cat: "pdf",
-    color: "#ff6584",
-    status: "active"
-  },
-  {
-    id: 19,
-    title: "PDF to JPG Converter",
-    desc: "Convert PDF pages to high-quality JPG images instantly.",
-    descLong: "Extract every page of your PDF and save them as individual high-resolution JPG images directly in your browser. No signup, no server uploads.",
-    link: "/pdf-to-jpg.html",
-    cat: "pdf",
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
-    emoji: "🖼️",
-    badge: "new",
-    color: "#3b82f6",
-    status: "active"
-  },
-  {
-    id: 20,
-    title: "Free PDF Unlocker",
-    desc: "Remove password protection from PDF files instantly.",
-    descLong: "Securely unlock protected PDFs and remove printing/editing restrictions directly in your browser without uploading files to any server.",
-    link: "/pdf-unlock.html",
-    cat: "pdf",
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
-    emoji: "🔓",
-    badge: "new",
-    color: "#ff6584",
-    status: "active"
-  },
-  {
-    id: 21,
-    title: "PDF Password Protector",
-    desc: "Add password protection and encryption to PDFs.",
-    descLong: "Securely lock your PDFs with open passwords, owner restrictions, and AES-256 encryption directly in your browser.",
-    link: "/pdf-password-protect.html",
-    cat: "pdf",
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-    emoji: "🔐",
-    badge: "new",
-    color: "#6c63ff",
     status: "active"
   }
 ];
