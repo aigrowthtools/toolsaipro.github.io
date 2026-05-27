@@ -106,7 +106,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-fi
 .loan-tab.active .lt-title{color:var(--a4);}
 
 /* ═══ GLASS CARD ═══ */
-.scard{background:rgba(28,28,40,0.85);backdrop-filter:blur(16px);border:1px solid rgba(247,151,30,0.12);border-radius:22px;padding:28px;margin-bottom:14px;box-shadow:0 8px 40px rgba(0,0,0,0.35);}
+.scard{background:rgba(28,28,40,0.85);backdrop-filter:blur(16px);border:1px solid rgba(247,151,30,0.12);border-radius:22px;padding:32px;margin-bottom:24px;box-shadow:0 8px 40px rgba(0,0,0,0.35);width:100%;}
 .sh{display:flex;align-items:center;gap:14px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--bor);}
 .shi{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(247,151,30,0.2),rgba(108,99,255,0.12));display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;border:1px solid rgba(247,151,30,0.25);}
 .sht{font-size:20px;font-weight:800;color:#fff;}
@@ -141,7 +141,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-fi
 
 /* EMI HERO */
 .emi-hero{background:linear-gradient(135deg,rgba(247,151,30,0.12),rgba(108,99,255,0.08));border:1.5px solid rgba(247,151,30,0.3);border-radius:18px;padding:24px;text-align:center;margin-bottom:14px;position:relative;overflow:hidden;}
-.emi-hero::before{content:"absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(247,151,30,0.08),transparent 70%);pointer-events:none;}
+.emi-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(247,151,30,0.08),transparent 70%);pointer-events:none;}
 .emi-label{font-size:11px;font-weight:700;color:rgba(247,151,30,0.7);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
 .emi-amount{font-family:"JetBrains Mono",monospace;font-size:clamp(36px,7vw,58px);font-weight:700;color:var(--a4);line-height:1;margin-bottom:6px;}
 .emi-note{font-size:12px;color:var(--mu);}
@@ -157,14 +157,14 @@ nav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-fi
 .sb-label{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:0.8px;}
 
 /* PIE CHART */
-.chart-wrap{background:rgba(22,22,31,0.9);border:1px solid var(--bor);border-radius:16px;padding:20px;margin-bottom:14px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.chart-wrap{background:rgba(22,22,31,0.9);border:1px solid var(--bor);border-radius:16px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;width:100%;}
 .pie-container{flex-shrink:0;position:relative;width:140px;height:140px;margin:0 auto;}
-canvas#pieChart{width:140px!important;height:140px!important;}
-.chart-legend{flex:1;min-width:200px;}
-.cl-title{font-size:13px;font-weight:800;color:#fff;margin-bottom:12px;}
-.cl-item{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+canvas#pieChart{width:140px!important;height:140px!important;display:block;flex-shrink:0;}
+.chart-legend{flex:1;min-width:250px;display:flex;flex-direction:column;gap:12px;}
+.cl-title{font-size:13px;font-weight:800;color:#fff;margin-bottom:0px;}
+.cl-item{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;}
 .cl-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
-.cl-name{font-size:12px;color:var(--mu);flex:1;}
+.cl-name{font-size:13px;color:var(--mu);flex-grow:1;text-align:left;}
 .cl-pct{font-size:12px;font-weight:700;font-family:"JetBrains Mono",monospace;color:#fff;}
 
 /* AMORTIZATION */
@@ -874,7 +874,12 @@ function calcEMI() {
 ══════════════════════════════ */
 function drawPie(principal, interest, fee) {
   var canvas = document.getElementById("pieChart");
+  if (!canvas) return;
   var ctx    = canvas.getContext("2d");
+  
+  canvas.width = 140;
+  canvas.height = 140;
+  
   var total  = principal + interest + (fee || 0);
   var data   = [
     { value: principal, color: "#f7971e" },
