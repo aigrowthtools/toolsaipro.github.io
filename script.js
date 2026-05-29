@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (Perfect 5+5 Balanced Layout) ── */
+  /* ── Build Navbar HTML (Perfect 5+5 Balanced Layout based on your GitHub files) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
@@ -35,12 +35,12 @@
     '        </div>',
     '        <div class="menu-col">',
     '          <div class="menu-label">📚 Expert Guides</div>',
-    '          <a class="dm-item" href="/blog/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
-    '          <a class="dm-item" href="/blog/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '          <a class="dm-item" href="/blog/how-to-calculate-percentage.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
-    '          <a class="dm-item" href="/blog/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
+    '          <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
+    '          <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
+    '          <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
+    '          <a class="dm-item" href="/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
     '          <div class="dm-divider"></div>',
-    '          <a class="dm-all" href="/blog.html">View All Guides &nbsp;&#8594;</a>',
+    '          <a class="dm-all" href="/tools-hub.html">View All Tools &nbsp;&#8594;</a>',
     '        </div>',
     '      </div>',
     '    </div>',
@@ -74,10 +74,10 @@
     '  <div class="mobile-accordion">',
     '    <div class="accordion-header" onclick="toggleAcc(this)">📚 EXPERT GUIDES <span class="acc-arrow">▼</span></div>',
     '    <div class="accordion-content">',
-    '      <a class="dm-item" href="/blog/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
-    '      <a class="dm-item" href="/blog/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '      <a class="dm-item" href="/blog/how-to-calculate-percentage.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
-    '      <a class="dm-item" href="/blog/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
+    '      <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
+    '      <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
+    '      <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
+    '      <a class="dm-item" href="/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
     '    </div>',
     '  </div>',
     '  ',
