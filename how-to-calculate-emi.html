@@ -10,13 +10,13 @@
 <meta name="description" content="Learn how to calculate EMI for home loan, car loan and personal loan in 2026. Understand the EMI formula, amortization, and use our free online EMI calculator.">
 <meta name="keywords" content="how to calculate EMI, EMI calculator, home loan EMI, car loan EMI, personal loan EMI, EMI formula, loan EMI calculation India, monthly EMI 2026">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://toolsaipro.in/blog/how-to-calculate-emi.html">
+<link rel="canonical" href="https://toolsaipro.in/how-to-calculate-emi.html">
 <link rel="icon" type="image/png" href="/1000425998.png">
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to Calculate EMI: Home, Car & Personal Loan Guide 2026">
 <meta property="og:description" content="Step-by-step EMI calculation guide with formula, examples, and free online EMI calculator. Home loan, car loan, personal loan — all covered.">
-<meta property="og:url" content="https://toolsaipro.in/blog/how-to-calculate-emi.html">
+<meta property="og:url" content="https://toolsaipro.in/how-to-calculate-emi.html">
 <meta property="og:site_name" content="ToolsAI Pro">
 
 <script type="application/ld+json">
@@ -27,7 +27,7 @@
   "author":{"@type":"Organization","name":"ToolsAI Pro"},
   "publisher":{"@type":"Organization","name":"ToolsAI Pro","url":"https://toolsaipro.in"},
   "datePublished":"2026-05-01","dateModified":"2026-05-29",
-  "mainEntityOfPage":"https://toolsaipro.in/blog/how-to-calculate-emi.html"
+  "mainEntityOfPage":"https://toolsaipro.in/how-to-calculate-emi.html"
 }
 </script>
 
@@ -47,7 +47,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ═══ CSS VARIABLES — ToolsAI Pro Brand ═══ */
+/* ═══ CSS VARIABLES ═══ */
 :root{
   --bg:#0d0d14;--sur:#16161f;--card:#1c1c28;--bor:#2a2a3a;
   --a1:#6c63ff;--a2:#ff6584;--a3:#43e97b;--a4:#f7971e;--a8:#06b6d4;
@@ -62,49 +62,13 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     radial-gradient(ellipse 45% 35% at 85% 80%,rgba(108,99,255,0.05) 0%,transparent 60%),
     radial-gradient(ellipse 35% 30% at 50% 50%,rgba(67,233,123,0.03) 0%,transparent 60%);}
 
-/* ═══ NAVBAR ═══ */
-nav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--bor);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:64px;}
-.logo{font-size:19px;font-weight:800;color:#fff;text-decoration:none;flex-shrink:0;}
-.logo span{color:var(--a1);}.logo em{color:var(--a2);font-style:normal;}
-.nav-links{display:flex;align-items:center;gap:3px;}
-.nl{padding:5px 11px;border-radius:16px;font-size:11px;font-weight:600;color:var(--mu);text-decoration:none;border:1px solid transparent;transition:all 0.2s;white-space:nowrap;}
-.nl:hover{color:var(--a4);border-color:rgba(247,151,30,0.3);}
-.nl.act{background:var(--a4);color:#fff;border-color:var(--a4);}
-
-/* Dropdown */
-.dropdown{position:relative;}
-.dropdown-toggle{padding:5px 11px;border-radius:16px;font-size:11px;font-weight:600;color:var(--mu);background:none;border:1px solid transparent;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:4px;font-family:"Plus Jakarta Sans",sans-serif;}
-.dropdown-toggle:hover,.dropdown.open .dropdown-toggle{color:#a78bfa;border-color:rgba(167,139,250,0.3);}
-.dropdown-arrow{font-size:9px;transition:transform 0.25s;}
-.dropdown.open .dropdown-arrow{transform:rotate(180deg);}
-.dropdown-menu{position:absolute;top:calc(100% + 10px);right:0;width:220px;background:rgba(22,22,35,0.98);backdrop-filter:blur(20px);border:1px solid rgba(167,139,250,0.2);border-radius:16px;padding:10px;box-shadow:0 16px 48px rgba(0,0,0,0.45);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.25s cubic-bezier(0.34,1.2,0.64,1);z-index:300;}
-.dropdown.open .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
-.dm-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;text-decoration:none;color:var(--tx);font-size:12px;font-weight:600;transition:all 0.18s;}
-.dm-item:hover{background:rgba(167,139,250,0.1);color:#fff;}
-.dm-icon{font-size:14px;flex-shrink:0;width:20px;text-align:center;}
-.dm-divider{height:1px;background:var(--bor);margin:6px 0;}
-.dm-all{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;border-radius:10px;background:linear-gradient(135deg,rgba(167,139,250,0.15),rgba(108,99,255,0.1));color:#a78bfa;font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(167,139,250,0.2);transition:all 0.2s;}
-.dm-all:hover{background:linear-gradient(135deg,rgba(167,139,250,0.25),rgba(108,99,255,0.18));color:#fff;}
-
-/* Mobile hamburger */
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;}
-.hamburger span{display:block;width:22px;height:2px;background:var(--mu);border-radius:2px;transition:all 0.3s;}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.hamburger.open span:nth-child(2){opacity:0;}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(13,13,20,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bor);padding:16px 20px 20px;z-index:199;flex-direction:column;gap:6px;}
-.mobile-menu.open{display:flex;}
-.mobile-menu .nl{padding:10px 14px;border-radius:10px;font-size:13px;border:1px solid var(--bor);}
-.mobile-menu .dm-item{padding:10px 14px;border-radius:10px;border:1px solid var(--bor);font-size:12px;}
-.mm-label{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1.2px;padding:8px 4px 4px;}
-
 /* ═══ LAYOUT ═══ */
 .page-container{max-width:800px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
 
 /* ═══ BREADCRUMB ═══ */
 .breadcrumb{font-size:12px;color:var(--mu);padding:20px 0 0;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
 .breadcrumb a{color:var(--a8);text-decoration:none;transition:color 0.2s;}
-.breadcrumb a:hover{color:#fff;}
+.breadcrumb a:hover{text-decoration:underline;}
 .breadcrumb span{color:var(--mu);}
 
 /* ═══ HERO SECTION ═══ */
@@ -169,31 +133,6 @@ nav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-fi
 .fb-example{font-size:12px;color:var(--mu);margin-top:8px;font-family:"JetBrains Mono",monospace;}
 .fb-example span{color:#fff;}
 
-/* STEP CARDS */
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0;}
-.step-card{background:rgba(28,28,40,0.85);backdrop-filter:blur(12px);border:1px solid var(--bor);border-radius:16px;padding:20px 16px;text-align:center;transition:all 0.25s;position:relative;overflow:hidden;}
-.step-card::before{content:"";position:absolute;inset:0;border-radius:16px;opacity:0;transition:opacity 0.25s;background:radial-gradient(ellipse at 50% 0%,rgba(247,151,30,0.1),transparent 70%);}
-.step-card:hover{transform:translateY(-4px);border-color:rgba(247,151,30,0.4);box-shadow:0 12px 32px rgba(247,151,30,0.15);}
-.step-card:hover::before{opacity:1;}
-.step-num{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--a4),#e67e00);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;margin:0 auto 10px;}
-.step-emoji{font-size:28px;margin-bottom:8px;display:block;}
-.step-title{font-size:13px;font-weight:800;color:#fff;margin-bottom:6px;}
-.step-desc{font-size:12px;color:var(--mu);line-height:1.6;}
-
-/* HOW TO USE TAB CARDS */
-.tab-guide{display:flex;flex-direction:column;gap:14px;margin:20px 0;}
-.tg-card{background:rgba(28,28,40,0.85);border:1px solid var(--bor);border-radius:16px;padding:20px;display:flex;gap:16px;align-items:flex-start;transition:border-color 0.2s;}
-.tg-card:hover{border-color:rgba(247,151,30,0.3);}
-.tg-tab{min-width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.tg-tab.t1{background:rgba(247,151,30,0.15);border:1px solid rgba(247,151,30,0.25);}
-.tg-tab.t2{background:rgba(255,101,132,0.13);border:1px solid rgba(255,101,132,0.22);}
-.tg-tab.t3{background:rgba(108,99,255,0.14);border:1px solid rgba(108,99,255,0.22);}
-.tg-content .tg-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:5px;}
-.tg-content .tg-sub{font-size:12px;color:var(--mu);margin-bottom:8px;}
-.tg-content .tg-how{font-size:12px;color:var(--mu);line-height:1.7;}
-.tg-content .tg-how strong{color:#fff;}
-.tg-content .tg-example{font-family:"JetBrains Mono",monospace;font-size:12px;background:rgba(0,0,0,0.3);padding:8px 12px;border-radius:8px;margin-top:8px;color:var(--a4);line-height:1.6;}
-
 /* BENEFITS GRID */
 .ben-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0;}
 .ben-card{background:rgba(22,22,31,0.9);border:1px solid var(--bor);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start;transition:all 0.2s;}
@@ -227,7 +166,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-fi
 .ac-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:12px;background:linear-gradient(135deg,var(--a4),#e67e00);color:#fff !important;font-size:14px;font-weight:800;text-decoration:none;transition:all 0.25s;border-bottom:none;}
 .ac-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(247,151,30,0.45);}
 
-/* FAQ ACCORDION RULES (Matches reference design) */
+/* FAQ ACCORDION RULES */
 .faq-section{padding:0 0 20px;}
 .faq-item{border:1px solid var(--bor);border-radius:14px;margin-bottom:8px;overflow:hidden;transition:border-color 0.25s; background: rgba(22,22,31,0.6);}
 .faq-item.open{border-color:rgba(247,151,30,0.35); background: rgba(22,22,31,0.9);}
@@ -240,7 +179,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-fi
 .faq-a-inner strong{color:#fff;}
 .faq-item.open .faq-a{max-height:500px;}
 
-/* RELATED TOOLS CONTAINER STYLE */
+/* RELATED TOOLS DYNAMIC OVERRIDES (Matches jahan 3 likha hai layout) */
 .oft-section { max-width: 760px; margin: 0 auto 48px; padding: 0; position: relative; z-index: 1;}
 .oft-card-wrap { background: rgba(28,28,40,0.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.07); border-radius: 22px; padding: 28px 24px 22px; box-shadow: 0 8px 40px rgba(0,0,0,0.35);}
 .oft-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px;}
@@ -252,29 +191,25 @@ nav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-fi
 .sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;padding:12px 16px;background:rgba(13,13,20,0.96);backdrop-filter:blur(16px);border-top:1px solid rgba(247,151,30,0.2);}
 .sticky-cta a{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;border-radius:12px;background:linear-gradient(135deg,var(--a4),#e67e00);color:#fff;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 6px 24px rgba(247,151,30,0.4);}
 
-/* FOOTER & TOAST RE-BUILDS */
+/* FOOTER */
 footer{text-align:center;padding:40px 20px 80px;color:var(--mu);font-size:12px;border-top:1px solid var(--bor);margin-top:40px;position:relative;z-index:1;}
 footer strong{color:var(--a1);}
-.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px;margin-top:14px;}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px;margin-top:12px;}
 .footer-links a{color:var(--mu);text-decoration:none;padding:4px 10px;border-radius:20px;font-size:12px;transition:all 0.2s;}
 .footer-links a:hover{color:#fff;background:rgba(255,255,255,0.06);}
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(80px);background:#fff;color:#0d0d14;padding:10px 22px;border-radius:28px;font-size:12px;font-weight:700;z-index:9999;transition:transform 0.3s;box-shadow:0 6px 24px rgba(0,0,0,0.25);}
 .toast.show{transform:translateX(-50%) translateY(0);}
 
-/* RESPONSIVE RESET */
+/* RESPONSIVE */
 @media(max-width:860px){
-  .steps-grid{grid-template-columns:1fr 1fr;}
   .ben-grid{grid-template-columns:1fr;}
   .sticky-cta{display:block;}
   footer{padding-bottom:80px;}
 }
 @media(max-width:680px){
   nav{padding:0 16px;}
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
   .page-container{padding:0 16px;}
   .hero h1{font-size:clamp(22px,7vw,36px);}
-  .steps-grid{grid-template-columns:1fr;}
   .data-table{font-size:11px;}
   .data-table th,.data-table td{padding:8px 10px;}
   .oft-grid { grid-template-columns: repeat(2, 1fr); gap: 9px; }
@@ -286,48 +221,12 @@ footer strong{color:var(--a1);}
 <body>
 <div class="toast" id="toast"></div>
 
-<nav>
-  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>
-  <div class="nav-links" id="desktopNav">
-    <a class="nl" href="/">Home</a>
-    <a class="nl" href="/about.html">About</a>
-    <a class="nl" href="/tools-hub.html">Tools Hub</a>
-    <div class="dropdown" id="guidesDropdown">
-      <button class="dropdown-toggle nl" onclick="toggleDropdown()">Guides <span class="dropdown-arrow">▾</span></button>
-      <div class="dropdown-menu">
-        <a class="dm-item" href="/emi-calculator.html"><span class="dm-icon">🏦</span>EMI Calculator</a>
-        <a class="dm-item" href="/percentage-calculator.html"><span class="dm-icon">%</span>Percentage Calculator</a>
-        <a class="dm-item" href="/gst-calculator.html"><span class="dm-icon">🧾</span>GST Calculator</a>
-        <a class="dm-item" href="/age-calculator.html"><span class="dm-icon">🎂</span>Age Calculator</a>
-        <a class="dm-item" href="/bmi-calculator.html"><span class="dm-icon">⚖️</span>BMI Calculator</a>
-        <div class="dm-divider"></div>
-        <a class="dm-all" href="/tools-hub.html">View All Tools &nbsp;→</a>
-      </div>
-    </div>
-    <a class="nl act" href="/blog.html">Blog</a>
-    <a class="nl" href="/contact.html">Contact</a>
-  </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a class="nl" href="/">🏠 Home</a>
-  <a class="nl" href="/about.html">ℹ️ About</a>
-  <a class="nl" href="/tools-hub.html">🛠️ Tools Hub</a>
-  <div class="mm-label">📚 Calculator Guides</div>
-  <a class="dm-item" href="/emi-calculator.html"><span class="dm-icon">🏦</span>EMI Calculator</a>
-  <a class="dm-item" href="/percentage-calculator.html"><span class="dm-icon">%</span>Percentage Calculator</a>
-  <a class="dm-item" href="/gst-calculator.html"><span class="dm-icon">🧾</span>GST Calculator</a>
-  <a class="dm-item" href="/bmi-calculator.html"><span class="dm-icon">⚖️</span>BMI Calculator</a>
-  <a class="nl act" href="/blog.html">📝 Blog</a>
-</div>
+<div id="navbar-placeholder"></div>
 
 <div class="page-container">
   <div class="breadcrumb">
     <a href="/">Home</a><span>›</span>
-    <a href="/blog.html">Blog</a><span>›</span>
+    <a href="/tools-hub.html">Tools Hub</a><span>›</span>
     <span>How to Calculate EMI</span>
   </div>
 
@@ -411,27 +310,6 @@ footer strong{color:var(--a1);}
 
   <h2>🔢 How to Use the ToolsAI Pro EMI Calculator — Step by Step</h2>
   <p>Our EMI Calculator is a <strong>3-in-1 tool</strong> supporting Home Loan, Car Loan and Personal Loan with tailored defaults for each. Here is exactly how to use it:</p>
-
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <span class="step-emoji">🏠🚗💼</span>
-      <div class="step-title">Select Loan Type</div>
-      <div class="step-desc">Click Home Loan, Car Loan or Personal Loan tab. The max tenure and default values adjust automatically.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <span class="step-emoji">⌨️</span>
-      <div class="step-title">Enter Your Values</div>
-      <div class="step-desc">Type loan amount, interest rate and tenure — or drag the sliders. Labels update in real time as you adjust.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <span class="step-emoji">📊</span>
-      <div class="step-title">Read Your Results</div>
-      <div class="step-desc">See monthly EMI, total interest, pie chart breakdown and year-wise amortization schedule instantly.</div>
-    </div>
-  </div>
 
   <div class="tab-guide">
     <div class="tg-card">
@@ -691,52 +569,7 @@ footer strong{color:var(--a1);}
   </div>
 </div>
 
-</div><div class="page-container">
-<div class="related-section">
-  <h2>🛠️ Related Free Calculators &amp; Tools</h2>
-  <p class="related-sub">All tools — no signup, no server uploads, 100% private &amp; browser-based</p>
-  <div class="related-grid">
-    <a class="rt-card hlth" href="/emi-calculator.html">
-      <div class="rt-icon-wrap">🏦</div>
-      <div class="rt-name">Free EMI Calculator</div>
-      <div class="rt-desc">Home, Car & Personal Loan EMI with amortization schedule.</div>
-      <span class="rt-badge new">NEW</span>
-    </a>
-    <a class="rt-card calc" href="/gst-calculator.html">
-      <div class="rt-icon-wrap">🧾</div>
-      <div class="rt-name">GST Calculator</div>
-      <div class="rt-desc">Add/Remove GST with CGST, SGST and IGST breakdown for all slabs.</div>
-      <span class="rt-badge pro">PRO</span>
-    </a>
-    <a class="rt-card calc" href="/percentage-calculator.html">
-      <div class="rt-icon-wrap">%</div>
-      <div class="rt-name">Percentage Calculator</div>
-      <div class="rt-desc">Calculate %, find increase/decrease, find what % X is of Y.</div>
-      <span class="rt-badge pro">PRO</span>
-    </a>
-    <a class="rt-card calc" href="/age-calculator.html">
-      <div class="rt-icon-wrap">🎂</div>
-      <div class="rt-name">Age Calculator</div>
-      <div class="rt-desc">Exact age in years, months and days with birthday countdown.</div>
-      <span class="rt-badge pro">PRO</span>
-    </a>
-    <a class="rt-card hlth" href="/bmi-calculator.html">
-      <div class="rt-icon-wrap">⚖️</div>
-      <div class="rt-name">BMI Calculator</div>
-      <div class="rt-desc">Body Mass Index with health category and ideal weight range.</div>
-      <span class="rt-badge new">NEW</span>
-    </a>
-    <a class="rt-card pdf" href="/pdf-unlocker.html">
-      <div class="rt-icon-wrap">🔓</div>
-      <div class="rt-name">PDF Unlocker</div>
-      <div class="rt-desc">Remove PDF password and printing restrictions instantly.</div>
-      <span class="rt-badge free">FREE</span>
-    </a>
-  </div>
-</div>
-</div>
-
-<footer>
+</div><footer>
   <strong>ToolsAI Pro</strong> — Free Online Tools | No Signup | 100% Browser Based<br>
   <span style="font-size:11px;margin-top:6px;display:block;">© 2026 ToolsAI Pro. All rights reserved.</span>
   <div class="footer-links">
@@ -756,7 +589,7 @@ function toggleDropdown(){document.getElementById("guidesDropdown").classList.to
 document.addEventListener("click",function(e){var d=document.getElementById("guidesDropdown");if(d&&!d.contains(e.target))d.classList.remove("open");});
 function toggleMobile(){document.getElementById("mobileMenu").classList.toggle("open");document.getElementById("hamburger").classList.toggle("open");}
 
-/* FAQ TRIGGER ACCORDION */
+/* FAQ DYNAMIC ACCORDION MECHANISM */
 function toggleFaq(idx){
   var items=document.querySelectorAll(".faq-item");
   var item=items[idx];
