@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (5+5 Mega Menu) ── */
+  /* ── Build Navbar HTML (Perfect 5+5 Balanced Layout) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
@@ -31,16 +31,16 @@
     '          <a class="dm-item" href="/pdf-compressor.html"><span class="dm-icon">🗜️</span>Compress PDF</a>',
     '          <a class="dm-item" href="/pdf-unlock.html"><span class="dm-icon">🔓</span>Unlock PDF</a>',
     '          <a class="dm-item" href="/pdf-splitter.html"><span class="dm-icon">✂️</span>Split PDF</a>',
-    '          <a class="dm-item" href="/pdf-to-jpg.html"><span class="dm-icon">🖼️</span>PDF to JPG</a>',
-    '          <a class="dm-item" href="/percentage-calculator.html"><span class="dm-icon">%</span>Percentage Calculator</a>',
+    '          <a class="dm-item" href="/emi-calculator.html"><span class="dm-icon">🏦</span>EMI Calculator</a>',
     '        </div>',
     '        <div class="menu-col">',
-    '          <span class="dm-section-label">📚 Expert Guides</span>',
-    '          <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
-    '          <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '          <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
+    '          <div class="menu-label">📚 Expert Guides</div>',
+    '          <a class="dm-item" href="/blog/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
+    '          <a class="dm-item" href="/blog/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
+    '          <a class="dm-item" href="/blog/how-to-calculate-percentage.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
+    '          <a class="dm-item" href="/blog/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
     '          <div class="dm-divider"></div>',
-    '          <a class="dm-all" href="/tools-hub.html">View All Guides &nbsp;&#8594;</a>',
+    '          <a class="dm-all" href="/blog.html">View All Guides &nbsp;&#8594;</a>',
     '        </div>',
     '      </div>',
     '    </div>',
@@ -53,7 +53,7 @@
     '</nav>'
   ].join("\n");
 
-  /* ── Build Mobile Menu HTML (Accordion Style) ── */
+  /* ── Build Mobile Menu HTML (Balanced Accordion Match) ── */
   var MOBILE_HTML = [
     '<div class="mobile-menu" id="mobileMenu">',
     '  <a class="nl" href="/">&#127968; Home</a>',
@@ -64,20 +64,20 @@
     '    <div class="accordion-header" onclick="toggleAcc(this)">🛠️ POPULAR TOOLS <span class="acc-arrow">▼</span></div>',
     '    <div class="accordion-content">',
     '      <a class="dm-item" href="/pdf-merger.html"><span class="dm-icon">📄</span>Merge PDF</a>',
-    '      <a class="dm-item" href="/pdf-splitter.html"><span class="dm-icon">✂️</span>Split PDF</a>',
     '      <a class="dm-item" href="/pdf-compressor.html"><span class="dm-icon">🗜️</span>Compress PDF</a>',
-    '      <a class="dm-item" href="/pdf-to-jpg.html"><span class="dm-icon">🖼️</span>PDF to JPG</a>',
     '      <a class="dm-item" href="/pdf-unlock.html"><span class="dm-icon">🔓</span>Unlock PDF</a>',
-    '      <a class="dm-item" href="/percentage-calculator.html"><span class="dm-icon">%</span>Percentage Calculator</a>',
+    '      <a class="dm-item" href="/pdf-splitter.html"><span class="dm-icon">✂️</span>Split PDF</a>',
+    '      <a class="dm-item" href="/emi-calculator.html"><span class="dm-icon">🏦</span>EMI Calculator</a>',
     '    </div>',
     '  </div>',
     '  ',
     '  <div class="mobile-accordion">',
     '    <div class="accordion-header" onclick="toggleAcc(this)">📚 EXPERT GUIDES <span class="acc-arrow">▼</span></div>',
     '    <div class="accordion-content">',
-    '      <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
-    '      <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '      <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">📊</span>Percentage Guide</a>',
+    '      <a class="dm-item" href="/blog/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
+    '      <a class="dm-item" href="/blog/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
+    '      <a class="dm-item" href="/blog/how-to-calculate-percentage.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
+    '      <a class="dm-item" href="/blog/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
     '    </div>',
     '  </div>',
     '  ',
@@ -86,7 +86,6 @@
     '</div>'
   ].join("\n");
 
-  /* Global toggle function for accordion */
   window.toggleAcc = function(el) {
     el.classList.toggle("active");
     var content = el.nextElementSibling;
@@ -97,7 +96,6 @@
     }
   };
 
-  /* ── INJECT LOGIC ── */
   var placeholder = document.getElementById("navbar-placeholder");
   var existingNav = document.querySelector("nav");
 
@@ -118,7 +116,6 @@
     document.body.insertBefore(wrapper2, document.body.firstChild);
   }
 
-  /* ── INJECT CSS (only once) ── */
   if (!document.getElementById("navbar-auto-css")) {
     var style = document.createElement("style");
     style.id = "navbar-auto-css";
@@ -137,7 +134,7 @@
       "#mainNav .dropdown-toggle:hover,#mainNav .dropdown.open .dropdown-toggle{color:#a78bfa;border-color:rgba(167,139,250,0.3);}",
       "#mainNav .dropdown-arrow{font-size:9px;transition:transform 0.25s;display:inline-block;}",
       "#mainNav .dropdown.open .dropdown-arrow{transform:rotate(180deg);}",
-      "#mainNav .mega-menu{display:none;position:absolute;top:calc(100% + 10px);right:0;width:400px;background:rgba(22,22,35,0.98);backdrop-filter:blur(20px);border:1px solid rgba(167,139,250,0.2);border-radius:16px;padding:20px;box-shadow:0 16px 48px rgba(0,0,0,0.45);gap:20px;z-index:300;}",
+      "#mainNav .mega-menu{display:none;position:absolute;top:calc(100% + 10px);right:0;width:440px;background:rgba(22,22,35,0.98);backdrop-filter:blur(20px);border:1px solid rgba(167,139,250,0.2);border-radius:16px;padding:20px;box-shadow:0 16px 48px rgba(0,0,0,0.45);gap:20px;z-index:300;}",
       "#mainNav .dropdown.open .mega-menu{display:flex;}",
       "#mainNav .menu-col{flex:1;display:flex;flex-direction:column;gap:5px;}",
       "#mainNav .menu-label{font-size:11px;font-weight:800;color:#a78bfa;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;}",
@@ -169,129 +166,3 @@
       ".accordion-content .dm-item:hover{background:rgba(247,151,30,0.1);color:#f7971e;}",
       
       "@media(max-width:850px){",
-      "  #mainNav{padding:0 16px;}",
-      "  #mainNav .nav-links{display:none;}",
-      "  #mainNav .hamburger{display:flex;}",
-      "}"
-    ].join("");
-    document.head.appendChild(style);
-  }
-
-  /* ── WIRE UP EVENT LISTENERS ── */
-  var guidesBtn = document.getElementById("guidesToggleBtn");
-  var guidesDd  = document.getElementById("guidesDropdown");
-  if (guidesBtn && guidesDd) {
-    guidesBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      guidesDd.classList.toggle("open");
-    });
-    document.addEventListener("click", function (e) {
-      if (!guidesDd.contains(e.target)) {
-        guidesDd.classList.remove("open");
-      }
-    });
-  }
-
-  var hamburger  = document.getElementById("hamburgerBtn");
-  var mobileMenu = document.getElementById("mobileMenu");
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener("click", function () {
-      mobileMenu.classList.toggle("open");
-      hamburger.classList.toggle("open");
-    });
-  }
-
-})();
-/* ═══ END NAVBAR AUTO-LOADER ═══ */
-
-/* ═══════════════════════════════════════
-   TOOLS AUTO-LOADER (Footer & Grids)
-═══════════════════════════════════════ */
-(function () {
-  "use strict";
-  function detectPage() {
-    var path = window.location.pathname.replace(/\/$/, "");
-    var file = path.split("/").pop() || "index.html";
-    if (file === "" || file === "index.html") return "home";
-    if (file === "tools-hub.html" || file === "blog.html") return "hub";
-    return "tool";
-  }
-  var PAGE = detectPage();
-
-  function badgeHTML(type) {
-    var map = { free: { cls: "badge-free", label: "Free" }, pro: { cls: "badge-pro", label: "Pro" }, new: { cls: "badge-new", label: "New" }, ai: { cls: "badge-ai", label: "AI" } };
-    var b = map[type] || map.free;
-    return '<span class="badge ' + b.cls + '">' + b.label + '</span>';
-  }
-
-  function homeCard(tool, idx) {
-    var c = idx + 1;
-    return '<a class="tc c' + c + '" href="' + tool.link + '" data-name="' + tool.title.toLowerCase() + ' ' + tool.desc.toLowerCase() + '"><div class="tc-top"><div class="ti i' + c + '">' + tool.emoji + '</div><span class="arrow">↗</span></div><div class="tc-body"><div class="tt">' + tool.title + '</div><div class="td">' + tool.desc + '</div></div><div class="tc-foot">' + badgeHTML(tool.badge) + '</div></a>';
-  }
-
-  function catLabel(cat) {
-    var labels = { pdf: "PDF Tool", img: "Image Tool", tool: "Utility", calc: "Calculator", hlth: "Health Tool", ai: "AI Tool", yt: "YouTube Tool" };
-    return labels[cat] || "Tool";
-  }
-
-  function hubCard(tool) {
-    var btnClass = "btn-" + (tool.cat === "pdf" ? "pdf" : tool.cat === "img" ? "img" : tool.cat === "tool" ? "tool" : tool.cat === "calc" ? "calc" : tool.cat === "hlth" ? "hlth" : tool.cat === "yt" ? "yt" : "ai");
-    return '<div class="tool-card ' + tool.cat + '" data-cat="' + tool.cat + '" data-name="' + tool.title.toLowerCase() + ' ' + tool.desc.toLowerCase() + '"><div class="card-top"><div class="card-icon ic-' + tool.cat + '">' + tool.emoji + '</div><div class="card-meta"><div class="card-category" style="color:' + tool.color + ';">' + catLabel(tool.cat) + '</div><div class="card-name">' + tool.title + '</div></div><span class="card-badge badge-' + tool.badge + '">' + tool.badge.toUpperCase() + '</span></div><p class="card-desc">' + tool.descLong + '</p><a class="use-tool-btn ' + btnClass + '" href="' + tool.link + '">⚡ Use Tool &nbsp;→</a></div>';
-  }
-
-  function oftCard(tool) {
-    var defaultIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
-    var rawIcon = tool.icon || defaultIcon;
-    var iconColoured = rawIcon.replace('stroke="currentColor"', 'stroke="' + tool.color + '"').replace('fill="currentColor"', 'fill="' + tool.color + '"');
-    return '<a class="oft-tool-card ' + tool.cat + '" href="' + tool.link + '"><div class="oft-icon-wrap c-' + tool.cat + '">' + iconColoured + '</div><span class="oft-tool-name">' + tool.title + '</span><span class="oft-badge ' + tool.badge + '">' + tool.badge.toUpperCase() + '</span></a>';
-  }
-
-  function injectCards() {
-    if (typeof ACTIVE_TOOLS === "undefined") return;
-    var tools = ACTIVE_TOOLS;
-    if (PAGE === "home") {
-      var grid = document.getElementById("toolsGrid");
-      if (grid) grid.innerHTML = tools.map(homeCard).join("");
-      var cnt = document.getElementById("toolCount");
-      if (cnt) cnt.textContent = tools.length + " tools";
-    }
-    if (PAGE === "hub") {
-      var grid = document.getElementById("toolsGrid");
-      if (grid) grid.innerHTML = tools.map(hubCard).join("");
-      var cnt = document.getElementById("toolCount");
-      if (cnt) cnt.textContent = tools.length + " tools";
-    }
-    if (PAGE === "tool") {
-      var oftGrid = document.getElementById("oftGrid");
-      if (!oftGrid) return;
-      var current = window.location.pathname;
-      var others = tools.filter(function (t) { return t.link !== current && !current.endsWith(t.link.replace("/", "")); });
-      oftGrid.innerHTML = others.map(oftCard).join("");
-    }
-  }
-
-  function injectFooter() {
-    if (typeof ACTIVE_TOOLS === "undefined") return;
-    var col1 = document.getElementById("footerCol1");
-    var col2 = document.getElementById("footerCol2");
-    if (!col1 && !col2) return;
-    var tools = ACTIVE_TOOLS;
-    var half = Math.ceil(tools.length / 2);
-    var left = tools.slice(0, half);
-    var right = tools.slice(half);
-    function linkHTML(t) { return '<a href="' + t.link + '"><span class="fl-icon">' + t.emoji + '</span> ' + t.title + '</a>'; }
-    if (col1) col1.innerHTML = left.map(linkHTML).join("");
-    if (col2) col2.innerHTML = right.map(linkHTML).join("");
-  }
-
-  function init() {
-    injectCards();
-    injectFooter();
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
-})();
