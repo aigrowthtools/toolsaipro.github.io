@@ -150,7 +150,7 @@
       "#mainNav .hamburger.open span:nth-child(2){opacity:0;}",
       "#mainNav .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}",
       
-      /* Mobile Menu & Accordion CSS */
+      "/* Mobile Menu & Accordion CSS */",
       "#mobileMenu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(13,13,20,0.98);backdrop-filter:blur(20px);border-bottom:1px solid #2a2a3a;padding:16px 20px 20px;z-index:199;flex-direction:column;gap:8px;max-height:calc(100vh - 64px);overflow-y:auto;}",
       "#mobileMenu.open{display:flex;}",
       "#mobileMenu .nl{padding:12px 16px;border-radius:10px;font-size:14px;font-weight:600;border:1px solid #2a2a3a;color:#e8e8f0;text-decoration:none;transition:all 0.2s;}",
@@ -200,7 +200,7 @@
 })();
 
 /* ═══════════════════════════════════════
-   TOOLS AUTO-LOADER (Footer & Grids)
+   TOOLS AUTO-LOADER (Footer & Grids with Symmetrical Fix)
 ═══════════════════════════════════════ */
 (function () {
   "use strict";
@@ -261,6 +261,8 @@
       if (!oftGrid) return;
       var current = window.location.pathname;
       var others = tools.filter(function (t) { return t.link !== current && !current.endsWith(t.link.replace("/", "")); });
+      
+      // Injecting clean card grid seamlessly
       oftGrid.innerHTML = others.map(oftCard).join("");
     }
   }
