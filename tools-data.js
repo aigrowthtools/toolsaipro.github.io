@@ -1,8 +1,8 @@
 /**
  * ToolsAI Pro — Master Tools Data
  * ================================
- * Updated Master List — 22 Tools Total
- * EMI Calculator added dynamically with automation support.
+ * Updated Master List — 23 Tools Total
+ * EMI & SIP Calculators added dynamically with automation support.
  */
 
 var TOOLS_DATA = [
@@ -195,7 +195,7 @@ var TOOLS_DATA = [
     status: "active"
   },
 
-  /* ─── CALCULATORS (4 Tools) ─── */
+  /* ─── CALCULATORS (5 Tools) ─── */
   {
     id: 11,
     title: "Pro Age Calculator Online",
@@ -246,6 +246,19 @@ var TOOLS_DATA = [
     badge: "new",
     cat: "calc",
     color: "#f7971e",
+    status: "active"
+  },
+  {
+    id: 23,
+    title: "Free SIP Calculator Online",
+    desc: "Calculate mutual fund SIP returns and investment wealth.",
+    descLong: "Calculate compounding SIP returns instantly with goal presets, annual step-up calculations, and detailed year-wise amortization charts.",
+    link: "/sip-calculator.html",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+    emoji: "📈",
+    badge: "new",
+    cat: "calc",
+    color: "#10b981",
     status: "active"
   },
 
@@ -308,7 +321,4 @@ var TOOLS_DATA = [
   }
 ];
 
-/* ─────────────────────────────────────
-   HELPER — only active tools
-───────────────────────────────────── */
 var ACTIVE_TOOLS = TOOLS_DATA.filter(function(t){ return t.status === "active"; });
