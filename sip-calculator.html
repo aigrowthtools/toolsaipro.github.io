@@ -34,6 +34,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ═══ CSS VARIABLES ═══ */
 :root{
   --bg:#0d0d14;--sur:#16161f;--card:#1c1c28;--bor:#2a2a3a;
   --a1:#6c63ff;--a2:#ff6584;--a3:#43e97b;--a4:#f7971e;--a8:#06b6d4;
@@ -78,7 +79,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 
 /* ═══ INPUT GRID ═══ */
 .inp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:10px;}
-.inp-group{display:flex;flex-direction:column;gap:7px;}
+.inp-grid .inp-group{display:flex;flex-direction:column;gap:7px;}
 .inp-label{font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;display:flex;justify-content:space-between;align-items:center;}
 .inp-val{font-family:"JetBrains Mono",monospace;color:var(--sip);font-size:12px;font-weight:700;}
 .inp-wrap{position:relative;}
@@ -161,7 +162,6 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
 .seo-block h3{font-size:15px;font-weight:700;color:#fff;margin:18px 0 8px;}
 .seo-block p{font-size:13px;color:var(--mu);line-height:1.9;margin-bottom:10px;}
 .seo-block ul,.seo-block ol{padding-left:20px;margin-bottom:12px;}
-.seo-block min-width:100%;
 .seo-block li{font-size:13px;color:var(--mu);line-height:1.85;margin-bottom:7px;}
 .seo-block li strong{color:#fff;}
 .step-list{list-style:none;padding:0;counter-reset:steps;}
@@ -199,13 +199,27 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
 .faq-a-inner strong{color:#fff;}
 .faq-item.open .faq-a{max-height:500px;}
 
-/* MASTER DYNAMIC COMPONENT: OTHER FREE TOOLS (Symmetrical 3-Column Grid) */
+/* ═══ MASTER CSS INJECTIONS: CLEAN CARD BLOCKS (Matches 3 Layout Grid) ═══ */
 .oft-section{max-width:920px;margin:0 auto 48px;padding:0 24px;position:relative;z-index:1;}
 .oft-card-wrap{background:rgba(28,28,40,0.82);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:26px 22px 20px;}
 .oft-header{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
 .oft-title-txt{font-size:17px;font-weight:800;color:#fff;}
 .oft-sub{font-size:12px;color:var(--mu);margin-bottom:18px;}
-.oft-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:10px;}
+
+/* Pure structural dynamic grids container overrides */
+.oft-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;}
+.oft-tool-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px 12px;background:rgba(22,22,31,0.85);border:1px solid rgba(255,255,255,0.06);border-radius:14px;text-decoration:none;transition:all 0.22s;}
+.oft-tool-card:hover{transform:translateY(-3px);border-color:rgba(16,185,129,0.4);box-shadow:0 8px 24px rgba(16,185,129,0.12);}
+.oft-icon-wrap{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);transition:all 0.22s;}
+.oft-tool-card:hover .oft-icon-wrap{transform:scale(1.08);}
+.oft-tool-name{font-size:11px;font-weight:700;color:#c4c4d4;text-align:center;line-height:1.4;}
+.oft-tool-card:hover .oft-tool-name{color:#fff;}
+.oft-badge{font-size:9px;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:20px;margin-top:2px;}
+.oft-badge.free{background:rgba(67,233,123,0.12);color:#43e97b;border:1px solid rgba(67,233,123,0.22);}
+.oft-badge.new{background:rgba(247,151,30,0.12);color:#f7971e;border:1px solid rgba(247,151,30,0.22);}
+.oft-badge.pro{background:rgba(108,99,255,0.12);color:#8b83ff;border:1px solid rgba(108,99,255,0.22);}
+.oft-footer{text-align:center;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06);}
+.oft-va{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#06b6d4;text-decoration:none;}
 
 @media(max-width:720px){
   nav{padding:0 14px;}
@@ -213,7 +227,7 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
   .inp-grid{grid-template-columns:1fr;}
   .stats-row{grid-template-columns:1fr 1fr 1fr;}
   .seo-block{padding:20px 14px;}
-  .oft-grid{grid-template-columns:repeat(2,1fr);}
+  .oft-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
   .chart-wrap{flex-direction:column;}
 }
 @media(max-width:480px){
@@ -232,7 +246,7 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
   <div class="tool-badge">📈 Free Investment Tool</div>
   <h1>Free Online <span>SIP Calculator</span></h1>
   <p>Calculate your mutual fund SIP returns instantly — see invested amount, estimated wealth gain and total maturity value. Plan any financial goal with confidence.</p>
-  <div class="hint-box">💡 <b>Try it:</b> ₹5,00,000/month SIP @ 12% for 10 years = ₹11.62 Lakhs maturity!</div>
+  <div class="hint-box">💡 <b>Try it:</b> ₹5,000/month SIP @ 12% for 10 years = ₹11.62 Lakhs maturity!</div>
 </div>
 
 <div class="tool-wrap">
@@ -426,7 +440,6 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
 
   <div class="seo-block">
     <h2>❓ Frequently Asked Questions</h2>
-    
     <div class="faq-section">
       <div class="faq-item open">
         <div class="faq-q" onclick="toggleFaq(0)">
@@ -509,7 +522,7 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
     <p>Bahut log confuse rehte hain ki SIP karein ya ek saath bada amount invest karein. Dono ke apne fayde aur limitations hain, aur sahi choice aapki situation pe depend karti hai.</p>
 
     <h3>SIP ke Fayde</h3>
-    <p><strong>Rupee Cost Averaging</strong> SIP ka sabse bada advantage hai. Jab market neeche hota hai, aapke ₹5,000 se zyada units milti hain. Jab market upar hota hai, kam units milti hain. Is tarah average cost automatically optimize ho jaata hai bina kisi timing ke. Yahi wajah hai ki long-term mein SIP investors often beat karte hain unhe jo sahi time dhundhne ki koshish karte hain.</p>
+    <p><strong>Rupee Cost Averaging</strong> SIP ka sabse bada advantage hai. Jaxb market neeche hota hai, aapke ₹5,000 se zyada units milti hain. Jab market upar hota hai, kam units milti hain. Is tarah average cost automatically optimize ho jaata hai bina kisi timing ke. Yahi wajah hai ki long-term mein SIP investors often beat karte hain unhe jo sahi time dhundhne ki koshish karte hain.</p>
     <p>Doosra bada fayde hai <strong>financial discipline</strong>. Ek baar SIP setup karne ke baad, investment automatic ho jaata hai. Aapko har mahine manually invest karne ki zaroorat nahi — na hi temptation hoti hai ki "market thoda aur neeche aaye tab lagaunga." Yeh psychological advantage long-term wealth creation mein bahut important hai.</p>
 
     <h3>Lump Sum ke Fayde</h3>
@@ -601,10 +614,7 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
 
 <div class="oft-section">
   <div class="oft-card-wrap">
-    <div class="oft-header">
-      <span style="font-size:22px;">🛠️</span>
-      <span class="oft-title-txt">Other Free Tools</span>
-    </div>
+    <div class="oft-header"><span style="font-size:22px;">🛠️</span><span class="oft-title-txt">Other Free Tools</span></div>
     <p class="oft-sub">All free — no signup, no uploads, 100% private &amp; browser-based.</p>
     
     <div class="oft-grid" id="oftGrid"></div>
