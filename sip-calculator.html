@@ -40,7 +40,7 @@
   --bg:#0d0d14;--sur:#16161f;--card:#1c1c28;--bor:#2a2a3a;
   --a1:#6c63ff;--a2:#ff6584;--a3:#43e97b;--a4:#f7971e;--a8:#06b6d4;
   --a9:#10b981;--tx:#e8e8f0;--mu:#6b6b80;
-  --sip:#10b981;
+  --sip:#10b981;/* SIP green theme */
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -50,11 +50,40 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
   radial-gradient(ellipse 45% 35% at 90% 80%,rgba(108,99,255,0.05) 0%,transparent 60%),
   radial-gradient(ellipse 35% 30% at 50% 50%,rgba(6,182,212,0.03) 0%,transparent 60%);}
 
-/* ═══ MASTER STRUCTURAL BOUNDS ═══ */
-.page-container{max-width:920px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+/* ═══ NAV ═══ */
+nav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--bor);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:64px;}
+.logo{font-size:19px;font-weight:800;color:#fff;text-decoration:none;flex-shrink:0;}
+.logo span{color:var(--a1);}.logo em{color:var(--a2);font-style:normal;}
+.nav-links{display:flex;align-items:center;gap:3px;}
+.nl{padding:5px 11px;border-radius:16px;font-size:11px;font-weight:600;color:var(--mu);text-decoration:none;border:1px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.nl:hover{color:var(--a4);border-color:rgba(247,151,30,0.3);}
+.nl.act{background:var(--a4);color:#fff;border-color:var(--a4);}
+.dropdown{position:relative;}
+.dropdown-toggle{padding:5px 11px;border-radius:16px;font-size:11px;font-weight:600;color:var(--mu);background:none;border:1px solid transparent;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:4px;font-family:"Plus Jakarta Sans",sans-serif;}
+.dropdown-toggle:hover,.dropdown.open .dropdown-toggle{color:#a78bfa;border-color:rgba(167,139,250,0.3);}
+.dropdown-arrow{font-size:9px;transition:transform 0.25s;}
+.dropdown.open .dropdown-arrow{transform:rotate(180deg);}
+.dropdown-menu{position:absolute;top:calc(100% + 10px);right:0;width:230px;background:rgba(22,22,35,0.98);backdrop-filter:blur(20px);border:1px solid rgba(167,139,250,0.2);border-radius:16px;padding:10px;box-shadow:0 16px 48px rgba(0,0,0,0.45);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.25s cubic-bezier(0.34,1.2,0.64,1);z-index:300;}
+.dropdown.open .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.dm-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;text-decoration:none;color:var(--tx);font-size:12px;font-weight:600;transition:all 0.18s;}
+.dm-item:hover{background:rgba(167,139,250,0.1);color:#fff;}
+.dm-icon{font-size:14px;flex-shrink:0;width:20px;text-align:center;}
+.dm-divider{height:1px;background:var(--bor);margin:6px 0;}
+.dm-all{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;border-radius:10px;background:linear-gradient(135deg,rgba(167,139,250,0.15),rgba(108,99,255,0.1));color:#a78bfa;font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(167,139,250,0.2);transition:all 0.2s;}
+.dm-all:hover{color:#fff;background:linear-gradient(135deg,rgba(167,139,250,0.25),rgba(108,99,255,0.18));}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--mu);border-radius:2px;transition:all 0.3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(13,13,20,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bor);padding:16px 20px 20px;z-index:199;flex-direction:column;gap:6px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu .nl{padding:10px 14px;border-radius:10px;font-size:13px;border:1px solid var(--bor);}
+.mobile-menu .dm-item{padding:10px 14px;border-radius:10px;border:1px solid var(--bor);font-size:12px;}
+.mm-label{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1.2px;padding:8px 4px 4px;}
 
 /* ═══ HERO ═══ */
-.page-hero{position:relative;z-index:1;text-align:center;padding:24px 24px 32px;}
+.page-hero{position:relative;z-index:1;text-align:center;padding:48px 24px 32px;}
 .breadcrumb{font-size:12px;color:var(--mu);margin-bottom:14px;}
 .breadcrumb a{color:var(--a8);text-decoration:none;}
 .breadcrumb a:hover{color:#fff;}
@@ -63,6 +92,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .page-hero h1 span{color:var(--sip);}
 .page-hero p{font-size:14px;color:var(--mu);max-width:580px;margin:0 auto;line-height:1.75;}
 .hint-box{margin-top:15px;font-size:13px;color:var(--a3);background:rgba(16,185,129,0.08);padding:10px 20px;border-radius:8px;display:inline-block;border:1px solid rgba(16,185,129,0.22);}
+
+/* ═══ TOOL WRAP ═══ */
+.tool-wrap{max-width:920px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
 
 /* ═══ GLASS CARD ═══ */
 .scard{background:rgba(28,28,40,0.85);backdrop-filter:blur(16px);border:1px solid rgba(16,185,129,0.14);border-radius:22px;padding:28px;margin-bottom:14px;box-shadow:0 8px 40px rgba(0,0,0,0.35);}
@@ -116,7 +148,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .sb-val.green{color:var(--sip);}
 .sb-val.blue{color:var(--a8);}
 .sb-val.orange{color:var(--a4);}
-.text-label{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:0.8px;}
+.sb-label{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:0.8px;}
 
 /* PIE CHART */
 .chart-wrap{background:rgba(22,22,31,0.9);border:1px solid var(--bor);border-radius:16px;padding:20px;margin-bottom:14px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
@@ -157,7 +189,7 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
 .toast.show{transform:translateX(-50%) translateY(0);}
 
 /* ═══ SEO ═══ */
-.seo-wrap{max-width:920px;margin:44px auto 0;padding:0;position:relative;z-index:1;}
+.seo-wrap{max-width:920px;margin:44px auto 0;padding:0 24px;position:relative;z-index:1;}
 .seo-block{background:rgba(28,28,40,0.7);backdrop-filter:blur(12px);border:1px solid var(--bor);border-radius:20px;padding:32px;margin-bottom:14px;}
 .seo-block h2{font-size:20px;font-weight:800;color:#fff;margin-bottom:14px;}
 .seo-block h3{font-size:15px;font-weight:700;color:#fff;margin:18px 0 8px;}
@@ -189,8 +221,8 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
 .ex-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
 .ex-table td.hl{color:#fff;font-weight:700;font-family:"JetBrains Mono",monospace;}
 .ex-table td.gr{color:var(--sip);font-weight:700;}
-.faq-item{border:1px solid var(--bor);border-radius:14px;margin-bottom:8px;overflow:hidden;transition:border-color 0.25s;background: rgba(22,22,31,0.6);}
-.faq-item.open{border-color:rgba(16,185,129,0.35);background: rgba(22,22,31,0.9);}
+.faq-item{border:1px solid var(--bor);border-radius:14px;margin-bottom:8px;overflow:hidden;transition:border-color 0.25s;}
+.faq-item.open{border-color:rgba(16,185,129,0.35);}
 .faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;gap:12px;}
 .faq-q-text{font-size:14px;font-weight:700;color:#fff;line-height:1.45;flex:1;}
 .faq-icon{width:24px;height:24px;border-radius:50%;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s;font-size:14px;color:var(--sip);}
@@ -200,13 +232,41 @@ table.growth .last-row td{color:var(--sip);font-weight:700;border-top:1px solid 
 .faq-a-inner strong{color:#fff;}
 .faq-item.open .faq-a{max-height:500px;}
 
-/* MASTER GRID SYSTEM: AUTOMATED COMPONENT OVERRIDES */
-.oft-section{max-width:920px;margin:0 auto 48px;padding:0;position:relative;z-index:1;}
+/* OFT */
+.oft-section{max-width:920px;margin:0 auto 48px;padding:0 24px;position:relative;z-index:1;}
 .oft-card-wrap{background:rgba(28,28,40,0.82);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:26px 22px 20px;}
 .oft-header{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
 .oft-title-txt{font-size:17px;font-weight:800;color:#fff;}
 .oft-sub{font-size:12px;color:var(--mu);margin-bottom:18px;}
 .oft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.oft-tool-card{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 8px 12px;background:rgba(22,22,31,0.88);border:1px solid rgba(255,255,255,0.07);border-radius:13px;text-decoration:none;transition:all 0.25s;position:relative;overflow:hidden;}
+.oft-tool-card::before{content:"";position:absolute;inset:0;border-radius:13px;opacity:0;transition:opacity 0.25s;}
+.oft-tool-card:hover{transform:translateY(-3px);}
+.oft-tool-card:hover::before{opacity:1;}
+.oft-tool-card.calc:hover{border-color:rgba(67,233,123,0.5);box-shadow:0 6px 20px rgba(67,233,123,0.15);}
+.oft-tool-card.calc::before{background:radial-gradient(ellipse at 50% 0%,rgba(67,233,123,0.12),transparent 70%);}
+.oft-tool-card.hlth:hover{border-color:rgba(247,151,30,0.5);box-shadow:0 6px 20px rgba(247,151,30,0.15);}
+.oft-tool-card.hlth::before{background:radial-gradient(ellipse at 50% 0%,rgba(247,151,30,0.12),transparent 70%);}
+.oft-tool-card.pdf:hover{border-color:rgba(255,101,132,0.5);box-shadow:0 6px 20px rgba(255,101,132,0.15);}
+.oft-tool-card.pdf::before{background:radial-gradient(ellipse at 50% 0%,rgba(255,101,132,0.12),transparent 70%);}
+.oft-tool-card.tool:hover{border-color:rgba(108,99,255,0.5);box-shadow:0 6px 20px rgba(108,99,255,0.15);}
+.oft-tool-card.tool::before{background:radial-gradient(ellipse at 50% 0%,rgba(108,99,255,0.12),transparent 70%);}
+.oft-iw{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;transition:transform 0.25s;}
+.oft-tool-card:hover .oft-iw{transform:scale(1.1);}
+.c-calc{background:rgba(67,233,123,0.14);border:1px solid rgba(67,233,123,0.25);}
+.c-hlth{background:rgba(247,151,30,0.14);border:1px solid rgba(247,151,30,0.25);}
+.c-pdf{background:rgba(255,101,132,0.14);border:1px solid rgba(255,101,132,0.25);}
+.c-tool{background:rgba(108,99,255,0.14);border:1px solid rgba(108,99,255,0.25);}
+.oft-iw svg{width:20px;height:20px;}
+.oft-nm{font-size:10px;font-weight:700;color:#c4c4d4;text-align:center;line-height:1.4;transition:color 0.2s;}
+.oft-tool-card:hover .oft-nm{color:#fff;}
+.oft-badge{font-size:9px;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:20px;}
+.oft-badge.free{background:rgba(67,233,123,0.12);color:#43e97b;border:1px solid rgba(67,233,123,0.22);}
+.oft-badge.new{background:rgba(247,151,30,0.12);color:#f7971e;border:1px solid rgba(247,151,30,0.22);}
+.oft-badge.pro{background:rgba(108,99,255,0.12);color:#8b83ff;border:1px solid rgba(108,99,255,0.22);}
+.oft-footer{text-align:center;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06);}
+.oft-va{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#06b6d4;text-decoration:none;transition:gap 0.2s,color 0.2s;}
+.oft-va:hover{color:#fff;gap:10px;}
 
 footer{text-align:center;padding:32px 20px 24px;color:var(--mu);font-size:12px;border-top:1px solid var(--bor);margin-top:20px;position:relative;z-index:1;}
 footer strong{color:var(--a1);}
@@ -215,9 +275,10 @@ footer strong{color:var(--a1);}
 .footer-links a:hover{color:#fff;background:rgba(255,255,255,0.06);}
 
 @media(max-width:720px){
+  nav{padding:0 14px;}.nav-links{display:none;}.hamburger{display:flex;}
   .tool-wrap,.seo-wrap,.oft-section{padding:0 14px;}
   .inp-grid{grid-template-columns:1fr;}
-  .stats-row{grid-template-columns:repeat(3,1fr);}
+  .stats-row{grid-template-columns:1fr 1fr 1fr;}
   .seo-block{padding:20px 14px;}
   .oft-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
   .chart-wrap{flex-direction:column;}
@@ -231,408 +292,436 @@ footer strong{color:var(--a1);}
 <body>
 <div class="toast" id="toast"></div>
 
-<!-- AUTOMATED LINK MANAGER LOGIC LOADER CONTAINER -->
-<div id="navbar-placeholder"></div>
-
-<!-- MASTER CONTAINER WRAPPER FOR CLEAN SCALING -->
-<div class="page-container" style="margin-top: 40px;">
-
-  <!-- HERO -->
-  <div class="page-hero">
-    <div class="breadcrumb"><a href="/">Home</a> › <a href="/tools-hub.html">Tools Hub</a> › SIP Calculator</div>
-    <div class="tool-badge">📈 Free Investment Tool</div>
-    <h1>Free Online <span>SIP Calculator</span></h1>
-    <p>Calculate your mutual fund SIP returns instantly — see invested amount, estimated wealth gain and total maturity value. Plan any financial goal with confidence.</p>
-    <div class="hint-box">💡 <b>Try it:</b> ₹5,00,000/month SIP @ 12% for 10 years = ₹11.62 Lakhs maturity!</div>
+<!-- NAV -->
+<nav>
+  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>
+  <div class="nav-links" id="desktopNav">
+    <a class="nl" href="/">Home</a>
+    <a class="nl" href="/about.html">About</a>
+    <a class="nl act" href="/tools-hub.html">Tools Hub</a>
+    <div class="dropdown" id="guidesDropdown">
+      <button class="dropdown-toggle nl" onclick="toggleDropdown()">Guides <span class="dropdown-arrow">▾</span></button>
+      <div class="dropdown-menu">
+        <a class="dm-item" href="/sip-calculator.html"><span class="dm-icon">📈</span>SIP Calculator</a>
+        <a class="dm-item" href="/emi-calculator.html"><span class="dm-icon">🏦</span>EMI Calculator</a>
+        <a class="dm-item" href="/percentage-calculator.html"><span class="dm-icon">%</span>Percentage Calculator</a>
+        <a class="dm-item" href="/gst-calculator.html"><span class="dm-icon">🧾</span>GST Calculator</a>
+        <a class="dm-item" href="/bmi-calculator.html"><span class="dm-icon">⚖️</span>BMI Calculator</a>
+        <div class="dm-divider"></div>
+        <a class="dm-all" href="/tools-hub.html">View All Tools &nbsp;→</a>
+      </div>
+    </div>
+    <a class="nl" href="/contact.html">Contact</a>
+    <a class="nl" href="/privacy.html">Privacy</a>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nl" href="/">🏠 Home</a>
+  <a class="nl" href="/about.html">ℹ️ About</a>
+  <a class="nl act" href="/tools-hub.html">🛠️ Tools Hub</a>
+  <div class="mm-label">📚 Finance Tools</div>
+  <a class="dm-item" href="/sip-calculator.html"><span class="dm-icon">📈</span>SIP Calculator</a>
+  <a class="dm-item" href="/emi-calculator.html"><span class="dm-icon">🏦</span>EMI Calculator</a>
+  <a class="dm-item" href="/gst-calculator.html"><span class="dm-icon">🧾</span>GST Calculator</a>
+  <a class="nl" href="/contact.html">✉️ Contact</a>
+  <a class="nl" href="/privacy.html">🔒 Privacy</a>
+</div>
 
-  <!-- TOOL -->
-  <div class="tool-wrap">
-  <div class="scard">
-    <div class="sh">
-      <div class="shi">📈</div>
-      <div>
-        <div class="sht">SIP Calculator</div>
-        <div class="shs">Monthly SIP · Expected Returns · Maturity Value · Year-wise Growth</div>
-      </div>
-    </div>
+<!-- HERO -->
+<div class="page-hero">
+  <div class="breadcrumb"><a href="/">Home</a> › <a href="/tools-hub.html">Tools Hub</a> › SIP Calculator</div>
+  <div class="tool-badge">📈 Free Investment Tool</div>
+  <h1>Free Online <span>SIP Calculator</span></h1>
+  <p>Calculate your mutual fund SIP returns instantly — see invested amount, estimated wealth gain and total maturity value. Plan any financial goal with confidence.</p>
+  <div class="hint-box">💡 <b>Try it:</b> ₹5,000/month SIP @ 12% for 10 years = ₹11.62 Lakhs maturity!</div>
+</div>
 
-    <!-- GOAL PRESETS -->
-    <span class="presets-label">⚡ Quick Goal Presets</span>
-    <div class="presets-row">
-      <button class="preset-btn" onclick="applyPreset(3000,12,5,'Emergency Fund')">🛡️ Emergency Fund</button>
-      <button class="preset-btn" onclick="applyPreset(5000,12,10,'Child Education')">🎓 Child Education</button>
-      <button class="preset-btn" onclick="applyPreset(10000,12,20,'Retirement')">🏖️ Retirement</button>
-      <button class="preset-btn" onclick="applyPreset(2000,15,7,'Dream Car')">🚗 Dream Car</button>
-      <button class="preset-btn" onclick="applyPreset(15000,12,15,'Home Down Payment')">🏠 Home Down</button>
-    </div>
-
-    <!-- INPUTS -->
-    <div class="inp-grid">
-      <div class="inp-group">
-        <label class="inp-label">Monthly SIP Amount <span class="inp-val" id="lbl-sip">₹5,000</span></label>
-        <div class="inp-wrap">
-          <input type="number" class="calc-inp" id="inp-sip" value="5000" min="100" max="1000000" oninput="syncSlider('sip');calcSIP()">
-          <span class="inp-suffix">₹</span>
-        </div>
-        <input type="range" class="inp-range" id="sl-sip" min="100" max="200000" step="100" value="5000" oninput="syncInput('sip');calcSIP()">
-      </div>
-
-      <div class="inp-grid-item inp-group">
-        <label class="inp-label">Expected Return (p.a.) <span class="inp-val" id="lbl-rate">12%</span></label>
-        <div class="inp-wrap">
-          <input type="number" class="calc-inp" id="inp-rate" value="12" min="1" max="40" step="0.5" oninput="syncSlider('rate');calcSIP()">
-          <span class="inp-suffix">%</span>
-        </div>
-        <input type="range" class="inp-range" id="sl-rate" min="1" max="40" step="0.5" value="12" oninput="syncInput('rate');calcSIP()">
-      </div>
-
-      <div class="inp-grid-item inp-group">
-        <label class="inp-label">Time Period <span class="inp-val" id="lbl-years">10 Years</span></label>
-        <div class="inp-wrap">
-          <input type="number" class="calc-inp" id="inp-years" value="10" min="1" max="40" oninput="syncSlider('years');calcSIP()">
-          <span class="inp-suffix">Yrs</span>
-        </div>
-        <input type="range" class="inp-range" id="sl-years" min="1" max="40" step="1" value="10" oninput="syncInput('years');calcSIP()">
-      </div>
-
-      <!-- Step-up SIP (optional) -->
-      <div class="inp-grid-item inp-group">
-        <label class="inp-label">Annual Step-up % <span class="inp-val" id="lbl-step">0%</span></label>
-        <div class="inp-wrap">
-          <input type="number" class="calc-inp" id="inp-step" value="0" min="0" max="50" step="1" placeholder="0" oninput="syncSlider('step');calcSIP()">
-          <span class="inp-suffix">%</span>
-        </div>
-        <input type="range" class="inp-range" id="sl-step" min="0" max="50" step="1" value="0" oninput="syncInput('step');calcSIP()">
-      </div>
-    </div>
-
-    <button class="calc-btn" onclick="calcSIP()">📈 Calculate SIP Returns</button>
-
-    <!-- RESULTS -->
-    <div class="result-section" id="resultSection">
-      <div class="maturity-hero">
-        <div class="mh-label">Total Maturity Value</div>
-        <div class="mh-amount" id="res-maturity">₹0</div>
-        <div class="mh-note" id="res-note">after 10 years</div>
-      </div>
-
-      <div class="stats-row">
-        <div class="stat-box">
-          <div class="sb-icon">💰</div>
-          <div class="sb-val blue" id="res-invested">₹0</div>
-          <div class="text-label">Invested</div>
-        </div>
-        <div class="stat-box">
-          <div class="sb-icon">📈</div>
-          <div class="sb-val green" id="res-gain">₹0</div>
-          <div class="text-label">Est. Returns</div>
-        </div>
-        <div class="stat-box">
-          <div class="sb-icon">🎯</div>
-          <div class="sb-val orange" id="res-xirr">0x</div>
-          <div class="text-label">Wealth Multiplier</div>
-        </div>
-      </div>
-
-      <!-- PIE -->
-      <div class="chart-wrap">
-        <div class="pie-container">
-          <canvas id="sipPie" width="140" height="140"></canvas>
-        </div>
-        <div class="chart-legend">
-          <div class="cl-title">Investment Breakdown</div>
-          <div class="cl-item">
-            <div class="cl-dot" style="background:#06b6d4;"></div>
-            <span class="cl-name">Amount Invested</span>
-            <div>
-              <div class="cl-pct" id="pct-invested">—</div>
-              <div class="cl-amt" id="amt-invested">—</div>
-            </div>
-          </div>
-          <div class="cl-item">
-            <div class="cl-dot" style="background:#10b981;"></div>
-            <span class="cl-name">Est. Returns</span>
-            <div>
-              <div class="cl-pct" id="pct-gain">—</div>
-              <div class="cl-amt" id="amt-gain">—</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- YEAR GROWTH TABLE -->
-      <div class="growth-wrap">
-        <div class="growth-head">
-          <div class="growth-title">📋 Year-wise Growth Table</div>
-          <button class="growth-toggle" onclick="toggleGrowth()">Show Table ▾</button>
-        </div>
-        <div class="growth-table-wrap" id="growthTable">
-          <table class="growth">
-            <thead>
-              <tr>
-                <th style="text-align:left;">Year</th>
-                <th>Invested</th>
-                <th>Returns</th>
-                <th>Total Value</th>
-              </tr>
-            </thead>
-            <tbody id="growthBody"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <button class="reset-btn" onclick="resetCalc()">↺ Reset Calculator</button>
-    </div>
-  </div>
-  </div>
-
-  <!-- SEO CONTENT -->
-  <div class="seo-wrap">
-    <div class="seo-block">
-      <h2>📈 What is SIP and How Does It Work?</h2>
-      <p>SIP stands for <strong>Systematic Investment Plan</strong>. It is the most popular way to invest in mutual funds — by putting a fixed amount every month into a chosen fund, automatically on a set date. The investment process functions seamlessly via auto-debit configurations, allowing disciplined capital accumulation over dynamic intervals.</p>
-      <p>What makes SIP so powerful is the combination of two financial forces: <strong>Rupee Cost Averaging</strong> and <strong>Compounding</strong>. Because you invest the same amount every month regardless of market conditions, you automatically buy more units when markets are down and fewer when they are up — averaging out your cost over time. And because your returns themselves start earning returns, the growth accelerates dramatically over long periods.</p>
-
-      <div class="formula-block" style="background:rgba(28,28,40,0.95);border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:16px 20px;margin:14px 0;text-align:center;">
-        <div style="font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">💡 SIP Formula</div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--sip);">M = P × {[(1+i)ⁿ − 1] ÷ i} × (1+i)</div>
-        <div style="font-size:12px;color:var(--mu);margin-top:8px;font-family:'JetBrains Mono',monospace;">
-          M = Maturity value &nbsp;|&nbsp; P = Monthly SIP amount &nbsp;|&nbsp; i = Monthly interest rate (Annual Rate ÷ 12 ÷ 100) &nbsp;|&nbsp; n = Number of months (Years × 12)
-        </div>
-      </div>
-
-      <h3>SIP Calculation Example</h3>
-      <p>For a <strong>₹5,000/month SIP at 12% annual return for 10 years:</strong></p>
-      <p>i = 12 ÷ 12 ÷ 100 = 0.01 &nbsp;|&nbsp; n = 10 × 12 = 120 months</p>
-      <p>M = 5000 × {[(1.01)¹²⁰ − 1] ÷ 0.01} × 1.01 = <strong style="color:var(--sip);">₹11,61,695</strong></p>
-      <p>Total invested = ₹6,00,000. Wealth gained = <strong>₹5,61,695</strong> — nearly equal to your entire investment, earned purely through compounding!</p>
-    </div>
-
-    <div class="seo-block">
-      <h2>📋 How to Use This SIP Calculator — Step by Step</h2>
-      <ol class="step-list">
-        <li><div class="sc"><strong>Enter Monthly SIP Amount</strong><span>Type the amount you want to invest every month, or drag the slider. Even ₹500/month is a great start. The tool supports any amount from ₹100 to ₹10 lakhs per month.</span></div></li>
-        <li><div class="sc"><strong>Set Expected Return Rate</strong><span>Enter the annual return you expect from your mutual fund. Large-cap equity funds have historically given 10–12%. Mid/small-cap funds have given 14–18%. Debt funds give 6–8%. Use 12% as a conservative baseline for equity funds.</span></div></li>
-        <li><div class="sc"><strong>Choose Investment Period</strong><span>Enter the number of years you plan to stay invested. SIP works best over long durations — the real wealth creation happens after year 7 onward. The calculator supports 1 to 40 years.</span></div></li>
-        <li><div class="sc"><strong>Add Annual Step-up (Optional)</strong><span>Step-up SIP means you increase your SIP amount by a fixed percentage every year. For example, a 10% step-up means your ₹5,000/month SIP becomes ₹5,500 in Year 2, ₹6,050 in Year 3, and so on. This dramatically increases your final maturity value.</span></div></li>
-        <li><div class="sc"><strong>Use Goal Presets</strong><span>Click any of the quick preset buttons (Emergency Fund, Child Education, Retirement, Dream Car, Home Down Payment) to instantly load optimised values for that specific financial goal.</span></div></li>
-        <li><div class="sc"><strong>View Year-wise Growth</strong><span>Click "Show Table" to see a year-by-year breakdown of your investment — invested amount cumulative, estimated returns and total portfolio value at the end of each year.</span></div></li>
-      </ol>
-      <div class="hl-box hlb-warn">
-        <div class="hb-head">⚠️ Disclaimer</div>
-        <p>SIP returns are market-linked and not guaranteed. Past performance of mutual funds does not guarantee future results. This calculator provides estimates based on the entered rate of return for planning purposes only. Please consult a SEBI-registered financial advisor before investing.</p>
-      </div>
-    </div>
-
-    <div class="seo-block">
-      <h2>💰 SIP Return Table — ₹5,000/Month at Various Returns</h2>
-      <table class="ex-table">
-        <tr><th>Duration</th><th>Invested</th><th>@ 10%</th><th>@ 12%</th><th>@ 15%</th></tr>
-        <tr><td>5 Years</td><td>₹3.00L</td><td class="hl">₹3.87L</td><td class="hl">₹4.08L</td><td class="gr">₹4.45L</td></tr>
-        <tr><td>10 Years</td><td>₹6.00L</td><td class="hl">₹10.33L</td><td class="hl">₹11.62L</td><td class="gr">₹13.93L</td></tr>
-        <tr><td>15 Years</td><td>₹9.00L</td><td class="hl">₹20.89L</td><td class="hl">₹25.23L</td><td class="gr">₹33.40L</td></tr>
-        <tr><td>20 Years</td><td>₹12.00L</td><td class="hl">₹38.28L</td><td class="hl">₹49.96L</td><td class="gr">₹75.79L</td></tr>
-        <tr><td>25 Years</td><td>₹15.00L</td><td class="hl">₹66.47L</td><td class="hl">₹94.88L</td><td class="gr">₹1.60Cr</td></tr>
-        <tr><td>30 Years</td><td>₹18.00L</td><td class="hl">₹1.13Cr</td><td class="hl">₹1.76Cr</td><td class="gr">₹3.50Cr</td></tr>
-      </table>
-
-      <div class="hl-box hlb-green">
-        <div class="hb-head">✅ The Power of Starting Early</div>
-        <p>₹5,000/month for 30 years at 12% = <strong>₹1.76 Crore</strong>. The same ₹5,000/month started 10 years later (only 20 years) gives <strong>₹49.96 Lakhs</strong>. Those 10 extra years of compounding create an additional <strong>₹1.26 Crore</strong> of wealth — from exactly the same monthly investment. <strong>Starting today, even with a small amount, is always better than waiting to start big.</strong></p>
-      </div>
-    </div>
-
-    <div class="seo-block">
-      <h2>❓ Frequently Asked Questions</h2>
-      <div class="faq-section">
-        <div class="faq-item open">
-          <div class="faq-q" onclick="toggleFaq(0)">
-            <span class="faq-q-text">How much will ₹5,000 SIP give after 10 years?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            <div class="faq-a-inner">
-              At <strong>12% annual return</strong>: Total invested = ₹6,00,000. Maturity value = <strong>₹11,61,695</strong>. Wealth gained = ₹5,61,695.<br><br>
-              At <strong>15% return</strong>: Maturity = ₹13,93,000. At <strong>10% return</strong>: Maturity = ₹10,33,000.<br><br>
-              Use the calculator above and type 5000 as monthly SIP, 12 as rate and 10 as years. The result appears instantly with a full year-wise breakdown.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(1)">
-            <span class="faq-q-text">What is Step-up SIP and should I use it?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            <div class="faq-a-inner">
-              A Step-up SIP (also called Top-up SIP) increases your monthly investment by a fixed percentage every year. As your salary grows, your SIP grows with it.<br><br>
-              Example: ₹5,000/month with 10% annual step-up over 20 years @ 12% return gives approximately <strong>₹1.05 Crore</strong> vs ₹49.96 Lakhs without step-up — more than double the wealth from the same starting SIP amount.<br><br>
-              You can enable step-up in our calculator by entering the desired annual increase percentage in the "Annual Step-up %" field.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(2)">
-            <span class="faq-q-text">What return rate should I assume for SIP calculations?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            <div class="faq-a-inner">
-              Standard assumptions used by Indian financial planners:<br><br>
-              <strong>Large-cap equity funds:</strong> 10–12% (conservative to moderate)<br>
-              <strong>Flexi/multi-cap funds:</strong> 12–14%<br>
-              <strong>Mid-cap equity funds:</strong> 13–16%<br>
-              <strong>Small-cap equity funds:</strong> 15–18% (aggressive, higher risk)<br>
-              <strong>Debt/Liquid funds:</strong> 6–8%<br>
-              <strong>Hybrid/Balanced funds:</strong> 9–11%<br><br>
-              For long-term goals (10+ years), <strong>12% is a widely used conservative estimate</strong> for diversified equity funds. For planning purposes, always use a rate slightly below what you expect as a safety margin.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(3)">
-            <span class="faq-q-text">Is SIP better than FD (Fixed Deposit)?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            <div class="faq-a-inner">
-              For <strong>short-term goals (less than 3 years)</strong>: FD is safer and more predictable. SIP returns are market-linked and can be negative in the short term.<br><br>
-              For <strong>long-term goals (5+ years)</strong>: Equity SIP has historically delivered significantly higher returns (10–15%) compared to FD rates (6–7.5%). Additionally, SIP returns benefit from compounding, while FD interest is taxable as income.<br><br>
-              After 3 years, equity mutual fund SIP gains are taxed at 10% LTCG (above ₹1 lakh), which is lower than your income tax slab applicable to FD interest. <strong>For building long-term wealth, SIP in diversified equity funds is generally more effective than FD.</strong>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(4)">
-            <span class="faq-q-text">Is this SIP calculator free and accurate?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">
-            <div class="faq-a-inner">
-              Yes, completely free with no signup, no limits and no watermarks. The calculator uses the standard SIP compounding formula recognised by AMFI (Association of Mutual Funds in India) and used by all major fund houses.<br><br>
-              <strong>Note:</strong> Results are estimates based on the entered constant rate of return. Actual mutual fund returns vary year to year based on market performance. This tool is for planning and goal-setting purposes — always verify with your fund's actual NAV history before making investment decisions.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="seo-block">
-      <h2>📊 SIP vs Lump Sum — Which is Better?</h2>
-      <p>Many investors are confused about whether to invest via SIP or put a large amount in all at once. Both approaches have their own advantages and limitations, and the right choice depends entirely on your specific financial situation.</p>
-
-      <h3>Advantages of SIP</h3>
-      <p><strong>Rupee Cost Averaging</strong> is SIP's greatest advantage. When markets fall, your fixed monthly capital buys more units. When markets rise, it buys fewer units. This automatically optimises your average purchase cost without requiring any market timing. This is why long-term SIP investors consistently outperform those who try to time the market perfectly.</p>
-      <p>The second major advantage is <strong>financial discipline</strong>. Once a SIP is set up, investments happen automatically every month. There is no need to manually invest each month — and more importantly, no temptation to delay with thoughts like "I'll invest when the market falls a bit more." This psychological advantage is enormously powerful for long-term wealth creation.</p>
-
-      <h3>Advantages of Lump Sum</h3>
-      <p>If you have a large amount available and the market is significantly down, a lump sum investment can be more effective. Historical data shows that markets always recover from lower levels — so investing a lump sum after a major correction can generate higher returns than a staggered SIP approach.</p>
-      <p>The problem, however, is that nobody can consistently predict market bottoms — not even professional fund managers. This is why most financial advisors recommend using an <strong>STP (Systematic Transfer Plan) even for large amounts</strong> — park the lump sum in a liquid fund first, then transfer monthly into an equity fund to get SIP-like averaging benefits.</p>
-
-      <table class="ex-table">
-        <tr><th>Factor</th><th>SIP</th><th>Lump Sum</th></tr>
-        <tr><td>Market Timing Risk</td><td class="gr">✅ Eliminated</td><td>❌ High risk</td></tr>
-        <tr><td>Discipline Required</td><td class="gr">✅ Auto-debit</td><td>⚠️ Manual</td></tr>
-        <tr><td>Best for</td><td class="gr">Monthly salary investors</td><td>Bonus/windfall</td></tr>
-        <tr><td>Minimum Amount</td><td class="gr">₹100/month</td><td>₹5,000+</td></tr>
-        <tr><td>Rupee Cost Averaging</td><td class="gr">✅ Yes</td><td>❌ No</td></tr>
-        <tr><td>Psychological Ease</td><td class="gr">✅ Set & forget</td><td>⚠️ Requires timing</td></tr>
-      </table>
-    </div>
-
-    <div class="seo-block">
-      <h2>🏆 Best SIP Strategies for Different Goals</h2>
-      <h3>🎓 Child Education — 15+ Years Away</h3>
-      <p>Education costs in India double every 8–10 years due to education-specific inflation. An engineering college costing ₹5 lakh per year today could cost ₹15–20 lakh per year in 15 years. To beat this education inflation, you need an aggressive growth strategy that outpaces the rising costs.</p>
-      <ul>
-        <li><strong>Recommended SIP:</strong> ₹5,000–₹15,000/month depending on target corpus</li>
-        <li><strong>Fund type:</strong> Diversified equity / Mid-cap for first 10 years, then gradually shift to hybrid</li>
-        <li><strong>Target return assumption:</strong> 12–14%</li>
-        <li><strong>Pro tip:</strong> Start step-up SIP with 10% annual increase to match salary growth</li>
-      </ul>
-
-      <h3>🏖️ Retirement Corpus — 20–30 Years Away</h3>
-      <p>Retirement planning highlights the immense impact of compounding wealth over extended durations. An individual initiating a monthly investment of ₹3,000 at age 25 can accumulate approximately <strong>₹3.5 Crore</strong> by age 60 (assuming a 12% annual return rate) from an aggregated principal investment of only ₹12.6 Lakhs.</p>
-      <ul>
-        <li><strong>Recommended SIP:</strong> At least 15–20% of your monthly income</li>
-        <li><strong>Fund type:</strong> Index fund + mid-cap combination</li>
-        <li><strong>Target return:</strong> 11–13% for diversified portfolio</li>
-        <li><strong>Pro tip:</strong> Increase SIP amount with every salary hike — step-up SIP of 10–15% per year</li>
-      </ul>
-
-      <h3>🏠 Home Down Payment — 5–7 Years</h3>
-      <p>For a medium-term goal of 5–7 years, investing entirely in pure equity SIP is slightly risky because markets can be significantly down exactly when you need the money. A balanced, diversified approach is more prudent for this timeline.</p>
-      <ul>
-        <li><strong>Recommended:</strong> 60% equity SIP + 40% debt fund SIP</li>
-        <li><strong>Target return:</strong> 9–11% blended</li>
-        <li><strong>Exit strategy:</strong> Gradually shift accumulated assets to stable debt structures 1-2 years before your goal to shield capital from volatility.</li>
-      </ul>
-
-      <div class="hl-box hlb-green">
-        <div class="hb-head">✅ Golden Rule of SIP</div>
-        <p><strong>"Time in market beats timing the market."</strong> The most critical decision in systematic investing is maintaining regular execution through standard cycles rather than attempting complex portfolio adjustments. Sticking to the timeline guarantees total capture of subsequent recovery waves.</p>
-      </div>
-    </div>
-
-    <div class="seo-block">
-      <h2>💡 Common SIP Myths — Busted!</h2>
-      <h3>Myth 1: "SIP is only for small investors"</h3>
-      <p>Fact: SIP minimum ₹100/month se shuru ho sakta hai, lekin koi maximum limit nahi hai. HNI (High Net Worth Individuals) also allocate substantial recurring monthly tranches through automatic frameworks. SIP is an investment methodology, not a limitation on capital capacity.</p>
-
-      <h3>Myth 2: "Market is at an all-time high, so pause your SIP"</h3>
-      <p>Fact: Trying to time SIP entry destroys the core benefit of rupee cost averaging. If you only invest when markets are down, you are not smarter than the average investor — you are simply lucky or unlucky. Consistent SIP investors have historically outperformed investors who try to time the market by pausing and resuming investments based on market levels.</p>
-
-      <h3>Myth 3: "Short-term investments yield massive compounding gains"</h3>
-      <p>Fact: In the short term (1–3 years), equity trends are highly volatile and can produce negative returns. The true acceleration of compounding value manifests prominently after <strong>the 7-year milestone</strong>. Short horizons are better managed through stable debt instruments.</p>
-
-      <h3>Myth 4: "Choosing the top-rated fund is everything"</h3>
-      <p>Fact: Fund selection matters, but consistency and investment tenure matter far more. A 20-year regular SIP in an average fund produces significantly better wealth than a 5-year SIP in an excellent fund. Even a simple Nifty 50 index fund SIP, held consistently for 15+ years, outperforms 80% of actively managed portfolios after costs and taxes.</p>
-
-      <div class="hl-box hlb-info">
-        <div class="hb-head">📌 How to Start SIP in India</div>
-        <p><strong>Step 1:</strong> Complete your online KYC onboarding using standard identity registration documents.<br>
-        <strong>Step 2:</strong> Create an account on any SEBI-registered digital investment portal.<br>
-        <strong>Step 3:</strong> Select an optimal diversified fund matching your risk baseline.<br>
-        <strong>Step 4:</strong> Set your recurring monthly value and align the automated billing date close to your salary credit day.<br>
-        <strong>Step 5:</strong> Authorize the auto-debit mandate and let the long-term wealth creation cycle run smoothly.</p>
-      </div>
-    </div>
-
-    <div class="seo-block">
-      <h2>⚡ Why Choose ToolsAI Pro SIP Calculator?</h2>
-      <p>While many computational panels exist online, ToolsAI Pro provides custom design configurations mapped to modern investment goals:</p>
-      <ul>
-        <li><strong>Step-up SIP support:</strong> Accurately maps salary progress by supporting variable annual step-up configurations.</li>
-        <li><strong>5 Goal Presets:</strong> Instant preset allocation setups optimized to process dynamic goals instantly.</li>
-        <li><strong>Year-wise Growth Table:</strong> Full transparency with structured annual breakdowns splitting capital inputs, interest earnings, and compounding totals.</li>
-        <li><strong>100% Privacy:</strong> No calculations ever communicate with servers. Everything runs strictly in your private local browser environment without login blocks.</li>
-        <li><strong>Mobile Optimized:</strong> Clean slider nodes calibrated for smooth screen interaction across responsive dimensions.</li>
-      </ul>
+<!-- TOOL -->
+<div class="tool-wrap">
+<div class="scard">
+  <div class="sh">
+    <div class="shi">📈</div>
+    <div>
+      <div class="sht">SIP Calculator</div>
+      <div class="shs">Monthly SIP · Expected Returns · Maturity Value · Year-wise Growth</div>
     </div>
   </div>
 
-  <!-- DYNAMIC COMPONENT LOADER: OTHER FREE TOOLS (Poora Auto) -->
-  <div class="oft-section">
-    <div class="oft-card-wrap">
-      <div class="oft-header">
-        <span style="font-size:22px;">🛠️</span>
-        <span class="oft-title-txt">Other Free Tools</span>
+  <!-- GOAL PRESETS -->
+  <span class="presets-label">⚡ Quick Goal Presets</span>
+  <div class="presets-row">
+    <button class="preset-btn" onclick="applyPreset(3000,12,5,'Emergency Fund')">🛡️ Emergency Fund</button>
+    <button class="preset-btn" onclick="applyPreset(5000,12,10,'Child Education')">🎓 Child Education</button>
+    <button class="preset-btn" onclick="applyPreset(10000,12,20,'Retirement')">🏖️ Retirement</button>
+    <button class="preset-btn" onclick="applyPreset(2000,15,7,'Dream Car')">🚗 Dream Car</button>
+    <button class="preset-btn" onclick="applyPreset(15000,12,15,'Home Down Payment')">🏠 Home Down</button>
+  </div>
+
+  <!-- INPUTS -->
+  <div class="inp-grid">
+    <div class="inp-group">
+      <label class="inp-label">Monthly SIP Amount <span class="inp-val" id="lbl-sip">₹5,000</span></label>
+      <div class="inp-wrap">
+        <input type="number" class="calc-inp" id="inp-sip" value="5000" min="100" max="1000000" oninput="syncSlider('sip');calcSIP()">
+        <span class="inp-suffix">₹</span>
       </div>
-      <p class="oft-sub">All free — no signup, no uploads, 100% private &amp; browser-based.</p>
-      
-      <!-- Automatic script data injection array node -->
-      <div class="oft-grid" id="oftGrid"></div>
-      
-      <div class="oft-footer"><a class="oft-va" href="/tools-hub.html">View All Free Tools &nbsp;→</a></div>
+      <input type="range" class="inp-range" id="sl-sip" min="100" max="200000" step="100" value="5000" oninput="syncInput('sip');calcSIP()">
+    </div>
+
+    <div class="inp-group">
+      <label class="inp-label">Expected Return (p.a.) <span class="inp-val" id="lbl-rate">12%</span></label>
+      <div class="inp-wrap">
+        <input type="number" class="calc-inp" id="inp-rate" value="12" min="1" max="40" step="0.5" oninput="syncSlider('rate');calcSIP()">
+        <span class="inp-suffix">%</span>
+      </div>
+      <input type="range" class="inp-range" id="sl-rate" min="1" max="40" step="0.5" value="12" oninput="syncInput('rate');calcSIP()">
+    </div>
+
+    <div class="inp-group">
+      <label class="inp-label">Time Period <span class="inp-val" id="lbl-years">10 Years</span></label>
+      <div class="inp-wrap">
+        <input type="number" class="calc-inp" id="inp-years" value="10" min="1" max="40" oninput="syncSlider('years');calcSIP()">
+        <span class="inp-suffix">Yrs</span>
+      </div>
+      <input type="range" class="inp-range" id="sl-years" min="1" max="40" step="1" value="10" oninput="syncInput('years');calcSIP()">
+    </div>
+
+    <!-- Step-up SIP (optional) -->
+    <div class="inp-group">
+      <label class="inp-label">Annual Step-up % <span class="inp-val" id="lbl-step">0%</span></label>
+      <div class="inp-wrap">
+        <input type="number" class="calc-inp" id="inp-step" value="0" min="0" max="50" step="1" placeholder="0" oninput="syncSlider('step');calcSIP()">
+        <span class="inp-suffix">%</span>
+      </div>
+      <input type="range" class="inp-range" id="sl-step" min="0" max="50" step="1" value="0" oninput="syncInput('step');calcSIP()">
     </div>
   </div>
 
-</div><!-- /page-container CLOSING MATRIX TARGET MATCHED -->
+  <button class="calc-btn" onclick="calcSIP()">📈 Calculate SIP Returns</button>
+
+  <!-- RESULTS -->
+  <div class="result-section" id="resultSection">
+
+    <div class="maturity-hero">
+      <div class="mh-label">Total Maturity Value</div>
+      <div class="mh-amount" id="res-maturity">₹0</div>
+      <div class="mh-note" id="res-note">after 10 years</div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="sb-icon">💰</div>
+        <div class="sb-val blue" id="res-invested">₹0</div>
+        <div class="sb-label">Invested</div>
+      </div>
+      <div class="stat-box">
+        <div class="sb-icon">📈</div>
+        <div class="sb-val green" id="res-gain">₹0</div>
+        <div class="sb-label">Est. Returns</div>
+      </div>
+      <div class="stat-box">
+        <div class="sb-icon">🎯</div>
+        <div class="sb-val orange" id="res-xirr">0x</div>
+        <div class="sb-label">Wealth Multiplier</div>
+      </div>
+    </div>
+
+    <!-- PIE -->
+    <div class="chart-wrap">
+      <div class="pie-container">
+        <canvas id="sipPie" width="140" height="140"></canvas>
+      </div>
+      <div class="chart-legend">
+        <div class="cl-title">Investment Breakdown</div>
+        <div class="cl-item">
+          <div class="cl-dot" style="background:#06b6d4;"></div>
+          <span class="cl-name">Amount Invested</span>
+          <div>
+            <div class="cl-pct" id="pct-invested">—</div>
+            <div class="cl-amt" id="amt-invested">—</div>
+          </div>
+        </div>
+        <div class="cl-item">
+          <div class="cl-dot" style="background:#10b981;"></div>
+          <span class="cl-name">Est. Returns</span>
+          <div>
+            <div class="cl-pct" id="pct-gain">—</div>
+            <div class="cl-amt" id="amt-gain">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YEAR GROWTH TABLE -->
+    <div class="growth-wrap">
+      <div class="growth-head">
+        <div class="growth-title">📋 Year-wise Growth Table</div>
+        <button class="growth-toggle" onclick="toggleGrowth()">Show Table ▾</button>
+      </div>
+      <div class="growth-table-wrap" id="growthTable">
+        <table class="growth">
+          <thead>
+            <tr>
+              <th style="text-align:left;">Year</th>
+              <th>Invested</th>
+              <th>Returns</th>
+              <th>Total Value</th>
+            </tr>
+          </thead>
+          <tbody id="growthBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <button class="reset-btn" onclick="resetCalc()">↺ Reset Calculator</button>
+  </div>
+</div>
+</div>
+
+<!-- SEO CONTENT -->
+<div class="seo-wrap">
+
+  <div class="seo-block">
+    <h2>📈 What is SIP and How Does It Work?</h2>
+    <p>SIP stands for <strong>Systematic Investment Plan</strong>. It is the most popular way Indians invest in mutual funds — by putting a fixed amount every month into a chosen fund, automatically on a set date. Think of it as an auto-debit: ₹5,000 leaves your account every 5th of the month and gets invested in the market.</p>
+    <p>What makes SIP so powerful is the combination of two financial forces: <strong>Rupee Cost Averaging</strong> and <strong>Compounding</strong>. Because you invest the same amount every month regardless of market conditions, you automatically buy more units when markets are down and fewer when they are up — averaging out your cost over time. And because your returns themselves start earning returns, the growth accelerates dramatically over long periods.</p>
+
+    <div class="hl-box hlb-info">
+      <div class="hb-head">💡 SIP Formula</div>
+      <p><strong>M = P × {[(1+i)ⁿ − 1] ÷ i} × (1+i)</strong><br><br>
+      M = Maturity value &nbsp;|&nbsp; P = Monthly SIP amount &nbsp;|&nbsp; i = Monthly interest rate (Annual Rate ÷ 12 ÷ 100) &nbsp;|&nbsp; n = Number of months (Years × 12)</p>
+    </div>
+
+    <h3>SIP Calculation Example</h3>
+    <p>For a <strong>₹5,000/month SIP at 12% annual return for 10 years:</strong></p>
+    <p>i = 12 ÷ 12 ÷ 100 = 0.01 &nbsp;|&nbsp; n = 10 × 12 = 120 months</p>
+    <p>M = 5000 × {[(1.01)¹²⁰ − 1] ÷ 0.01} × 1.01 = <strong style="color:var(--sip);">₹11,61,695</strong></p>
+    <p>Total invested = ₹6,00,000. Wealth gained = <strong>₹5,61,695</strong> — nearly equal to your entire investment, earned purely through compounding!</p>
+  </div>
+
+  <div class="seo-block">
+    <h2>📋 How to Use This SIP Calculator — Step by Step</h2>
+    <ol class="step-list">
+      <li><div class="sc"><strong>Enter Monthly SIP Amount</strong><span>Type the amount you want to invest every month, or drag the slider. Even ₹500/month is a great start. The tool supports any amount from ₹100 to ₹10 lakhs per month.</span></div></li>
+      <li><div class="sc"><strong>Set Expected Return Rate</strong><span>Enter the annual return you expect from your mutual fund. Large-cap equity funds have historically given 10–12%. Mid/small-cap funds have given 14–18%. Debt funds give 6–8%. Use 12% as a conservative baseline for equity funds.</span></div></li>
+      <li><div class="sc"><strong>Choose Investment Period</strong><span>Enter the number of years you plan to stay invested. SIP works best over long durations — the real wealth creation happens after year 7 onward. The calculator supports 1 to 40 years.</span></div></li>
+      <li><div class="sc"><strong>Add Annual Step-up (Optional)</strong><span>Step-up SIP means you increase your SIP amount by a fixed percentage every year. For example, a 10% step-up means your ₹5,000/month SIP becomes ₹5,500 in Year 2, ₹6,050 in Year 3, and so on. This dramatically increases your final maturity value.</span></div></li>
+      <li><div class="sc"><strong>Use Goal Presets</strong><span>Click any of the quick preset buttons (Emergency Fund, Child Education, Retirement, Dream Car, Home Down Payment) to instantly load optimised values for that specific financial goal.</span></div></li>
+      <li><div class="sc"><strong>View Year-wise Growth</strong><span>Click "Show Table" to see a year-by-year breakdown of your investment — invested amount cumulative, estimated returns and total portfolio value at the end of each year.</span></div></li>
+    </ol>
+    <div class="hl-box hlb-warn">
+      <div class="hb-head">⚠️ Disclaimer</div>
+      <p>SIP returns are market-linked and not guaranteed. Past performance of mutual funds does not guarantee future results. This calculator provides estimates based on the entered rate of return for planning purposes only. Please consult a SEBI-registered financial advisor before investing.</p>
+    </div>
+  </div>
+
+  <div class="seo-block">
+    <h2>💰 SIP Return Table — ₹5,000/Month at Various Returns</h2>
+    <table class="ex-table">
+      <tr><th>Duration</th><th>Invested</th><th>@ 10%</th><th>@ 12%</th><th>@ 15%</th></tr>
+      <tr><td>5 Years</td><td>₹3.00L</td><td class="hl">₹3.87L</td><td class="hl">₹4.08L</td><td class="gr">₹4.45L</td></tr>
+      <tr><td>10 Years</td><td>₹6.00L</td><td class="hl">₹10.33L</td><td class="hl">₹11.62L</td><td class="gr">₹13.93L</td></tr>
+      <tr><td>15 Years</td><td>₹9.00L</td><td class="hl">₹20.89L</td><td class="hl">₹25.23L</td><td class="gr">₹33.40L</td></tr>
+      <tr><td>20 Years</td><td>₹12.00L</td><td class="hl">₹38.28L</td><td class="hl">₹49.96L</td><td class="gr">₹75.79L</td></tr>
+      <tr><td>25 Years</td><td>₹15.00L</td><td class="hl">₹66.47L</td><td class="hl">₹94.88L</td><td class="gr">₹1.60Cr</td></tr>
+      <tr><td>30 Years</td><td>₹18.00L</td><td class="hl">₹1.13Cr</td><td class="hl">₹1.76Cr</td><td class="gr">₹3.50Cr</td></tr>
+    </table>
+
+    <div class="hl-box hlb-green">
+      <div class="hb-head">✅ The Power of Starting Early</div>
+      <p>₹5,000/month for 30 years at 12% = <strong>₹1.76 Crore</strong>. The same ₹5,000/month started 10 years later (only 20 years) gives <strong>₹49.96 Lakhs</strong>. Those 10 extra years of compounding create an additional <strong>₹1.26 Crore</strong> of wealth — from exactly the same monthly investment. <strong>Starting today, even with a small amount, is always better than waiting to start big.</strong></p>
+    </div>
+  </div>
+
+  <div class="seo-block">
+    <h2>❓ Frequently Asked Questions</h2>
+
+    <div class="faq-item open">
+      <div class="faq-q" onclick="toggleFaq(0)">
+        <span class="faq-q-text">How much will ₹5,000 SIP give after 10 years?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          At <strong>12% annual return</strong>: Total invested = ₹6,00,000. Maturity value = <strong>₹11,61,695</strong>. Wealth gained = ₹5,61,695.<br><br>
+          At <strong>15% return</strong>: Maturity = ₹13,93,000. At <strong>10% return</strong>: Maturity = ₹10,33,000.<br><br>
+          Use the calculator above and type 5000 as monthly SIP, 12 as rate and 10 as years. The result appears instantly with a full year-wise breakdown.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(1)">
+        <span class="faq-q-text">What is Step-up SIP and should I use it?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          A Step-up SIP (also called Top-up SIP) increases your monthly investment by a fixed percentage every year. As your salary grows, your SIP grows with it.<br><br>
+          Example: ₹5,000/month with 10% annual step-up over 20 years @ 12% return gives approximately <strong>₹1.05 Crore</strong> vs ₹49.96 Lakhs without step-up — more than double the wealth from the same starting SIP amount.<br><br>
+          You can enable step-up in our calculator by entering the desired annual increase percentage in the "Annual Step-up %" field.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(2)">
+        <span class="faq-q-text">What return rate should I assume for SIP calculations?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Standard assumptions used by Indian financial planners:<br><br>
+          <strong>Large-cap equity funds:</strong> 10–12% (conservative to moderate)<br>
+          <strong>Flexi/multi-cap funds:</strong> 12–14%<br>
+          <strong>Mid-cap equity funds:</strong> 13–16%<br>
+          <strong>Small-cap equity funds:</strong> 15–18% (aggressive, higher risk)<br>
+          <strong>Debt/Liquid funds:</strong> 6–8%<br>
+          <strong>Hybrid/Balanced funds:</strong> 9–11%<br><br>
+          For long-term goals (10+ years), <strong>12% is a widely used conservative estimate</strong> for diversified equity funds. For planning purposes, always use a rate slightly below what you expect as a safety margin.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(3)">
+        <span class="faq-q-text">Is SIP better than FD (Fixed Deposit)?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          For <strong>short-term goals (less than 3 years)</strong>: FD is safer and more predictable. SIP returns are market-linked and can be negative in the short term.<br><br>
+          For <strong>long-term goals (5+ years)</strong>: Equity SIP has historically delivered significantly higher returns (10–15%) compared to FD rates (6–7.5%). Additionally, SIP returns benefit from compounding, while FD interest is taxable as income.<br><br>
+          After 3 years, equity mutual fund SIP gains are taxed at 10% LTCG (above ₹1 lakh), which is lower than your income tax slab applicable to FD interest. <strong>For building long-term wealth, SIP in diversified equity funds is generally more effective than FD.</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(4)">
+        <span class="faq-q-text">Is this SIP calculator free and accurate?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Yes, completely free with no signup, no limits and no watermarks. The calculator uses the standard SIP compounding formula recognised by AMFI (Association of Mutual Funds in India) and used by all major fund houses.<br><br>
+          <strong>Note:</strong> Results are estimates based on the entered constant rate of return. Actual mutual fund returns vary year to year based on market performance. This tool is for planning and goal-setting purposes — always verify with your fund's actual NAV history before making investment decisions.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <div class="seo-block">
+    <h2>📊 SIP vs Lump Sum — Which is Better?</h2>
+    <p>Many investors are confused about whether to invest via SIP or put a large amount in all at once. Both approaches have their own advantages and limitations, and the right choice depends entirely on your specific financial situation.</p>
+
+    <h3>Advantages of SIP</h3>
+    <p><strong>Rupee Cost Averaging</strong> is SIP's greatest advantage. When markets fall, your ₹5,000 buys more units. When markets rise, it buys fewer units. This automatically optimises your average purchase cost without requiring any market timing. This is why long-term SIP investors consistently outperform those who try to time the market perfectly.</p>
+    <p>The second major advantage is <strong>financial discipline</strong>. Once a SIP is set up, investments happen automatically every month. There is no need to manually invest each month — and more importantly, no temptation to delay with thoughts like "I'll invest when the market falls a bit more." This psychological advantage is enormously powerful for long-term wealth creation.</p>
+
+    <h3>Advantages of Lump Sum</h3>
+    <p>If you have a large amount available and the market is significantly down, a lump sum investment can be more effective. Historical data shows that markets always recover from lower levels — so investing a lump sum after a major correction can generate higher returns than a staggered SIP approach.</p>
+    <p>The problem, however, is that nobody can consistently predict market bottoms — not even professional fund managers. This is why most financial advisors recommend using an <strong>STP (Systematic Transfer Plan) even for large amounts</strong> — park the lump sum in a liquid fund first, then transfer monthly into an equity fund to get SIP-like averaging benefits.</p>
+
+    <table class="ex-table">
+      <tr><th>Factor</th><th>SIP</th><th>Lump Sum</th></tr>
+      <tr><td>Market Timing Risk</td><td class="gr">✅ Eliminated</td><td>❌ High risk</td></tr>
+      <tr><td>Discipline Required</td><td class="gr">✅ Auto-debit</td><td>⚠️ Manual</td></tr>
+      <tr><td>Best for</td><td class="gr">Monthly salary investors</td><td>Bonus/windfall</td></tr>
+      <tr><td>Minimum Amount</td><td class="gr">₹100/month</td><td>₹1,000+</td></tr>
+      <tr><td>Rupee Cost Averaging</td><td class="gr">✅ Yes</td><td>❌ No</td></tr>
+      <tr><td>Psychological Ease</td><td class="gr">✅ Set & forget</td><td>⚠️ Requires timing</td></tr>
+    </table>
+  </div>
+
+  <div class="seo-block">
+    <h2>🏆 Best SIP Strategies for Different Goals</h2>
+
+    <h3>🎓 Child Education — 15+ Years Away</h3>
+    <p>Education costs in India double every 8–10 years due to education-specific inflation. An engineering college costing ₹5 lakh per year today could cost ₹15–20 lakh per year in 15 years. To beat this education inflation, you need an <strong>aggressive growth strategy</strong> that outpaces the rising costs.</p>
+    <ul>
+      <li><strong>Recommended SIP:</strong> ₹5,000–₹15,000/month depending on target corpus</li>
+      <li><strong>Fund type:</strong> Diversified equity / Mid-cap for first 10 years, then gradually shift to hybrid</li>
+      <li><strong>Target return assumption:</strong> 12–14%</li>
+      <li><strong>Pro tip:</strong> Start step-up SIP with 10% annual increase to match salary growth</li>
+    </ul>
+
+    <h3>🏖️ Retirement Corpus — 20–30 Years Away</h3>
+    <p>Retirement planning mein compounding ka jadoo sabse zyada dikhta hai. Jo 25 saal ki umar mein ₹3,000/month SIP shuru karta hai, woh 60 ki umar tak 35 years mein approximately <strong>₹3.5 Crore</strong> (at 12%) bana sakta hai — sirf ₹12.6 lakh ki total investment se!</p>
+    <ul>
+      <li><strong>Recommended SIP:</strong> Monthly income ka minimum 15–20%</li>
+      <li><strong>Fund type:</strong> Index fund + mid-cap combination</li>
+      <li><strong>Target return:</strong> 11–13% for diversified portfolio</li>
+      <li><strong>Pro tip:</strong> Increase SIP amount with every salary hike — step-up SIP of 10–15% per year</li>
+    </ul>
+
+    <h3>🏠 Home Down Payment — 5–7 Years</h3>
+    <p>For a medium-term goal of 5–7 years, investing entirely in pure equity SIP is slightly risky because markets can be significantly down exactly when you need the money. A balanced, diversified approach is more prudent for this timeline.</p>
+    <ul>
+      <li><strong>Recommended:</strong> 60% equity SIP + 40% debt fund SIP</li>
+      <li><strong>Target return:</strong> 9–11% blended</li>
+      <li><strong>Exit strategy:</strong> Goal ke 1–2 saal pehle gradually shift to debt to protect gains</li>
+    </ul>
+
+    <div class="hl-box hlb-green">
+      <div class="hb-head">✅ Golden Rule of SIP</div>
+      <p><strong>"Time in market beats timing the market."</strong> SIP mein sabse important decision yeh nahi hai ki kaunsa fund choose karein — sabse important yeh hai ki <strong>aaj shuru karein</strong> aur market ups-downs ke bawajood continue rakhein. Jo log 2020 COVID crash mein SIP band karte hain, woh 2021–2022 ki recovery miss kar dete hain.</p>
+    </div>
+  </div>
+
+  <div class="seo-block">
+    <h2>💡 Common SIP Myths — Busted!</h2>
+
+    <h3>Myth 1: "SIP is only for small investors"</h3>
+    <p>Fact: SIP minimum ₹100/month se shuru ho sakta hai, lekin koi maximum limit nahi hai. HNI (High Net Worth Individuals) bhi ₹1 lakh, ₹5 lakh, ya ₹50 lakh per month SIP karte hain. SIP ek investment method hai, not an investment size category.</p>
+
+    <h3>Myth 2: "Market upar hai toh SIP band kar dena chahiye"</h3>
+    <p><strong>Fact:</strong> Trying to time SIP entry destroys the core benefit of rupee cost averaging. If you only invest when markets are down, you are not smarter than the average investor — you are simply lucky or unlucky. Consistent SIP investors have historically outperformed investors who try to time the market by pausing and resuming investments based on market levels.</p>
+
+    <h3>Myth 3: "1–2 saal ki SIP se bada return milega"</h3>
+    <p><strong>Fact:</strong> In the short term (1–3 years), SIP returns are volatile — you can even see negative returns if markets correct during that period. The real power of SIP becomes visible <strong>only after 7+ years</strong> when the compounding effect begins to dramatically accelerate. For a 2-year goal, debt funds or liquid funds are a far better choice than equity SIP.</p>
+
+    <h3>Myth 4: "Choosing the right fund is the most important decision"</h3>
+    <p><strong>Fact:</strong> Fund selection matters, but consistency and investment tenure matter far more. A 20-year regular SIP in an average fund produces significantly better wealth than a 5-year SIP in an excellent fund. Even a simple Nifty 50 index fund SIP, held consistently for 15+ years, outperforms 80% of actively managed portfolios after costs and taxes.</p>
+
+    <div class="hl-box hlb-info">
+      <div class="hb-head">📌 How to Start SIP in India</div>
+      <p><strong>Step 1:</strong> KYC complete karein (Aadhaar + PAN + bank details — 10 minutes online)<br>
+      <strong>Step 2:</strong> Kisi bhi SEBI-registered platform pe account banayein (Groww, Zerodha Coin, Kuvera, Paytm Money, etc.)<br>
+      <strong>Step 3:</strong> Fund select karein (beginners ke liye: Nifty 50 Index Fund recommend kiya jaata hai)<br>
+      <strong>Step 4:</strong> Monthly SIP amount set karein aur date choose karein (salary credit ke 2–3 din baad)<br>
+      <strong>Step 5:</strong> Auto-debit mandate set up karein — aur phir market ko time dein!</p>
+    </div>
+  </div>
+
+  <div class="seo-block">
+    <h2>⚡ Why Choose ToolsAI Pro SIP Calculator?</h2>
+    <p>Online bahut saare SIP calculators available hain, lekin ToolsAI Pro ka calculator kuch important ways mein different hai:</p>
+    <ul>
+      <li><strong>Step-up SIP support:</strong> Most basic calculators sirf flat SIP calculate karte hain. Hamara calculator annual step-up percentage support karta hai, jo real-world investing ko accurately model karta hai.</li>
+      <li><strong>5 Goal Presets:</strong> Emergency Fund se retirement tak — preset buttons instantly load optimised values for each goal, saving you time.</li>
+      <li><strong>Year-wise Growth Table:</strong> Har saal ka breakup dikhata hai — kitna invest kiya, kitna return mila, total portfolio value kya hai. Yeh clarity helps you understand exactly when major milestones will be hit.</li>
+      <li><strong>100% Privacy:</strong> No data ever leaves your device. All calculations run entirely in your browser. No signup required, no ads interrupting your results.</li>
+      <li><strong>Mobile Optimized:</strong> Sliders aur inputs phone pe perfectly kaam karte hain. Results clearly readable hain on any screen size.</li>
+    </ul>
+    <p>Hum regularly naye tools add karte rehte hain. Hamare <a href="/tools-hub.html">Tools Hub</a> pe 20+ free tools available hain — EMI Calculator, GST Calculator, Percentage Calculator, BMI Calculator aur bahut kuch — sab free, sab browser-based, sab private.</p>
+  </div>
+
+<!-- OTHER TOOLS -->
+<div class="oft-section">
+  <div class="oft-card-wrap">
+    <div class="oft-header"><span style="font-size:22px;">🛠️</span><span class="oft-title-txt">Other Free Tools</span></div>
+    <p class="oft-sub" id="oftSub">All tools — no signup, no uploads, 100% private &amp; browser-based.</p>
+    <div class="oft-grid" id="oftGrid">
+    </div>
+    <div class="oft-footer"><a class="oft-va" href="/tools-hub.html">View All Free Tools &nbsp;→</a></div>
+  </div>
+</div>
 
 <footer>
   <strong>ToolsAI Pro</strong> — Free Online Tools | No Signup | 100% Browser Based<br>
@@ -699,6 +788,7 @@ function calcSIP(){
   var gain=totalValue-totalInvested;
   var multiplier=(totalValue/totalInvested).toFixed(2);
 
+  /* Update UI */
   document.getElementById("res-maturity").textContent=fmtCur(totalValue);
   document.getElementById("res-note").textContent="after "+years+" year"+(years!==1?"s":"")+(stepPct>0?" (with "+stepPct+"% step-up)":"");
   document.getElementById("res-invested").textContent=fmtCur(totalInvested);
@@ -715,6 +805,7 @@ function calcSIP(){
   drawPie(totalInvested,gain);
   buildGrowthTable(yearData);
   document.getElementById("resultSection").classList.add("show");
+  showToast("✅ Maturity = "+fmtCur(totalValue));
 }
 
 /* ══ PIE ══ */
@@ -768,6 +859,7 @@ function applyPreset(sip,rate,years,name){
   document.getElementById("sl-step").value=0;
   updateLabels();
   calcSIP();
+  showToast("✅ "+name+" preset loaded!");
 }
 
 /* ══ RESET ══ */
@@ -783,16 +875,42 @@ function resetCalc(){
   document.getElementById("sl-step").value=0;
   document.querySelectorAll(".preset-btn").forEach(function(b){b.classList.remove("active");});
   updateLabels();
+  showToast("Calculator reset!");
 }
 
-/* FAQ ACCORDION TRIGGER */
+/* ══ FAQ ══ */
 function toggleFaq(idx){
   var items=document.querySelectorAll(".faq-item");
   var item=items[idx];
   var isOpen=item.classList.contains("open");
   items.forEach(function(el){el.classList.remove("open");});
-  if(!isOpen) item.classList.add("open");
+  if(!isOpen)item.classList.add("open");
 }
+
+/* ══ TOAST ══ */
+function showToast(msg){
+  var t=document.getElementById("toast");
+  t.textContent=msg;t.classList.add("show");
+  clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove("show");},2500);
+}
+
+/* ══ AUTO NAV ══ */
+(function(){
+  var path=window.location.pathname.split('/').pop()||'index.html';
+  var toolPages=['sip-calculator.html','emi-calculator.html','percentage-calculator.html',
+    'gst-calculator.html','bmi-calculator.html','age-calculator.html','pdf-merger.html',
+    'pdf-unlocker.html','image-compressor.html','qr-generator.html','password-generator.html'];
+  document.querySelectorAll('.nl').forEach(function(a){
+    a.classList.remove('act');
+    var h=(a.getAttribute('href')||'').replace(/^\//,'');
+    if(toolPages.indexOf(path)!==-1){if(h==='tools-hub.html')a.classList.add('act');}
+    else{if(h===path||(path===''&&h==='index.html'))a.classList.add('act');}
+  });
+})();
+
+/* Init */
+updateLabels();
+calcSIP();
 </script>
 <script src="tools-data.js"></script>
 <script src="script.js"></script>
