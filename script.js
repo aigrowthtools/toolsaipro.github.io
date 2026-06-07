@@ -121,7 +121,7 @@
     style.id = "navbar-auto-css";
     style.textContent = [
       "/* Navbar Auto CSS */",
-      "#mainNav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-filter:blur(24px);border-bottom:1px solid #2a2a3a;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:64px;}",
+      "#mainNav{position:sticky;top:0;z-index:200;background:rgba(13,13,20,0.97);backdrop-filter:blur(24px);border-bottom:1px solid #2a2a3a;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:64px;box-sizing:border-box;}",
       "#mainNav .logo{font-size:19px;font-weight:800;color:#fff;text-decoration:none;flex-shrink:0;}",
       "#mainNav .logo span{color:#6c63ff;}",
       "#mainNav .logo em{color:#ff6584;font-style:normal;}",
@@ -183,7 +183,7 @@
     });
     document.addEventListener("click", function (e) {
       if (!guidesDd.contains(e.target)) {
-        guidesDd.remove("open");
+        guidesDd.classList.remove("open");
       }
     });
   }
@@ -200,7 +200,7 @@
 })();
 
 /* ═══════════════════════════════════════
-   TOOLS AUTO-LOADER (Footer & Grids with Symmetrical Fix)
+   TOOLS AUTO-LOADER (Master Core Matrix Processing Module)
 ═══════════════════════════════════════ */
 (function () {
   "use strict";
@@ -242,8 +242,9 @@
   }
 
   function injectCards() {
-    if (typeof ACTIVE_TOOLS === "undefined") return;
-    var tools = ACTIVE_TOOLS;
+    if (typeof TOOLS_DATA === "undefined") return;
+    var tools = TOOLS_DATA.filter(function(t){ return t.status === "active"; });
+    
     if (PAGE === "home") {
       var grid = document.getElementById("toolsGrid");
       if (grid) grid.innerHTML = tools.map(homeCard).join("");
@@ -261,18 +262,16 @@
       if (!oftGrid) return;
       var current = window.location.pathname;
       var others = tools.filter(function (t) { return t.link !== current && !current.endsWith(t.link.replace("/", "")); });
-      
-      // Injecting clean card grid seamlessly
       oftGrid.innerHTML = others.map(oftCard).join("");
     }
   }
 
   function injectFooter() {
-    if (typeof ACTIVE_TOOLS === "undefined") return;
+    if (typeof TOOLS_DATA === "undefined") return;
+    var tools = TOOLS_DATA.filter(function(t){ return t.status === "active"; });
     var col1 = document.getElementById("footerCol1");
     var col2 = document.getElementById("footerCol2");
     if (!col1 && !col2) return;
-    var tools = ACTIVE_TOOLS;
     var half = Math.ceil(tools.length / 2);
     var left = tools.slice(0, half);
     var right = tools.slice(half);
@@ -284,6 +283,24 @@
   function init() {
     injectCards();
     injectFooter();
+    
+    // Inject dynamic master layouts CSS directly onto document mapping variables
+    if (!document.getElementById("master-hub-css-injection")) {
+      var style = document.createElement("style");
+      style.id = "master-hub-css-injection";
+      style.textContent = [
+        ".use-tool-btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 12px; border-radius: 12px; font-size: 14px; font-weight: 700; text-decoration: none; color: #fff; transition: all 0.25s ease; margin-top: auto; border: none; cursor: pointer; box-sizing: border-box; }",
+        ".btn-pdf { background: linear-gradient(135deg, #ff6584, #c0245e); } .btn-pdf:hover { box-shadow: 0 6px 20px rgba(255, 101, 132, 0.35); transform: translateY(-2px); }",
+        ".btn-img { background: linear-gradient(135deg, #06b6d4, #0891b2); } .btn-img:hover { box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35); transform: translateY(-2px); }",
+        ".btn-calc { background: linear-gradient(135deg, #10b981, #059669); } .btn-calc:hover { box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35); transform: translateY(-2px); }",
+        ".btn-tool { background: linear-gradient(135deg, #6c63ff, #4f46e5); } .btn-tool:hover { box-shadow: 0 6px 20px rgba(108, 99, 255, 0.35); transform: translateY(-2px); }",
+        ".btn-hlth { background: linear-gradient(135deg, #f7971e, #d97706); } .btn-hlth:hover { box-shadow: 0 6px 20px rgba(247, 151, 30, 0.35); transform: translateY(-2px); }",
+        ".btn-ai { background: linear-gradient(135deg, #a78bfa, #7c3aed); } .btn-ai:hover { box-shadow: 0 6px 20px rgba(167, 139, 250, 0.35); transform: translateY(-2px); }",
+        ".btn-yt { background: linear-gradient(135deg, #ff0000, #cc0000); } .btn-yt:hover { box-shadow: 0 6px 20px rgba(255, 0, 0, 0.35); transform: translateY(-2px); }",
+        ".tool-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }"
+      ].join("\n");
+      document.head.appendChild(style);
+    }
   }
 
   if (document.readyState === "loading") {
