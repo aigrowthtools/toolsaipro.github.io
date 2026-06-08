@@ -136,17 +136,29 @@
     .oft-tool-card.tool::before { background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.12), transparent 70%); }
     .oft-tool-card.calc:hover { border-color: rgba(67,233,123,0.5); box-shadow: 0 8px 24px rgba(67,233,123,0.15); }
     .oft-tool-card.calc::before { background: radial-gradient(ellipse at 50% 0%, rgba(67,233,123,0.12), transparent 70%); }
+    .oft-tool-card.hlth:hover { border-color: rgba(247,151,30,0.5); box-shadow: 0 8px 24px rgba(247,151,30,0.15); }
+    .oft-tool-card.hlth::before { background: radial-gradient(ellipse at 50% 0%, rgba(247,151,30,0.12), transparent 70%); }
+    .oft-tool-card.ai:hover { border-color: rgba(167,139,250,0.5); box-shadow: 0 8px 24px rgba(167,139,250,0.15); }
+    .oft-tool-card.ai::before { background: radial-gradient(ellipse at 50% 0%, rgba(167,139,250,0.12), transparent 70%); }
+    .oft-tool-card.yt:hover { border-color: rgba(255,0,0,0.5); box-shadow: 0 8px 24px rgba(255,0,0,0.15); }
+    .oft-tool-card.yt::before { background: radial-gradient(ellipse at 50% 0%, rgba(255,0,0,0.12), transparent 70%); }
     .oft-icon-wrap { width: 40px; height: 40px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.25s; }
     .oft-tool-card:hover .oft-icon-wrap { transform: scale(1.1); }
+    .oft-icon-wrap svg { width: 20px; height: 20px; flex-shrink: 0; }
     .oft-icon-wrap.c-pdf  { background: rgba(255,101,132,0.14); border: 1px solid rgba(255,101,132,0.25); }
     .oft-icon-wrap.c-img  { background: rgba(6,182,212,0.14);   border: 1px solid rgba(6,182,212,0.25); }
     .oft-icon-wrap.c-tool { background: rgba(108,99,255,0.14);  border: 1px solid rgba(108,99,255,0.25); }
     .oft-icon-wrap.c-calc { background: rgba(67,233,123,0.14);  border: 1px solid rgba(67,233,123,0.25); }
+    .oft-icon-wrap.c-hlth { background: rgba(247,151,30,0.14);  border: 1px solid rgba(247,151,30,0.25); }
+    .oft-icon-wrap.c-ai   { background: rgba(167,139,250,0.14); border: 1px solid rgba(167,139,250,0.25); }
+    .oft-icon-wrap.c-yt   { background: rgba(255,0,0,0.14);     border: 1px solid rgba(255,0,0,0.25); }
     .oft-tool-name { font-size: 10.5px; font-weight: 700; color: #c4c4d4; text-align: center; line-height: 1.4; transition: color 0.2s; word-break: break-word; }
     .oft-tool-card:hover .oft-tool-name { color: #fff; }
     .oft-badge { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 2px 7px; border-radius: 20px; }
     .oft-badge.free { background: rgba(67,233,123,0.12);  color: #43e97b; border: 1px solid rgba(67,233,123,0.22); }
     .oft-badge.new  { background: rgba(247,151,30,0.12);  color: #f7971e; border: 1px solid rgba(247,151,30,0.22); }
+    .oft-badge.pro  { background: rgba(108,99,255,0.12);  color: #8b83ff; border: 1px solid rgba(108,99,255,0.22); }
+    .oft-badge.ai   { background: rgba(167,139,250,0.12); color: #a78bfa; border: 1px solid rgba(167,139,250,0.22); }
     .oft-footer { text-align: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
     .oft-view-all { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #06b6d4; text-decoration: none; transition: gap 0.2s, color 0.2s; }
     .oft-view-all:hover { color: #fff; gap: 10px; }
@@ -238,9 +250,9 @@
 
 <div class="seo-wrap">
 
-  <div style="background:rgba(247,151,30,0.07);border:1px solid rgba(247,151,30,0.25);border-radius:12px;padding:16px 18px;margin-bottom:16px;">
-    <p style="color:#f7971e;font-size:13px;margin:0;line-height:1.7;font-weight:600;">
-      ⚠️ <strong>Note on Aadhaar Cards & High-Security PDFs:</strong> While standard bank statements and forms unlock instantly, some highly encrypted files (such as Indian Aadhaar Cards) utilize customized signature verifications. Our stateless server framework priorities zero persistent logs, ensuring full compliance with premium cryptographic standards.
+  <div style="background:rgba(67,233,123,0.06);border:1px solid rgba(67,233,123,0.25);border-radius:12px;padding:16px 18px;margin-bottom:16px;">
+    <p style="color:var(--a3);font-size:13px;margin:0;line-height:1.7;font-weight:600;">
+      📌 <strong>Note on Aadhaar Cards & High-Security PDFs:</strong> Good news! Our system is fully upgraded with advanced serverless cryptographic engines. High-security documents like Indian Aadhaar Cards, digital certificates, and encrypted bank statements now unlock instantly. Since our Vercel architecture is completely stateless, your sensitive files are processed via a secure SSL tunnel and immediately destroyed from the execution memory the exact millisecond your download finishes. We maintain a strict zero-log policy for your ultimate privacy.
     </p>
   </div>
 
@@ -435,7 +447,7 @@
             body: JSON.stringify({
                 file: pdfFileBase64,
                 password: pwd
-            }
+            })
         });
 
         pdfFill.style.width = "75%";
