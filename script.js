@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════
-   NAVBAR AUTO-LOADER v5.5 (Strict Asli Files Mapping - 100% Fixed)
-   Works on ALL system pages dynamically — No more 404 errors.
+   NAVBAR AUTO-LOADER v5.6 (Symmetric 5+5 Layout - Fully Responsive)
+   Works on ALL system pages dynamically — Mobile Squeezing Fixed.
 ═══════════════════════════════════════ */
 (function injectNavbar() {
 
@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (Perfect 5+5 Balanced Layout with Real Files Only) ── */
+  /* ── Build Navbar HTML (Perfect 5+5 Balanced Layout mapped directly to Root Files) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
@@ -301,7 +301,15 @@
         ".btn-hlth { background: linear-gradient(135deg, #f7971e, #d97706); } .btn-hlth:hover { box-shadow: 0 6px 20px rgba(247, 151, 30, 0.35); transform: translateY(-2px); }",
         ".btn-ai { background: linear-gradient(135deg, #a78bfa, #7c3aed); } .btn-ai:hover { box-shadow: 0 6px 20px rgba(167, 139, 250, 0.35); transform: translateY(-2px); }",
         ".btn-yt { background: linear-gradient(135deg, #ff0000, #cc0000); } .btn-yt:hover { box-shadow: 0 6px 20px rgba(255, 0, 0, 0.35); transform: translateY(-2px); }",
-        ".tool-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }"
+        ".tool-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }",
+        "/* 📱 RESPONSIVE FIXED MEDIA QUERY ENGINE FOR BOTTOM GRID */",
+        "@media (max-width: 680px) {",
+        "  .oft-grid { grid-template-columns: 1fr !important; gap: 14px !important; }",
+        "  .oft-tool-card { flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; padding: 14px 16px !important; text-align: left !important; gap: 16px !important; }",
+        "  .oft-icon-wrap { margin: 0 !important; width: 48px !important; height: 48px !important; }",
+        "  .oft-tool-name { text-align: left !important; font-size: 14px !important; font-weight: 700 !important; flex: 1; }",
+        "  .oft-badge { margin-left: auto !important; padding: 3px 10px !important; font-size: 10px !important; }",
+        "}"
       ].join("\n");
       document.head.appendChild(style);
     }
