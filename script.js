@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   NAVBAR AUTO-LOADER v2.6 (Fixed 5+5 404 Links)
+   NAVBAR AUTO-LOADER v2.7 (Fixed 404 Path Alignment)
    Works on ALL system pages dynamically.
 ═══════════════════════════════════════ */
 (function injectNavbar() {
@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (Perfect 5+5 Symmetric Layout - 404 Fixed) ── */
+  /* ── Build Navbar HTML (Perfect 5+5 Balanced Matrix - No 404 Glitches) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
@@ -35,7 +35,7 @@
     '        </div>',
     '        <div class="menu-col">',
     '          <div class="menu-label">📚 Expert Guides</div>',
-    '          <a class="dm-item" href="/blog/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
+    '          <a class="dm-item" href="/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
     '          <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
     '          <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
     '          <a class="dm-item" href="/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
@@ -75,7 +75,7 @@
     '  <div class="mobile-accordion">',
     '    <div class="accordion-header" onclick="toggleAcc(this)">📚 EXPERT GUIDES <span class="acc-arrow">▼</span></div>',
     '    <div class="accordion-content">',
-    '      <a class="dm-item" href="/blog/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
+    '      <a class="dm-item" href="/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
     '      <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
     '      <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
     '      <a class="dm-item" href="/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
