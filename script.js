@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   NAVBAR AUTO-LOADER v2.5 (5+5 Symmetric Mega Menu)
+   NAVBAR AUTO-LOADER v2.6 (Fixed 5+5 404 Links)
    Works on ALL system pages dynamically.
 ═══════════════════════════════════════ */
 (function injectNavbar() {
@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (Perfect 5+5 Symmetric Layout) ── */
+  /* ── Build Navbar HTML (Perfect 5+5 Symmetric Layout - 404 Fixed) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
@@ -36,9 +36,9 @@
     '        <div class="menu-col">',
     '          <div class="menu-label">📚 Expert Guides</div>',
     '          <a class="dm-item" href="/blog/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
-    '          <a class="dm-item" href="/blog/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
-    '          <a class="dm-item" href="/blog/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '          <a class="dm-item" href="/blog/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
+    '          <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
+    '          <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
+    '          <a class="dm-item" href="/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
     '          <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
     '          <div class="dm-divider"></div>',
     '          <a class="dm-all" href="/tools-hub.html">View All Tools &nbsp;&#8594;</a>',
@@ -76,9 +76,9 @@
     '    <div class="accordion-header" onclick="toggleAcc(this)">📚 EXPERT GUIDES <span class="acc-arrow">▼</span></div>',
     '    <div class="accordion-content">',
     '      <a class="dm-item" href="/blog/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
-    '      <a class="dm-item" href="/blog/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
-    '      <a class="dm-item" href="/blog/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '      <a class="dm-item" href="/blog/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
+    '      <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
+    '      <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
+    '      <a class="dm-item" href="/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
     '      <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
     '    </div>',
     '  </div>',
@@ -152,7 +152,7 @@
       "#mainNav .hamburger.open span:nth-child(2){opacity:0;}",
       "#mainNav .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}",
       " ",
-      "/* Mobile Accordion Elements */",
+      "/* Mobile Menu & Accordion CSS */",
       "#mobileMenu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(13,13,20,0.98);backdrop-filter:blur(20px);border-bottom:1px solid #2a2a3a;padding:16px 20px 20px;z-index:199;flex-direction:column;gap:8px;max-height:calc(100vh - 64px);overflow-y:auto;}",
       "#mobileMenu.open{display:flex;}",
       "#mobileMenu .nl{padding:12px 16px;border-radius:10px;font-size:14px;font-weight:600;border:1px solid #2a2a3a;color:#e8e8f0;text-decoration:none;transition:all 0.2s;}",
@@ -234,7 +234,6 @@
     return '<div class="tool-card ' + tool.cat + '" data-cat="' + tool.cat + '" data-name="' + tool.title.toLowerCase() + ' ' + tool.desc.toLowerCase() + '"><div class="card-top"><div class="card-icon ic-' + tool.cat + '">' + tool.emoji + '</div><div class="card-meta"><div class="card-category" style="color:' + tool.color + ';">' + catLabel(tool.cat) + '</div><div class="card-name">' + tool.title + '</div></div><span class="card-badge badge-' + tool.badge + '">' + tool.badge.toUpperCase() + '</span></div><p class="card-desc">' + tool.descLong + '</p><a class="use-tool-btn ' + btnClass + '" href="' + tool.link + '">⚡ Use Tool &nbsp;→</a></div>';
   }
 
-  /* ── 🚀 Professional Automation Smart Filter Card (Handles 100+ Blogs Safely) ── */
   function oftCard(tool) {
     var defaultIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
     var rawIcon = tool.icon || defaultIcon;
@@ -263,14 +262,11 @@
       if (!oftGrid) return;
       var current = window.location.pathname;
       
-      /* 🎯 SMART ALGORITHM: Kisi bhi page par neeche maximum 3 ya 6 related cards hi dikhenge */
       var filtered = tools.filter(function (t) { 
         return t.link !== current && !current.endsWith(t.link.replace("/", "")); 
       });
 
-      // Agar data bohot zyada hai, toh hum layout ko maintain karne ke liye maximum 6 cards slice kar dete hain
       var finalSelection = filtered.slice(0, 6); 
-      
       oftGrid.innerHTML = finalSelection.map(oftCard).join("");
     }
   }
