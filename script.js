@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════
-   NAVBAR AUTO-LOADER v3.0 (Professional 5+5 Symmetric Menu)
-   Works on ALL pages automatically without 404 errors.
+   NAVBAR AUTO-LOADER v3.5 (Perfect 5+5 Balanced Layout)
+   Works on ALL system pages dynamically — 404 Glitches Fixed.
 ═══════════════════════════════════════ */
 (function injectNavbar() {
 
@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (Perfect Balanced 5+5 Grid Matrix) ── */
+  /* ── Build Navbar HTML (Perfect 5+5 Symmetric Layout) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
@@ -201,7 +201,7 @@
 
 })();
 
-/* ── TOOLS AUTO-LOADER CORE MODULE (Advanced Filter & Slicing) ── */
+/* ── TOOLS AUTO-LOADER CORE MODULE (Smart Slicing Core Engine) ── */
 (function () {
   "use strict";
   function detectPage() {
@@ -229,6 +229,7 @@
     return labels[cat] || "Tool";
   }
 
+  /* ── 🚀 Dynamic Layout Cards Sizer ── */
   function hubCard(tool) {
     var btnClass = "btn-" + (tool.cat === "pdf" ? "pdf" : tool.cat === "img" ? "img" : tool.cat === "tool" ? "tool" : tool.cat === "calc" ? "calc" : tool.cat === "hlth" ? "hlth" : tool.cat === "yt" ? "yt" : "ai");
     return '<div class="tool-card ' + tool.cat + '" data-cat="' + tool.cat + '" data-name="' + tool.title.toLowerCase() + ' ' + tool.desc.toLowerCase() + '"><div class="card-top"><div class="card-icon ic-' + tool.cat + '">' + tool.emoji + '</div><div class="card-meta"><div class="card-category" style="color:' + tool.color + ';">' + catLabel(tool.cat) + '</div><div class="card-name">' + tool.title + '</div></div><span class="card-badge badge-' + tool.badge + '">' + tool.badge.toUpperCase() + '</span></div><p class="card-desc">' + tool.descLong + '</p><a class="use-tool-btn ' + btnClass + '" href="' + tool.link + '">⚡ Use Tool &nbsp;→</a></div>';
@@ -262,11 +263,11 @@
       if (!oftGrid) return;
       var current = window.location.pathname;
       
-      /* 🎯 SMART SLICING ALGORITHM: Baki saare system blocks ke niche maximum 6 safe elements dikhenge */
       var filtered = tools.filter(function (t) { 
         return t.link !== current && !current.endsWith(t.link.replace("/", "")); 
       });
 
+      /* 🎯 6 elements slice logic ensures layout symmetry */
       var finalSelection = filtered.slice(0, 6); 
       oftGrid.innerHTML = finalSelection.map(oftCard).join("");
     }
