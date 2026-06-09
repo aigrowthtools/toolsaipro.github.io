@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (Perfect 5+5 Balanced Layout based on your GitHub files) ── */
+  /* ── Build Navbar HTML (Perfect Balanced Layout with ID Card Additions) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
@@ -27,18 +27,18 @@
     '      <div class="dropdown-menu mega-menu">',
     '        <div class="menu-col">',
     '          <div class="menu-label">🛠️ Popular Tools</div>',
+    '          <a class="dm-item" href="/id-card-merger.html"><span class="dm-icon">🪪</span>ID Card Merger</a>',
     '          <a class="dm-item" href="/pdf-merger.html"><span class="dm-icon">📄</span>Merge PDF</a>',
     '          <a class="dm-item" href="/pdf-compressor.html"><span class="dm-icon">🗜️</span>Compress PDF</a>',
     '          <a class="dm-item" href="/pdf-unlock.html"><span class="dm-icon">🔓</span>Unlock PDF</a>',
-    '          <a class="dm-item" href="/pdf-splitter.html"><span class="dm-icon">✂️</span>Split PDF</a>',
-    '          <a class="dm-item" href="/emi-calculator.html"><span class="dm-icon">🏦</span>EMI Calculator</a>',
+    '          <a class="dm-item" href="/pdf-password-protect.html"><span class="dm-icon">🔐</span>Protect PDF</a>',
     '        </div>',
     '        <div class="menu-col">',
     '          <div class="menu-label">📚 Expert Guides</div>',
-    '          <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
-    '          <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '          <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
-    '          <a class="dm-item" href="/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
+    '          <a class="dm-item" href="/blog/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
+    '          <a class="dm-item" href="/blog/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
+    '          <a class="dm-item" href="/blog/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
+    '          <a class="dm-item" href="/blog/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
     '          <div class="dm-divider"></div>',
     '          <a class="dm-all" href="/tools-hub.html">View All Tools &nbsp;&#8594;</a>',
     '        </div>',
@@ -63,21 +63,21 @@
     '  <div class="mobile-accordion">',
     '    <div class="accordion-header" onclick="toggleAcc(this)">🛠️ POPULAR TOOLS <span class="acc-arrow">▼</span></div>',
     '    <div class="accordion-content">',
+    '      <a class="dm-item" href="/id-card-merger.html"><span class="dm-icon">🪪</span>ID Card Merger</a>',
     '      <a class="dm-item" href="/pdf-merger.html"><span class="dm-icon">📄</span>Merge PDF</a>',
     '      <a class="dm-item" href="/pdf-compressor.html"><span class="dm-icon">🗜️</span>Compress PDF</a>',
     '      <a class="dm-item" href="/pdf-unlock.html"><span class="dm-icon">🔓</span>Unlock PDF</a>',
-    '      <a class="dm-item" href="/pdf-splitter.html"><span class="dm-icon">✂️</span>Split PDF</a>',
-    '      <a class="dm-item" href="/emi-calculator.html"><span class="dm-icon">🏦</span>EMI Calculator</a>',
+    '      <a class="dm-item" href="/pdf-password-protect.html"><span class="dm-icon">🔐</span>Protect PDF</a>',
     '    </div>',
     '  </div>',
     '  ',
     '  <div class="mobile-accordion">',
     '    <div class="accordion-header" onclick="toggleAcc(this)">📚 EXPERT GUIDES <span class="acc-arrow">▼</span></div>',
     '    <div class="accordion-content">',
-    '      <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
-    '      <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '      <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
-    '      <a class="dm-item" href="/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
+    '      <a class="dm-item" href="/blog/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
+    '      <a class="dm-item" href="/blog/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
+    '      <a class="dm-item" href="/blog/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
+    '      <a class="dm-item" href="/blog/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
     '    </div>',
     '  </div>',
     '  ',
@@ -149,7 +149,7 @@
       "#mainNav .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}",
       "#mainNav .hamburger.open span:nth-child(2){opacity:0;}",
       "#mainNav .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}",
-      
+      " ",
       "/* Mobile Menu & Accordion CSS */",
       "#mobileMenu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(13,13,20,0.98);backdrop-filter:blur(20px);border-bottom:1px solid #2a2a3a;padding:16px 20px 20px;z-index:199;flex-direction:column;gap:8px;max-height:calc(100vh - 64px);overflow-y:auto;}",
       "#mobileMenu.open{display:flex;}",
@@ -164,7 +164,7 @@
       ".accordion-content{display:none;flex-direction:column;gap:4px;padding:8px 16px 16px;background:rgba(0,0,0,0.2);}",
       ".accordion-content .dm-item{padding:10px 12px;border-radius:8px;font-size:13px;color:#e8e8f0;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all 0.2s;}",
       ".accordion-content .dm-item:hover{background:rgba(247,151,30,0.1);color:#f7971e;}",
-      
+      " ",
       "@media(max-width:850px){",
       "  #mainNav{padding:0 16px;}",
       "  #mainNav .nav-links{display:none;}",
@@ -199,9 +199,7 @@
 
 })();
 
-/* ═══════════════════════════════════════
-   TOOLS AUTO-LOADER (Master Core Matrix Processing Module)
-═══════════════════════════════════════ */
+/* ── TOOLS AUTO-LOADER CORE MODULE ── */
 (function () {
   "use strict";
   function detectPage() {
@@ -284,7 +282,6 @@
     injectCards();
     injectFooter();
     
-    // Inject dynamic master layouts CSS directly onto document mapping variables
     if (!document.getElementById("master-hub-css-injection")) {
       var style = document.createElement("style");
       style.id = "master-hub-css-injection";
