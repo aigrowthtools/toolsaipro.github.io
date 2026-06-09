@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   NAVBAR AUTO-LOADER v5.0 (Symmetric 5+5 Layout - Root Paths Fixed)
+   NAVBAR AUTO-LOADER v5.5 (Strict Asli Files Mapping - 100% Fixed)
    Works on ALL system pages dynamically — No more 404 errors.
 ═══════════════════════════════════════ */
 (function injectNavbar() {
@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (Perfect 5+5 Balanced Layout mapped directly to Root Files) ── */
+  /* ── Build Navbar HTML (Perfect 5+5 Balanced Layout with Real Files Only) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
