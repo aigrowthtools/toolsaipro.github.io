@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════
-   NAVBAR AUTO-LOADER v2.7 (Fixed 404 Path Alignment)
-   Works on ALL system pages dynamically.
+   NAVBAR AUTO-LOADER v3.0 (Professional 5+5 Symmetric Menu)
+   Works on ALL pages automatically without 404 errors.
 ═══════════════════════════════════════ */
 (function injectNavbar() {
 
@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (Perfect 5+5 Balanced Matrix - No 404 Glitches) ── */
+  /* ── Build Navbar HTML (Perfect Balanced 5+5 Grid Matrix) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
@@ -201,7 +201,7 @@
 
 })();
 
-/* ── TOOLS AUTO-LOADER CORE MODULE (Smart Filter Technology) ── */
+/* ── TOOLS AUTO-LOADER CORE MODULE (Advanced Filter & Slicing) ── */
 (function () {
   "use strict";
   function detectPage() {
@@ -262,6 +262,7 @@
       if (!oftGrid) return;
       var current = window.location.pathname;
       
+      /* 🎯 SMART SLICING ALGORITHM: Baki saare system blocks ke niche maximum 6 safe elements dikhenge */
       var filtered = tools.filter(function (t) { 
         return t.link !== current && !current.endsWith(t.link.replace("/", "")); 
       });
