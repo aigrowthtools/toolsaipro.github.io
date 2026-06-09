@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════
-   NAVBAR AUTO-LOADER v3.5 (Perfect 5+5 Balanced Layout)
-   Works on ALL system pages dynamically — 404 Glitches Fixed.
+   NAVBAR AUTO-LOADER v5.0 (Symmetric 5+5 Layout - Root Paths Fixed)
+   Works on ALL system pages dynamically — No more 404 errors.
 ═══════════════════════════════════════ */
 (function injectNavbar() {
 
@@ -12,7 +12,7 @@
     return currentPath === page ? 'class="nl act"' : 'class="nl"';
   }
 
-  /* ── Build Navbar HTML (Perfect 5+5 Symmetric Layout) ── */
+  /* ── Build Navbar HTML (Perfect 5+5 Balanced Layout mapped directly to Root Files) ── */
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>',
@@ -38,7 +38,7 @@
     '          <a class="dm-item" href="/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
     '          <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
     '          <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '          <a class="dm-item" href="/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
+    '          <a class="dm-item" href="/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
     '          <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
     '          <div class="dm-divider"></div>',
     '          <a class="dm-all" href="/tools-hub.html">View All Tools &nbsp;&#8594;</a>',
@@ -78,7 +78,7 @@
     '      <a class="dm-item" href="/how-to-merge-id-card-online.html"><span class="dm-icon">🪪</span>ID Card Guide</a>',
     '      <a class="dm-item" href="/how-to-merge-pdf-online.html"><span class="dm-icon">📄</span>Merge PDF Guide</a>',
     '      <a class="dm-item" href="/how-to-unlock-pdf-online.html"><span class="dm-icon">🔓</span>Unlock PDF Guide</a>',
-    '      <a class="dm-item" href="/how-to-password-protect-pdf-online.html"><span class="dm-icon">🔐</span>Protect PDF Guide</a>',
+    '      <a class="dm-item" href="/how-to-calculate-emi.html"><span class="dm-icon">📊</span>EMI Loan Guide</a>',
     '      <a class="dm-item" href="/blog-percentage-calculator.html"><span class="dm-icon">🔢</span>Percentage Guide</a>',
     '    </div>',
     '  </div>',
@@ -201,7 +201,7 @@
 
 })();
 
-/* ── TOOLS AUTO-LOADER CORE MODULE (Smart Slicing Core Engine) ── */
+/* ── TOOLS AUTO-LOADER CORE MODULE (Smart Slicing Symmetrical Engine) ── */
 (function () {
   "use strict";
   function detectPage() {
@@ -229,7 +229,6 @@
     return labels[cat] || "Tool";
   }
 
-  /* ── 🚀 Dynamic Layout Cards Sizer ── */
   function hubCard(tool) {
     var btnClass = "btn-" + (tool.cat === "pdf" ? "pdf" : tool.cat === "img" ? "img" : tool.cat === "tool" ? "tool" : tool.cat === "calc" ? "calc" : tool.cat === "hlth" ? "hlth" : tool.cat === "yt" ? "yt" : "ai");
     return '<div class="tool-card ' + tool.cat + '" data-cat="' + tool.cat + '" data-name="' + tool.title.toLowerCase() + ' ' + tool.desc.toLowerCase() + '"><div class="card-top"><div class="card-icon ic-' + tool.cat + '">' + tool.emoji + '</div><div class="card-meta"><div class="card-category" style="color:' + tool.color + ';">' + catLabel(tool.cat) + '</div><div class="card-name">' + tool.title + '</div></div><span class="card-badge badge-' + tool.badge + '">' + tool.badge.toUpperCase() + '</span></div><p class="card-desc">' + tool.descLong + '</p><a class="use-tool-btn ' + btnClass + '" href="' + tool.link + '">⚡ Use Tool &nbsp;→</a></div>';
@@ -267,7 +266,6 @@
         return t.link !== current && !current.endsWith(t.link.replace("/", "")); 
       });
 
-      /* 🎯 6 elements slice logic ensures layout symmetry */
       var finalSelection = filtered.slice(0, 6); 
       oftGrid.innerHTML = finalSelection.map(oftCard).join("");
     }
