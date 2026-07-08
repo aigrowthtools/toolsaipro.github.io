@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════
-   NAVBAR AUTO-LOADER v7.0 (Strict "Image 1" Layout Engine)
-   Works on ALL system pages dynamically — Big Vertical Cards Fixed.
+   NAVBAR AUTO-LOADER v6.0 (Strict 5+5 Symmetrical System)
+   Works on ALL system pages dynamically — Big Grid Layout Fixed.
 ═══════════════════════════════════════ */
 (function injectNavbar() {
 
@@ -213,9 +213,8 @@
   }
   var PAGE = detectPage();
 
-  /* 💡 FIXED BADGE CLASSES: Exact match for colors (free, pro, new) */
   function badgeHTML(type) {
-    var map = { free: { cls: "free", label: "FREE" }, pro: { cls: "pro", label: "PRO" }, new: { cls: "new", label: "NEW" }, ai: { cls: "ai", label: "AI" } };
+    var map = { free: { cls: "badge-free", label: "Free" }, pro: { cls: "badge-pro", label: "Pro" }, new: { cls: "badge-new", label: "New" }, ai: { cls: "badge-ai", label: "AI" } };
     var b = map[type] || map.free;
     return '<span class="oft-badge ' + b.cls + '">' + b.label + '</span>';
   }
@@ -235,13 +234,17 @@
     return '<div class="tool-card ' + tool.cat + '" data-cat="' + tool.cat + '" data-name="' + tool.title.toLowerCase() + ' ' + tool.desc.toLowerCase() + '"><div class="card-top"><div class="card-icon ic-' + tool.cat + '">' + tool.emoji + '</div><div class="card-meta"><div class="card-category" style="color:' + tool.color + ';">' + catLabel(tool.cat) + '</div><div class="card-name">' + tool.title + '</div></div><span class="card-badge badge-' + tool.badge + '">' + tool.badge.toUpperCase() + '</span></div><p class="card-desc">' + tool.descLong + '</p><a class="use-tool-btn ' + btnClass + '" href="' + tool.link + '">⚡ Use Tool &nbsp;→</a></div>';
   }
 
-  /* 💡 EXACT "IMAGE 1" LAYOUT: Big emojis instead of SVGs, exact classes */
+  /* ── 🚀 IMAGE 1 RENDERING LOGIC: Build Beautiful Big Vertical Blocks ── */
   function oftCard(tool) {
+    var defaultIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
+    var rawIcon = tool.icon || defaultIcon;
+    var iconColoured = rawIcon.replace('stroke="currentColor"', 'stroke="' + tool.color + '"').replace('fill="currentColor"', 'fill="' + tool.color + '"');
+    
     return [
       '<a class="oft-tool-card ' + tool.cat + '" href="' + tool.link + '">',
-      '  <div class="oft-icon-wrap c-' + tool.cat + '">' + tool.emoji + '</div>',
-      '  <div class="oft-tool-name">' + tool.title + '</div>',
-      '  <div class="oft-tool-desc-block">' + tool.desc + '</div>',
+      '  <div class="oft-icon-wrap c-' + tool.cat + '">' + iconColoured + '</div>',
+      '  <span class="oft-tool-name">' + tool.title + '</span>',
+      '  <p class="oft-tool-desc-block">' + tool.desc + '</p>',
       '  <div class="oft-badge-wrap">' + badgeHTML(tool.badge) + '</div>',
       '</a>'
     ].join("\n");
@@ -308,65 +311,29 @@
         ".btn-ai { background: linear-gradient(135deg, #a78bfa, #7c3aed); } .btn-ai:hover { box-shadow: 0 6px 20px rgba(167, 139, 250, 0.35); transform: translateY(-2px); }",
         ".btn-yt { background: linear-gradient(135deg, #ff0000, #cc0000); } .btn-yt:hover { box-shadow: 0 6px 20px rgba(255, 0, 0, 0.35); transform: translateY(-2px); }",
         ".tool-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }",
-        
-        "/* 📊 MASTER INJECTION: PREMIUM BIG VERTICAL BLOCKS SYSTEM (EXACT IMAGE 1 MATCH) */",
-        
-        "/* 💡 FIX 1: Remove the ugly wrapper box entirely */",
-        ".oft-card-wrap { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; backdrop-filter: none !important; }",
-        
-        "/* 💡 FIX 2: Center align headers perfectly */",
-        ".oft-header { justify-content: center !important; margin-bottom: 6px !important; }",
-        ".oft-title-txt, .oft-title { font-size: 20px !important; font-weight: 800 !important; color: #fff !important; text-align: center !important; }",
-        ".oft-sub { font-size: 13px !important; color: #6b6b80 !important; text-align: center !important; margin-bottom: 22px !important; }",
-        ".oft-footer { text-align: center !important; border-top: none !important; }",
-        
-        "/* 💡 FIX 3: Perfect Grid Structure */",
-        ".oft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0; }",
-        
-        "/* 💡 FIX 4: Exact rt-card Styling */",
-        ".oft-tool-card { background: rgba(28,28,40,0.85) !important; border: 1px solid #2a2a3a !important; border-radius: 16px !important; padding: 20px 16px !important; text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: flex-start !important; text-decoration: none !important; position: relative !important; overflow: hidden !important; transition: all 0.25s ease !important; box-sizing: border-box !important; }",
-        
-        ".oft-tool-card:hover { transform: translateY(-4px) !important; }",
-        ".oft-tool-card::before { content: '' !important; position: absolute !important; inset: 0 !important; border-radius: 16px !important; opacity: 0 !important; transition: opacity 0.25s !important; pointer-events: none; }",
-        ".oft-tool-card:hover::before { opacity: 1 !important; }",
-        
-        ".oft-tool-card.pdf:hover { border-color: rgba(255,101,132,0.4) !important; box-shadow: 0 10px 28px rgba(255,101,132,0.15) !important; }",
-        ".oft-tool-card.pdf::before { background: radial-gradient(ellipse at 50% 0%, rgba(255,101,132,0.12), transparent 70%) !important; }",
-        
-        ".oft-tool-card.img:hover { border-color: rgba(6,182,212,0.4) !important; box-shadow: 0 10px 28px rgba(6,182,212,0.15) !important; }",
-        ".oft-tool-card.img::before { background: radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.12), transparent 70%) !important; }",
-        
-        ".oft-tool-card.tool:hover { border-color: rgba(108,99,255,0.4) !important; box-shadow: 0 10px 28px rgba(108,99,255,0.15) !important; }",
-        ".oft-tool-card.tool::before { background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.12), transparent 70%) !important; }",
-        
-        ".oft-tool-card.calc:hover { border-color: rgba(67,233,123,0.4) !important; box-shadow: 0 10px 28px rgba(67,233,123,0.15) !important; }",
-        ".oft-tool-card.calc::before { background: radial-gradient(ellipse at 50% 0%, rgba(67,233,123,0.12), transparent 70%) !important; }",
-        
-        "/* 💡 FIX 5: Icon Wrapper (Rounded Squares & Emojis) */",
-        ".oft-icon-wrap { width: 52px !important; height: 52px !important; border-radius: 14px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin: 0 auto 12px !important; font-size: 26px !important; transition: transform 0.25s !important; }",
-        
-        ".oft-icon-wrap.c-pdf { background: rgba(255,101,132,0.12) !important; border: 1px solid rgba(255,101,132,0.22) !important; }",
-        ".oft-icon-wrap.c-img { background: rgba(6,182,212,0.12) !important; border: 1px solid rgba(6,182,212,0.22) !important; }",
-        ".oft-icon-wrap.c-tool { background: rgba(108,99,255,0.12) !important; border: 1px solid rgba(108,99,255,0.22) !important; }",
-        ".oft-icon-wrap.c-calc { background: rgba(67,233,123,0.12) !important; border: 1px solid rgba(67,233,123,0.22) !important; }",
-        
-        "/* 💡 FIX 6: Exact Text Styling */",
-        ".oft-tool-name { font-size: 13px !important; font-weight: 700 !important; color: #fff !important; margin-bottom: 5px !important; line-height: 1.4 !important; }",
-        ".oft-tool-desc-block { font-size: 11px !important; color: #6b6b80 !important; line-height: 1.5 !important; margin: 0 0 12px 0 !important; }",
-        
-        "/* 💡 FIX 7: Badges Color & Placement Fixed */",
-        ".oft-badge-wrap { margin-top: auto !important; }",
-        ".oft-badge { display: inline-block !important; font-size: 9px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.8px !important; padding: 3px 9px !important; border-radius: 20px !important; }",
-        ".oft-badge.free { background: rgba(67,233,123,0.12) !important; color: #43e97b !important; border: 1px solid rgba(67,233,123,0.22) !important; }",
-        ".oft-badge.new { background: rgba(247,151,30,0.12) !important; color: #f7971e !important; border: 1px solid rgba(247,151,30,0.22) !important; }",
-        ".oft-badge.pro { background: rgba(108,99,255,0.12) !important; color: #8b83ff !important; border: 1px solid rgba(108,99,255,0.22) !important; }",
-        
-        "/* 📱 RESPONSIVE - Single Stacked Columns on Mobile */",
-        "@media (max-width: 860px) {",
-        "  .oft-grid { grid-template-columns: repeat(2, 1fr) !important; }",
-        "}",
-        "@media (max-width: 560px) {",
-        "  .oft-grid { grid-template-columns: 1fr !important; gap: 12px !important; }",
+        " ",
+        "/* 📊 MASTER INJECTION: PREMIUM BIG VERTICAL BLOCKS SYSTEM */",
+        ".oft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }",
+        ".oft-tool-card { background: rgba(28,28,40,0.85); border: 1px solid #2a2a3a; border-radius: 16px; padding: 24px 16px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-decoration: none; position: relative; overflow: hidden; transition: all 0.25s ease; box-sizing: border-box; }",
+        ".oft-tool-card:hover { transform: translateY(-4px); border-color: rgba(255,101,132,0.4); box-shadow: 0 12px 32px rgba(255,101,132,0.15); }",
+        ".oft-icon-wrap { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; transition: transform 0.25s; }",
+        ".oft-icon-wrap.c-pdf { background: rgba(255,101,132,0.1); border: 1px solid rgba(255,101,132,0.2); }",
+        ".oft-icon-wrap.c-img { background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.2); }",
+        ".oft-icon-wrap.c-tool { background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.2); }",
+        ".oft-icon-wrap.c-calc { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); }",
+        ".oft-icon-wrap svg { width: 24px; height: 24px; }",
+        ".oft-tool-name { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 8px; line-height: 1.3; }",
+        ".oft-tool-desc-block { font-size: 11px; color: #6b6b80; line-height: 1.6; margin: 0 0 14px 0; padding: 0; text-align: center; }",
+        ".oft-badge-wrap { margin-top: auto; display: block; }",
+        ".oft-badge { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 12px; border-radius: 20px; }",
+        ".oft-badge.free { background: rgba(67,233,123,0.12); color: #43e97b; border: 1px solid rgba(67,233,123,0.22); }",
+        ".oft-badge.new { background: rgba(247,151,30,0.12); color: #f7971e; border: 1px solid rgba(247,151,30,0.22); }",
+        ".oft-badge.pro { background: rgba(108,99,255,0.12); color: #8b83ff; border: 1px solid rgba(108,99,255,0.22); }",
+        " ",
+        "/* 📱 PERFECT STACKED SINGLE COLUMN RESPONSIVE GRID FOR MOBILE */",
+        "@media (max-width: 768px) {",
+        "  .oft-grid { grid-template-columns: 1fr !important; gap: 14px !important; }",
+        "  .oft-tool-card { width: 100% !important; padding: 24px 18px !important; }",
         "}"
       ].join("\n");
       document.head.appendChild(style);
