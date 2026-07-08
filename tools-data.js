@@ -318,7 +318,20 @@ var TOOLS_DATA = [
     cat: "yt",
     color: "#ff0000",
     status: "active"
-  }
+  },
+  {
+  id: 24,
+  title: "Free Photo Collage Maker Online",
+  desc: "Create beautiful photo collages with custom grid layouts.",
+  descLong: "Combine multiple pictures into one gorgeous collage instantly. Choose from 12+ premium layouts, customize backgrounds, gaps, padding and corner radius securely in your browser.",
+  link: "/photo-collage-maker.html",
+  icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg>`,
+  emoji: "🖼️",
+  badge: "new",
+  cat: "img",
+  color: "#06b6d4",
+  status: "active"
+}
 ];
 
 var ACTIVE_TOOLS = TOOLS_DATA.filter(function(t){ return t.status === "active"; });
