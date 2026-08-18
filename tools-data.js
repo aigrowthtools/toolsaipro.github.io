@@ -331,6 +331,19 @@ var TOOLS_DATA = [
   cat: "img",
   color: "#06b6d4",
   status: "active"
+  },
+  {
+  id: 25,
+  title: "Free Image Resizer Online",
+  desc: "Resize images to custom sizes or platform presets instantly.",
+  descLong: "Perfectly resize images for WhatsApp, Instagram, LinkedIn or Passports. Choose custom dimensions, adjust quality, and download in JPG, PNG, or WebP completely free and securely in your browser.",
+  link: "/image-resizer.html",
+  icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>`,
+  emoji: "📐",
+  badge: "new",
+  cat: "img",
+  color: "#06b6d4",
+  status: "active"
 }
 ];
 
