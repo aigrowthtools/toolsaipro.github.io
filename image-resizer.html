@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HJVC95H1FK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HJVC95H1FK');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Image Resizer Online — Resize Image to Any Size | ToolsAI Pro</title>
+<link rel="icon" type="image/png" href="1000425998.png">
+<meta name="description" content="Resize images online for free. Custom size, preset sizes for WhatsApp, Instagram, LinkedIn, Passport and more. Download JPG, PNG or WebP — 100% browser-based, no uploads, no signup.">
+<meta name="keywords" content="image resizer online free, resize image, photo resizer, resize image to KB, WhatsApp DP resize, passport size photo resize, Instagram size image, ToolsAI Pro">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://toolsaipro.in/image-resizer.html">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d14;--sur:#16161f;--card:#1c1c28;--bor:#2a2a3a;--a1:#6c63ff;--a2:#ff6584;--a3:#43e97b;--a4:#f7971e;--a8:#06b6d4;--tx:#e8e8f0;--mu:#6b6b80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--tx);font-family:"Plus Jakarta Sans",sans-serif;min-height:100vh;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 55% 45% at 10% 20%,rgba(6,182,212,0.07) 0%,transparent 60%),
+  radial-gradient(ellipse 45% 35% at 90% 80%,rgba(108,99,255,0.05) 0%,transparent 60%);}
+nav{position:sticky;top:0;z-index:100;background:rgba(13,13,20,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--bor);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:62px;}
+.logo{font-size:19px;font-weight:800;color:#fff;text-decoration:none;}.logo span{color:var(--a1);}.logo em{color:var(--a2);font-style:normal;}
+.nav-links{display:flex;gap:4px;}
+.nl{padding:5px 11px;border-radius:16px;font-size:11px;font-weight:600;color:var(--mu);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+.nl:hover{color:var(--a4);border-color:rgba(247,151,30,0.3);}
+.nl.act{background:var(--a4);color:#fff;border-color:var(--a4);}
+/* HERO */
+.page-hero{position:relative;z-index:1;text-align:center;padding:44px 24px 32px;}
+.breadcrumb{font-size:12px;color:var(--mu);margin-bottom:12px;}.breadcrumb a{color:var(--a8);text-decoration:none;}
+.tool-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.28);color:var(--a8);padding:5px 14px;border-radius:30px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
+.page-hero h1{font-size:clamp(24px,5vw,50px);font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1.1;margin-bottom:10px;}
+.page-hero h1 span{color:var(--a8);}
+.page-hero p{font-size:14px;color:var(--mu);max-width:560px;margin:0 auto;line-height:1.7;}
+/* TOOL WRAP */
+.tool-wrap{max-width:1080px;margin:24px auto 0;padding:0 20px;position:relative;z-index:1;display:grid;grid-template-columns:360px 1fr;gap:18px;align-items:start;}
+/* PANELS */
+.panel{background:rgba(28,28,40,0.9);backdrop-filter:blur(16px);border:1px solid rgba(6,182,212,0.14);border-radius:22px;padding:24px;box-shadow:0 8px 40px rgba(0,0,0,0.35);}
+.panel-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:18px;display:flex;align-items:center;gap:9px;padding-bottom:13px;border-bottom:1px solid var(--bor);}
+/* UPLOAD ZONE */
+.upload-zone{border:2px dashed rgba(6,182,212,0.35);border-radius:14px;padding:30px 16px;text-align:center;cursor:pointer;transition:all 0.25s;background:rgba(6,182,212,0.03);position:relative;margin-bottom:18px;}
+.upload-zone:hover,.upload-zone.drag{border-color:rgba(6,182,212,0.65);background:rgba(6,182,212,0.07);}
+.upload-zone.loaded{border-style:solid;border-color:rgba(6,182,212,0.5);}
+.uz-icon{font-size:36px;margin-bottom:10px;display:block;}
+.uz-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:4px;}
+.uz-sub{font-size:12px;color:var(--mu);}
+.uz-inp{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+/* IMAGE INFO */
+.img-info{background:rgba(6,182,212,0.07);border:1px solid rgba(6,182,212,0.22);border-radius:12px;padding:12px 16px;margin-bottom:16px;display:none;align-items:center;gap:12px;}
+.img-info.show{display:flex;}
+.img-thumb{width:48px;height:48px;border-radius:8px;object-fit:cover;flex-shrink:0;}
+.img-details{flex:1;min-width:0;}
+.img-name{font-size:12px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px;}
+.img-meta{font-size:11px;color:var(--a8);font-family:"JetBrains Mono",monospace;}
+.img-clear{background:none;border:none;color:var(--mu);cursor:pointer;font-size:17px;flex-shrink:0;transition:color 0.2s;}.img-clear:hover{color:var(--a2);}
+/* PRESET SIZES */
+.preset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:18px;}
+.preset-btn{padding:8px 6px;border-radius:10px;border:1.5px solid var(--bor);background:var(--sur);cursor:pointer;transition:all 0.2s;text-align:center;font-family:"Plus Jakarta Sans",sans-serif;}
+.preset-btn:hover{border-color:rgba(6,182,212,0.4);}
+.preset-btn.active{border-color:var(--a8);background:rgba(6,182,212,0.1);}
+.pb-icon{font-size:16px;display:block;margin-bottom:3px;}
+.pb-name{font-size:10px;font-weight:700;color:var(--tx);display:block;}
+.pb-size{font-size:9px;color:var(--mu);display:block;font-family:"JetBrains Mono",monospace;}
+.preset-btn.active .pb-name{color:var(--a8);}
+/* CUSTOM SIZE */
+.size-row{display:grid;grid-template-columns:1fr 28px 1fr;gap:6px;align-items:center;margin-bottom:14px;}
+.size-inp{width:100%;padding:10px 12px;background:rgba(6,182,212,0.06);border:1.5px solid rgba(6,182,212,0.2);border-radius:10px;font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;color:var(--a8);outline:none;transition:all 0.2s;text-align:center;}
+.size-inp:focus{border-color:rgba(6,182,212,0.55);box-shadow:0 0 0 3px rgba(6,182,212,0.07);}
+.size-x{text-align:center;font-size:14px;color:var(--mu);font-weight:700;}
+/* LOCK ASPECT */
+.lock-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding:10px 14px;background:var(--sur);border:1px solid var(--bor);border-radius:10px;}
+.lock-label{font-size:12px;font-weight:700;color:var(--tx);}
+.toggle{width:40px;height:22px;background:var(--bor);border-radius:99px;cursor:pointer;position:relative;transition:background 0.25s;border:none;flex-shrink:0;}
+.toggle.on{background:var(--a8);}
+.toggle::after{content:"";position:absolute;width:16px;height:16px;background:#fff;border-radius:50%;top:3px;left:3px;transition:left 0.25s;}
+.toggle.on::after{left:21px;}
+/* FIT MODE */
+.sec-lbl{font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:block;}
+.mode-row{display:flex;gap:6px;margin-bottom:14px;}
+.mode-btn{flex:1;padding:8px 4px;border-radius:9px;border:1.5px solid var(--bor);background:var(--sur);cursor:pointer;font-size:11px;font-weight:700;color:var(--mu);transition:all 0.2s;font-family:"Plus Jakarta Sans",sans-serif;text-align:center;}
+.mode-btn.active{border-color:var(--a8);color:var(--a8);background:rgba(6,182,212,0.09);}
+/* BG COLOR */
+.bg-row{display:flex;gap:7px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+.bg-swatch{width:26px;height:26px;border-radius:7px;cursor:pointer;border:2px solid transparent;transition:all 0.2s;flex-shrink:0;}
+.bg-swatch.active{border-color:var(--a8);transform:scale(1.18);}
+.bg-custom{width:26px;height:26px;border-radius:7px;border:2px solid var(--bor);overflow:hidden;cursor:pointer;}
+.bg-custom input{width:140%;height:140%;transform:translate(-14%,-14%);border:none;cursor:pointer;}
+/* QUALITY */
+.qual-slider{width:100%;appearance:none;height:5px;border-radius:99px;background:var(--bor);outline:none;cursor:pointer;margin-top:4px;}
+.qual-slider::-webkit-slider-thumb{appearance:none;width:17px;height:17px;border-radius:50%;background:linear-gradient(135deg,var(--a8),var(--a1));cursor:pointer;box-shadow:0 2px 8px rgba(6,182,212,0.4);}
+/* FORMAT */
+.fmt-row{display:flex;gap:7px;margin-bottom:18px;}
+.fmt-btn{flex:1;padding:9px 6px;border-radius:9px;border:1.5px solid var(--bor);background:var(--sur);cursor:pointer;font-size:12px;font-weight:700;color:var(--mu);transition:all 0.2s;font-family:"Plus Jakarta Sans",sans-serif;text-align:center;}
+.fmt-btn.active{border-color:var(--a8);color:var(--a8);background:rgba(6,182,212,0.09);}
+/* RESIZE BTN */
+.resize-btn{width:100%;padding:14px;border-radius:12px;border:none;font-family:"Plus Jakarta Sans",sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:all 0.25s;background:linear-gradient(135deg,var(--a8),var(--a1));color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;}
+.resize-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(6,182,212,0.4);}
+.resize-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+/* PREVIEW PANEL */
+.prev-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--bor);}
+.prev-title{font-size:14px;font-weight:800;color:#fff;}
+.prev-meta{font-size:11px;color:var(--mu);font-family:"JetBrains Mono",monospace;}
+.preview-area{background:repeating-conic-gradient(rgba(255,255,255,0.04) 0% 25%,transparent 0% 50%) 0 0/16px 16px;border-radius:12px;min-height:360px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.prev-empty{text-align:center;color:var(--mu);padding:40px 20px;}
+.prev-empty-icon{font-size:48px;margin-bottom:12px;display:block;}
+#outputImg{max-width:100%;max-height:500px;border-radius:8px;display:none;box-shadow:0 8px 32px rgba(0,0,0,0.5);}
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;display:none;}
+.compare-row.show{display:grid;}
+.cmp-box{background:var(--sur);border:1px solid var(--bor);border-radius:12px;overflow:hidden;}
+.cmp-label{font-size:11px;font-weight:700;color:var(--mu);padding:8px 12px;border-bottom:1px solid var(--bor);}
+.cmp-img{width:100%;height:120px;object-fit:cover;display:block;}
+/* DL BTN */
+.dl-btn{width:100%;padding:13px;border-radius:12px;border:none;font-family:"Plus Jakarta Sans",sans-serif;font-size:14px;font-weight:800;cursor:pointer;transition:all 0.25s;background:linear-gradient(135deg,var(--a3),#059669);color:#0d0d14;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:14px;}
+.dl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(67,233,123,0.38);}
+.dl-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+/* OUTPUT META */
+.out-meta{display:none;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.out-meta.show{display:grid;}
+.om-card{background:var(--sur);border:1px solid var(--bor);border-radius:10px;padding:12px;text-align:center;}
+.om-label{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+.om-val{font-size:14px;font-weight:800;font-family:"JetBrains Mono",monospace;}
+.om-c1{color:var(--a8);}.om-c2{color:var(--a3);}.om-c3{color:var(--a4);}.om-c4{color:var(--a2);}
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#fff;color:#0d0d14;padding:10px 22px;border-radius:28px;font-size:12px;font-weight:700;z-index:9999;transition:transform 0.3s;box-shadow:0 6px 24px rgba(0,0,0,0.25);}
+.toast.show{transform:translateX(-50%) translateY(0);}
+/* SEO */
+.seo-wrap{max-width:1080px;margin:44px auto 0;padding:0 20px;position:relative;z-index:1;}
+.seo-block{background:rgba(28,28,40,0.7);backdrop-filter:blur(12px);border:1px solid var(--bor);border-radius:20px;padding:28px;margin-bottom:14px;}
+.seo-block h2{font-size:19px;font-weight:800;color:#fff;margin-bottom:12px;}
+.seo-block h3{font-size:14px;font-weight:700;color:#fff;margin:16px 0 7px;}
+.seo-block p{font-size:13px;color:var(--mu);line-height:1.85;margin-bottom:9px;}
+.seo-block ul{padding-left:18px;margin-bottom:10px;}
+.seo-block li{font-size:13px;color:var(--mu);line-height:1.8;margin-bottom:6px;}
+.seo-block li strong{color:#fff;}
+.size-table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:12px;overflow:hidden;}
+.size-table th{background:rgba(6,182,212,0.1);color:var(--a8);padding:10px 14px;text-align:left;font-size:12px;font-weight:700;border:1px solid var(--bor);}
+.size-table td{padding:9px 14px;color:var(--mu);border:1px solid var(--bor);font-size:12px;}
+.size-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+.size-table td strong{color:#fff;}
+.faq-item{border-bottom:1px solid var(--bor);padding:13px 0;}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px;}
+.faq-a{font-size:12px;color:var(--mu);line-height:1.75;}
+/* OFT */
+.oft-section{max-width:760px;margin:0 auto 48px;padding:0 20px;position:relative;z-index:1;}
+.oft-card-wrap{background:rgba(28,28,40,0.82);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.07);border-radius:22px;padding:26px 22px 20px;}
+.oft-header{display:flex;align-items:center;gap:10px;margin-bottom:4px;}.oft-title-txt{font-size:17px;font-weight:800;color:#fff;}
+.oft-sub{font-size:12px;color:#6b6b80;margin-bottom:18px;}
+.oft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.oft-tool-card{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 10px 12px;background:rgba(22,22,31,0.88);border:1px solid rgba(255,255,255,0.07);border-radius:13px;text-decoration:none;transition:all 0.25s;position:relative;overflow:hidden;}
+.oft-tool-card::before{content:"";position:absolute;inset:0;border-radius:13px;opacity:0;transition:opacity 0.25s;}
+.oft-tool-card:hover{transform:translateY(-3px);}.oft-tool-card:hover::before{opacity:1;}
+.oft-tool-card.img:hover{border-color:rgba(6,182,212,0.5);box-shadow:0 8px 24px rgba(6,182,212,0.15);}
+.oft-tool-card.img::before{background:radial-gradient(ellipse at 50% 0%,rgba(6,182,212,0.12),transparent 70%);}
+.oft-tool-card.pdf:hover{border-color:rgba(255,101,132,0.5);box-shadow:0 8px 24px rgba(255,101,132,0.15);}
+.oft-tool-card.pdf::before{background:radial-gradient(ellipse at 50% 0%,rgba(255,101,132,0.12),transparent 70%);}
+.oft-tool-card.tool:hover{border-color:rgba(108,99,255,0.5);box-shadow:0 8px 24px rgba(108,99,255,0.15);}
+.oft-tool-card.tool::before{background:radial-gradient(ellipse at 50% 0%,rgba(108,99,255,0.12),transparent 70%);}
+.oft-icon-wrap{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;}
+.oft-icon-wrap.c-img{background:rgba(6,182,212,0.14);border:1px solid rgba(6,182,212,0.25);}
+.oft-icon-wrap.c-pdf{background:rgba(255,101,132,0.14);border:1px solid rgba(255,101,132,0.25);}
+.oft-icon-wrap.c-tool{background:rgba(108,99,255,0.14);border:1px solid rgba(108,99,255,0.25);}
+.oft-icon-wrap svg{width:20px;height:20px;}
+.oft-tool-name{font-size:10.5px;font-weight:700;color:#c4c4d4;text-align:center;line-height:1.4;}
+.oft-tool-card:hover .oft-tool-name{color:#fff;}
+.oft-badge{font-size:8.5px;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:20px;}
+.oft-badge.free{background:rgba(67,233,123,0.12);color:#43e97b;border:1px solid rgba(67,233,123,0.22);}
+.oft-badge.new{background:rgba(247,151,30,0.12);color:#f7971e;border:1px solid rgba(247,151,30,0.22);}
+.oft-footer{text-align:center;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);}
+.oft-view-all{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#06b6d4;text-decoration:none;}
+.oft-view-all:hover{color:#fff;}
+footer{text-align:center;padding:28px 20px 24px;color:var(--mu);font-size:12px;border-top:1px solid var(--bor);margin-top:40px;position:relative;z-index:1;}
+footer strong{color:var(--a1);}footer a{color:var(--mu);text-decoration:none;margin:0 7px;}footer a:hover{color:var(--a1);}
+@media(max-width:900px){.tool-wrap{grid-template-columns:1fr;}.out-meta{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){nav{padding:0 14px;}.tool-wrap,.seo-wrap,.oft-section{padding:0 12px;}.preset-grid{grid-template-columns:repeat(3,1fr);}.out-meta{grid-template-columns:1fr 1fr;}.oft-grid{grid-template-columns:repeat(2,1fr);}.compare-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="toast" id="toast"></div>
+<nav>
+  <a class="logo" href="/">Tools<span>AI</span><em>Pro</em></a>
+  <div class="nav-links">
+    <a class="nl" href="/">Home</a>
+    <a class="nl" href="/about.html">About</a>
+    <a class="nl act" href="/tools-hub.html">Tools Hub</a>
+    <a class="nl" href="/contact.html">Contact</a>
+    <a class="nl" href="/privacy.html">Privacy</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> › Image Resizer</div>
+  <div class="tool-badge">🖼️ Free Image Tool</div>
+  <h1>Free <span>Image Resizer</span> Online</h1>
+  <p>Resize any image to a custom size or popular presets — WhatsApp DP, Instagram, Passport, LinkedIn and more. Download as JPG, PNG or WebP instantly.</p>
+</div>
+
+<div class="tool-wrap">
+  <!-- LEFT: SETTINGS PANEL -->
+  <div>
+    <div class="panel">
+      <div class="panel-title">🖼️ Image Resizer</div>
+
+      <!-- UPLOAD -->
+      <div class="upload-zone" id="uploadZone">
+        <span class="uz-icon">🖼️</span>
+        <div class="uz-title">Drop Your Image Here</div>
+        <div class="uz-sub">or click to browse — JPG, PNG, WebP, GIF</div>
+        <input type="file" class="uz-inp" id="fileInp" accept="image/*">
+      </div>
+
+      <!-- IMAGE INFO -->
+      <div class="img-info" id="imgInfo">
+        <img class="img-thumb" id="imgThumb" alt="preview">
+        <div class="img-details">
+          <div class="img-name" id="imgName">—</div>
+          <div class="img-meta" id="imgMeta">—</div>
+        </div>
+        <button class="img-clear" onclick="clearImg()">✕</button>
+      </div>
+
+      <!-- PRESET SIZES -->
+      <span class="sec-lbl">Quick Presets</span>
+      <div class="preset-grid" id="presetGrid">
+        <button class="preset-btn" onclick="setPreset(800,800,this)" title="Custom square">
+          <span class="pb-icon">📐</span><span class="pb-name">Custom</span><span class="pb-size">—</span>
+        </button>
+        <button class="preset-btn" onclick="setPreset(512,512,this)">
+          <span class="pb-icon">💬</span><span class="pb-name">WhatsApp DP</span><span class="pb-size">512×512</span>
+        </button>
+        <button class="preset-btn" onclick="setPreset(1080,1080,this)">
+          <span class="pb-icon">📸</span><span class="pb-name">Instagram</span><span class="pb-size">1080×1080</span>
+        </button>
+        <button class="preset-btn" onclick="setPreset(1584,396,this)">
+          <span class="pb-icon">💼</span><span class="pb-name">LinkedIn</span><span class="pb-size">1584×396</span>
+        </button>
+        <button class="preset-btn" onclick="setPreset(1280,720,this)">
+          <span class="pb-icon">▶️</span><span class="pb-name">YouTube</span><span class="pb-size">1280×720</span>
+        </button>
+        <button class="preset-btn" onclick="setPreset(1200,628,this)">
+          <span class="pb-icon">📘</span><span class="pb-name">Facebook</span><span class="pb-size">1200×628</span>
+        </button>
+        <button class="preset-btn" onclick="setPreset(1500,500,this)">
+          <span class="pb-icon">🐦</span><span class="pb-name">Twitter</span><span class="pb-size">1500×500</span>
+        </button>
+        <button class="preset-btn" onclick="setPreset(413,531,this)">
+          <span class="pb-icon">🪪</span><span class="pb-name">Passport</span><span class="pb-size">413×531</span>
+        </button>
+        <button class="preset-btn" onclick="setPreset(1920,1080,this)">
+          <span class="pb-icon">🖥️</span><span class="pb-name">Full HD</span><span class="pb-size">1920×1080</span>
+        </button>
+      </div>
+
+      <!-- CUSTOM SIZE -->
+      <span class="sec-lbl">Custom Size (px)</span>
+      <div class="size-row">
+        <input class="size-inp" type="number" id="wInp" value="800" min="1" max="8000" placeholder="Width" oninput="onSizeChange('w')">
+        <div class="size-x">×</div>
+        <input class="size-inp" type="number" id="hInp" value="800" min="1" max="8000" placeholder="Height" oninput="onSizeChange('h')">
+      </div>
+
+      <!-- LOCK ASPECT RATIO -->
+      <div class="lock-row">
+        <span class="lock-label">🔒 Lock Aspect Ratio</span>
+        <button class="toggle on" id="lockToggle" onclick="toggleLock()"></button>
+      </div>
+
+      <!-- FIT MODE -->
+      <span class="sec-lbl">Resize Mode</span>
+      <div class="mode-row">
+        <button class="mode-btn active" onclick="setMode('fit',this)" title="Fit inside — adds background if needed">Fit</button>
+        <button class="mode-btn" onclick="setMode('fill',this)" title="Fill and crop to exact size">Crop Fill</button>
+        <button class="mode-btn" onclick="setMode('stretch',this)" title="Stretch to exact size">Stretch</button>
+      </div>
+
+      <!-- BG COLOR (for fit mode) -->
+      <div id="bgSection">
+        <span class="sec-lbl">Background Color</span>
+        <div class="bg-row">
+          <div class="bg-swatch active" style="background:#ffffff;" onclick="setBg('#ffffff',this)"></div>
+          <div class="bg-swatch" style="background:#000000;" onclick="setBg('#000000',this)"></div>
+          <div class="bg-swatch" style="background:#0d0d14;" onclick="setBg('#0d0d14',this)"></div>
+          <div class="bg-swatch" style="background:#f3f4f6;" onclick="setBg('#f3f4f6',this)"></div>
+          <div class="bg-swatch" style="background:#ff6584;" onclick="setBg('#ff6584',this)"></div>
+          <div class="bg-swatch" style="background:#6c63ff;" onclick="setBg('#6c63ff',this)"></div>
+          <div class="bg-swatch" style="background:transparent;border:2px dashed var(--bor);" onclick="setBg('transparent',this)" title="Transparent (PNG only)"></div>
+          <div class="bg-custom" title="Custom color"><input type="color" id="customBgInp" value="#ffffff" oninput="setBg(this.value,null)"></div>
+        </div>
+      </div>
+
+      <!-- FORMAT -->
+      <span class="sec-lbl" style="margin-top:14px;">Output Format</span>
+      <div class="fmt-row">
+        <button class="fmt-btn active" onclick="setFmt('jpeg',this)">JPEG</button>
+        <button class="fmt-btn" onclick="setFmt('png',this)">PNG</button>
+        <button class="fmt-btn" onclick="setFmt('webp',this)">WebP</button>
+      </div>
+
+      <!-- QUALITY -->
+      <div id="qualSection">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+          <span class="sec-lbl" style="margin:0;">Quality</span>
+          <span style="font-size:11px;color:var(--a8);font-family:'JetBrains Mono',monospace;" id="qualVal">92%</span>
+        </div>
+        <input type="range" class="qual-slider" id="qualSlider" min="10" max="100" value="92" oninput="document.getElementById('qualVal').textContent=this.value+'%'">
+      </div>
+
+      <!-- RESIZE BTN -->
+      <button class="resize-btn" id="resizeBtn" onclick="doResize()" style="margin-top:18px;" disabled>
+        🔄 Resize Image
+      </button>
+
+      <!-- PRIVACY NOTE -->
+      <div style="display:flex;align-items:center;gap:8px;margin-top:12px;background:rgba(67,233,123,0.05);border:1px solid rgba(67,233,123,0.18);border-radius:10px;padding:10px 14px;">
+        <span style="font-size:14px;">🔒</span>
+        <span style="font-size:11px;color:rgba(100,230,150,0.85);line-height:1.5;">100% Private — Images processed locally using HTML5 Canvas. Zero server uploads.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: PREVIEW PANEL -->
+  <div class="panel">
+    <div class="prev-header">
+      <span class="prev-title">🖼️ Preview</span>
+      <span class="prev-meta" id="prevMeta">Upload an image to start</span>
+    </div>
+
+    <!-- BEFORE/AFTER COMPARE -->
+    <div class="compare-row" id="compareRow">
+      <div class="cmp-box">
+        <div class="cmp-label">📷 Original</div>
+        <img class="cmp-img" id="cmpOrig" alt="original">
+      </div>
+      <div class="cmp-box">
+        <div class="cmp-label">✅ Resized</div>
+        <img class="cmp-img" id="cmpOut" alt="resized">
+      </div>
+    </div>
+
+    <!-- MAIN PREVIEW -->
+    <div class="preview-area" id="previewArea">
+      <div class="prev-empty" id="prevEmpty">
+        <span class="prev-empty-icon">🖼️</span>
+        <p style="font-size:13px;color:var(--mu);">Upload an image and click<br><strong style="color:var(--a8);">Resize Image</strong> to see the result</p>
+      </div>
+      <img id="outputImg" alt="Resized output">
+    </div>
+
+    <!-- OUTPUT META -->
+    <div class="out-meta" id="outMeta">
+      <div class="om-card"><div class="om-label">Width</div><div class="om-val om-c1" id="omW">—</div></div>
+      <div class="om-card"><div class="om-label">Height</div><div class="om-val om-c2" id="omH">—</div></div>
+      <div class="om-card"><div class="om-label">File Size</div><div class="om-val om-c3" id="omSize">—</div></div>
+      <div class="om-card"><div class="om-label">Reduction</div><div class="om-val om-c4" id="omSaved">—</div></div>
+    </div>
+
+    <!-- DOWNLOAD -->
+    <button class="dl-btn" id="dlBtn" onclick="downloadImg()" disabled>⬇️ Download Resized Image</button>
+
+    <canvas id="offCanvas" style="display:none;"></canvas>
+  </div>
+</div>
+
+<!-- SEO CONTENT -->
+<div class="seo-wrap">
+  <div class="seo-block">
+    <h2>📐 Standard Image Sizes — Quick Reference</h2>
+    <p>Different platforms require different image dimensions. Here is a complete reference for the most common image sizes used across social media, professional and government platforms in India:</p>
+    <table class="size-table">
+      <tr><th>Platform / Use</th><th>Width</th><th>Height</th><th>Ratio</th></tr>
+      <tr><td><strong>WhatsApp DP</strong></td><td>512px</td><td>512px</td><td>1:1</td></tr>
+      <tr><td><strong>Instagram Post</strong></td><td>1080px</td><td>1080px</td><td>1:1</td></tr>
+      <tr><td><strong>Instagram Story</strong></td><td>1080px</td><td>1920px</td><td>9:16</td></tr>
+      <tr><td><strong>LinkedIn Profile</strong></td><td>400px</td><td>400px</td><td>1:1</td></tr>
+      <tr><td><strong>LinkedIn Cover</strong></td><td>1584px</td><td>396px</td><td>4:1</td></tr>
+      <tr><td><strong>YouTube Thumbnail</strong></td><td>1280px</td><td>720px</td><td>16:9</td></tr>
+      <tr><td><strong>Facebook Cover</strong></td><td>1200px</td><td>628px</td><td>~1.91:1</td></tr>
+      <tr><td><strong>Passport Photo (India)</strong></td><td>413px</td><td>531px</td><td>35×45mm</td></tr>
+      <tr><td><strong>Full HD Wallpaper</strong></td><td>1920px</td><td>1080px</td><td>16:9</td></tr>
+      <tr><td><strong>Twitter Header</strong></td><td>1500px</td><td>500px</td><td>3:1</td></tr>
+    </table>
+    <h3>Resize Modes Explained</h3>
+    <ul>
+      <li><strong>Fit Mode:</strong> The image is scaled to fit inside the target dimensions while preserving its original aspect ratio. Any empty space is filled with the background color you select. Use this for profile photos and social media where you want no cropping.</li>
+      <li><strong>Crop Fill Mode:</strong> The image is scaled to completely fill the target dimensions, cropping any excess from the edges while maintaining aspect ratio. Use this for banners and covers where you want no empty space.</li>
+      <li><strong>Stretch Mode:</strong> The image is stretched to exactly match the target width and height, ignoring the original aspect ratio. Use this only when exact pixel dimensions are required regardless of distortion.</li>
+    </ul>
+    <h3>JPEG vs PNG vs WebP — Which Format to Choose?</h3>
+    <ul>
+      <li><strong>JPEG:</strong> Best for photographs and images with many colors. Smaller file size with slight quality reduction. Ideal for social media uploads and web use.</li>
+      <li><strong>PNG:</strong> Best for images with text, sharp edges or transparent backgrounds. Lossless quality but larger file size. Ideal for logos, screenshots and documents.</li>
+      <li><strong>WebP:</strong> Google's modern format — smaller file size than JPEG at similar quality. Supported by all modern browsers. Best choice for website images.</li>
+    </ul>
+  </div>
+  <div class="seo-block">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item"><div class="faq-q">Is this image resizer completely free?</div><div class="faq-a">Yes — 100% free with no restrictions. No account, no watermarks, no daily limits and no hidden charges. Resize unlimited images in any format at any quality setting at zero cost permanently.</div></div>
+    <div class="faq-item"><div class="faq-q">Will my images be uploaded to a server?</div><div class="faq-a">Never. ToolsAI Pro's Image Resizer processes everything using the HTML5 Canvas API running entirely in your browser. Your images are read into browser memory using the FileReader API and resized locally on your device — zero network activity occurs during the entire process.</div></div>
+    <div class="faq-item"><div class="faq-q">How do I resize an image for WhatsApp DP?</div><div class="faq-a">Upload your photo, click the "WhatsApp DP" preset button (512×512), select "Fit" mode if you want no cropping, choose your background color, select JPEG format and click Resize Image. Download and set it as your WhatsApp profile photo directly.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I resize an image to a specific file size (KB)?</div><div class="faq-a">Yes — adjust the Quality slider to control the output file size. Lower quality means smaller file size. For example, for a 200KB limit, start at 92% quality and reduce until the file size shown meets your requirement. The output file size is shown in the preview panel after resizing.</div></div>
+    <div class="faq-item"><div class="faq-q">Does the tool work on mobile phones?</div><div class="faq-a">Yes. Fully mobile-responsive and works on Android and iOS in Chrome and Safari. Upload photos directly from your phone gallery, resize them and download the result to your device — no app installation needed.</div></div>
+  </div>
+</div>
+
+<div class="oft-section" style="margin-top:40px;">
+  <div class="oft-card-wrap">
+    <div class="oft-header"><span style="font-size:20px;">🛠️</span><span class="oft-title-txt">Other Free Tools</span></div>
+    <p class="oft-sub">All tools — no signup, no uploads, 100% private &amp; browser-based.</p>
+    <div class="oft-grid" id="oftGrid"></div>
+    <div class="oft-footer"><a class="oft-view-all" href="index.html">View All Free Tools &nbsp;→</a></div>
+  </div>
+</div>
+
+<footer>
+  <strong>ToolsAI Pro</strong> — Free Online Tools | No Signup | 100% Browser Based<br><br>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="tools-hub.html">Tools Hub</a>
+  <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+</footer>
+
+<script>
+/* ═══ STATE ═══ */
+var origImg=null, origFile=null, outputDataUrl=null;
+var lockAspect=true, resizeMode='fit', outputFmt='jpeg', bgColor='#ffffff';
+var origAspect=1;
+
+/* ═══ UPLOAD ═══ */
+var fileInp=document.getElementById('fileInp');
+var uploadZone=document.getElementById('uploadZone');
+fileInp.addEventListener('change',function(){if(fileInp.files[0])loadImg(fileInp.files[0]);});
+uploadZone.addEventListener('dragover',function(e){e.preventDefault();uploadZone.classList.add('drag');});
+uploadZone.addEventListener('dragleave',function(){uploadZone.classList.remove('drag');});
+uploadZone.addEventListener('drop',function(e){
+  e.preventDefault();uploadZone.classList.remove('drag');
+  var f=e.dataTransfer.files[0];
+  if(f&&f.type.startsWith('image/'))loadImg(f);
+  else showToast('Please upload a valid image file.');
+});
+
+function loadImg(file){
+  origFile=file;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      origImg=img;
+      origAspect=img.naturalWidth/img.naturalHeight;
+      /* Update UI */
+      document.getElementById('imgThumb').src=e.target.result;
+      document.getElementById('imgName').textContent=file.name;
+      document.getElementById('imgMeta').textContent=img.naturalWidth+'×'+img.naturalHeight+' · '+fmtSize(file.size);
+      document.getElementById('imgInfo').classList.add('show');
+      uploadZone.classList.add('loaded');
+      uploadZone.querySelector('.uz-title').textContent=file.name;
+      uploadZone.querySelector('.uz-sub').textContent=img.naturalWidth+'×'+img.naturalHeight+' — ready to resize';
+      document.getElementById('resizeBtn').disabled=false;
+      document.getElementById('cmpOrig').src=e.target.result;
+      /* Set default W×H to original */
+      document.getElementById('wInp').value=img.naturalWidth;
+      document.getElementById('hInp').value=img.naturalHeight;
+      document.getElementById('prevMeta').textContent='Original: '+img.naturalWidth+'×'+img.naturalHeight;
+      showToast('Image loaded! Set size and click Resize.');
+      outputDataUrl=null;
+      document.getElementById('outputImg').style.display='none';
+      document.getElementById('prevEmpty').style.display='block';
+      document.getElementById('dlBtn').disabled=true;
+      document.getElementById('outMeta').classList.remove('show');
+      document.getElementById('compareRow').classList.remove('show');
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearImg(){
+  origImg=null;origFile=null;outputDataUrl=null;
+  fileInp.value='';
+  document.getElementById('imgInfo').classList.remove('show');
+  uploadZone.classList.remove('loaded');
+  uploadZone.querySelector('.uz-title').textContent='Drop Your Image Here';
+  uploadZone.querySelector('.uz-sub').textContent='or click to browse — JPG, PNG, WebP, GIF';
+  document.getElementById('resizeBtn').disabled=true;
+  document.getElementById('dlBtn').disabled=true;
+  document.getElementById('outputImg').style.display='none';
+  document.getElementById('prevEmpty').style.display='block';
+  document.getElementById('outMeta').classList.remove('show');
+  document.getElementById('compareRow').classList.remove('show');
+  document.getElementById('prevMeta').textContent='Upload an image to start';
+  showToast('Image removed.');
+}
+
+/* ═══ PRESETS ═══ */
+function setPreset(w,h,btn){
+  document.querySelectorAll('.preset-btn').forEach(function(b){b.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+  document.getElementById('wInp').value=w;
+  document.getElementById('hInp').value=h;
+}
+
+/* ═══ LOCK ASPECT ═══ */
+function toggleLock(){
+  lockAspect=!lockAspect;
+  var t=document.getElementById('lockToggle');
+  t.classList.toggle('on',lockAspect);
+}
+
+function onSizeChange(changed){
+  if(!lockAspect||!origImg) return;
+  var w=parseInt(document.getElementById('wInp').value)||1;
+  var h=parseInt(document.getElementById('hInp').value)||1;
+  if(changed==='w'){
+    document.getElementById('hInp').value=Math.round(w/origAspect);
+  } else {
+    document.getElementById('wInp').value=Math.round(h*origAspect);
+  }
+}
+
+/* ═══ MODE ═══ */
+function setMode(mode,btn){
+  resizeMode=mode;
+  document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('bgSection').style.display=mode==='fit'?'block':'none';
+}
+
+/* ═══ BACKGROUND ═══ */
+function setBg(color,el){
+  bgColor=color;
+  if(el){
+    document.querySelectorAll('.bg-swatch').forEach(function(s){s.classList.remove('active');});
+    el.classList.add('active');
+  }
+}
+
+/* ═══ FORMAT ═══ */
+function setFmt(fmt,btn){
+  outputFmt=fmt;
+  document.querySelectorAll('.fmt-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var qualSec=document.getElementById('qualSection');
+  qualSec.style.display=fmt==='png'?'none':'block';
+}
+
+/* ═══ DO RESIZE ═══ */
+function doResize(){
+  if(!origImg){showToast('Please upload an image first!');return;}
+  var tw=parseInt(document.getElementById('wInp').value)||800;
+  var th=parseInt(document.getElementById('hInp').value)||800;
+  var qual=parseInt(document.getElementById('qualSlider').value)/100;
+  var canvas=document.getElementById('offCanvas');
+  canvas.width=tw; canvas.height=th;
+  var ctx=canvas.getContext('2d');
+  /* Background */
+  if(bgColor==='transparent'&&outputFmt==='png'){
+    ctx.clearRect(0,0,tw,th);
+  } else {
+    ctx.fillStyle=bgColor||'#ffffff';
+    ctx.fillRect(0,0,tw,th);
+  }
+  var sw=origImg.naturalWidth, sh=origImg.naturalHeight;
+  if(resizeMode==='fit'){
+    /* Fit inside — letterbox */
+    var scale=Math.min(tw/sw,th/sh);
+    var dw=sw*scale, dh=sh*scale;
+    var dx=(tw-dw)/2, dy=(th-dh)/2;
+    ctx.drawImage(origImg,dx,dy,dw,dh);
+  } else if(resizeMode==='fill'){
+    /* Crop fill — cover */
+    var scale=Math.max(tw/sw,th/sh);
+    var dw=sw*scale, dh=sh*scale;
+    var dx=(tw-dw)/2, dy=(th-dh)/2;
+    ctx.drawImage(origImg,dx,dy,dw,dh);
+  } else {
+    /* Stretch */
+    ctx.drawImage(origImg,0,0,tw,th);
+  }
+  var mime=outputFmt==='png'?'image/png':outputFmt==='webp'?'image/webp':'image/jpeg';
+  var dataUrl=canvas.toDataURL(mime,qual);
+  outputDataUrl=dataUrl;
+  /* Show output */
+  var outImg=document.getElementById('outputImg');
+  outImg.src=dataUrl;
+  outImg.style.display='block';
+  document.getElementById('prevEmpty').style.display='none';
+  /* Compare */
+  document.getElementById('cmpOut').src=dataUrl;
+  document.getElementById('compareRow').classList.add('show');
+  /* Meta */
+  var b64=dataUrl.split(',')[1];
+  var bytes=Math.round(b64.length*3/4);
+  var origBytes=origFile?origFile.size:0;
+  var saved=origBytes>0?Math.round((1-bytes/origBytes)*100):0;
+  document.getElementById('omW').textContent=tw+'px';
+  document.getElementById('omH').textContent=th+'px';
+  document.getElementById('omSize').textContent=fmtSize(bytes);
+  document.getElementById('omSaved').textContent=(saved>0?'-':'')+Math.abs(saved)+'%';
+  document.getElementById('outMeta').classList.add('show');
+  document.getElementById('prevMeta').textContent='Resized: '+tw+'×'+th+' · '+fmtSize(bytes);
+  document.getElementById('dlBtn').disabled=false;
+  showToast('✅ Image resized to '+tw+'×'+th+'!');
+  outImg.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* ═══ DOWNLOAD ═══ */
+function downloadImg(){
+  if(!outputDataUrl){showToast('Resize an image first!');return;}
+  var ext=outputFmt==='png'?'png':outputFmt==='webp'?'webp':'jpg';
+  var fname=(origFile?origFile.name.replace(/\.[^.]+$/,''):'image')+
+    '_'+document.getElementById('wInp').value+'x'+document.getElementById('hInp').value+'.'+ext;
+  var a=document.createElement('a');
+  a.href=outputDataUrl; a.download=fname;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  showToast('⬇️ Downloading '+fname+'!');
+}
+
+/* ═══ HELPERS ═══ */
+function fmtSize(bytes){
+  if(bytes<1024) return bytes+' B';
+  if(bytes<1024*1024) return (bytes/1024).toFixed(1)+' KB';
+  return (bytes/(1024*1024)).toFixed(2)+' MB';
+}
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._t); t._t=setTimeout(function(){t.classList.remove('show');},2600);
+}
+
+/* ═══ INIT ═══ */
+document.getElementById('bgSection').style.display='block';
+</script>
+<script src="tools-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
